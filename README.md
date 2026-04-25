@@ -45,10 +45,11 @@ prompt beyond what OBR already shows.
 
 ## Screenshots
 
-![Panel header + HP/init/AC](./screenshots/01-panel-header.png)
-![Spells tab with slots](./screenshots/02-spells-tab.png)
-![Items tab with coins/weight](./screenshots/03-items-tab.png)
-![Dice broadcast in room](./screenshots/04-dice-broadcast.png)
+![Actions tab — HP, AC, Init, Sorcery Points, custom roll, trackers](./screenshots/01-actions.png)
+![Abilities tab — checks, saves, full skill list](./screenshots/02-abilities.png)
+![Spells tab — spell save DC, slot pips, prepared spells with per-slot cast buttons](./screenshots/03-spells.png)
+![Items tab — coins, weight, weapons, gear](./screenshots/04-items.png)
+![Feed tab — party-wide roll history](./screenshots/05-feed.png)
 
 ## What's in this repo
 
