@@ -133,6 +133,23 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.10` — Custom item auto-equip + 25 daha component (toplam 77):
+  • Custom item oluşturma form'unda weapon/armor/shield artık otomatik
+    equipped olarak işaretleniyor — önceden EquipmentStep'te toggleEquipped
+    elle çağrılması gerekiyordu, oyuncu unutuyordu, OBR action'larda
+    görünmüyordu. Engine zaten doğru çalışıyordu (test ile teyitli);
+    bug submitCustomForm'daki UI flow'da idi.
+  • +25 yeni canonical component (toplam 77 component item):
+    Onyx 25gp (Animate Dead), Ruby Dust 50gp (Continual Flame), Jade Dust
+    10gp (Magic Mouth), Self Statuette 250gp + Silver Bar 100gp (Astral
+    Projection), Stardust 25gp (Augury), Hallow Incense 1000gp, Gem-
+    Encrusted Bowl 1000gp (Heroes' Feast), Crystal Bead 1sp (Globe of
+    Invulnerability), Black Silk Square + Broken Bone (Negative Energy
+    Flood), Holly Berry (Conjure Woodland Beings), Mistletoe (druidic
+    focus), Raven Feather, Stone Tablet, Diamond Dust 25gp (Nondetection),
+    Drop of Blood (Bane), Tiny Clay Replica (Maximilian's Earthen Grasp),
+    Musical Instrument focus, Holy Symbol focus, Arcane Focus generic,
+    Druidic Focus generic, Extra Component Pouch.
 - `0.3.9` — Discord bug raporları (4 fix):
   • Replicable Magic Item items (Bag of Holding, Goggles of Night, Alchemy
     Jug, Wand of Magic Detection, vs. — TCoE Replicate listesindeki 53
