@@ -133,6 +133,16 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.8` — Racial spell fix:
+  • Drow Rogue / Tiefling Fighter / Aasimar Barbarian gibi sınıf büyü
+    yeteneği OLMAYAN karakterlerde, race'den gelen büyüler (Drow Magic,
+    Tiefling Infernal Legacy, Aasimar Light, Forest Gnome Minor Illusion,
+    vs.) OBR Spells tab'ında hiç görünmüyordu — `if (!sc) return "no
+    spellcasting"` early return'ü racial spell entry build'ini bypass
+    ediyordu.
+  • Fix: SpellsTab artık fallback DC/atk üretiyor (CHA/INT/WIS'in en
+    yükseğini kullanır) — racial + feat-granted + ritual spells artık
+    non-caster karakterlerde de cast edilebilir.
 - `0.3.7` — Spell components ekosistemi:
   • Google Sheet (D&D 5e Material Spell Components Table) + wikidot ile
     cross-check edildi (385 satır, 263 spell, 268 unique component).
