@@ -30,7 +30,10 @@ prompt beyond what OBR already shows.
 - **Live play panel** inside OBR:
   - HP / AC / initiative with token sync — change HP on the sheet,
     the linked token updates instantly.
-  - Dice rolls broadcast to the table (Dice+ compatible format).
+  - **Dice+ integration** — every roll is sent to the Dice+ extension
+    so the 3D dice physics animation plays in the scene for the whole
+    party. The panel itself never rolls dice locally and never spams
+    a duplicate text feed (Dice+ owns the roll history).
   - Spell slot tracker, sorcery points, ki, pact slots, mystic
     arcanum 1/LR, Lucky resource.
   - Advantage / disadvantage toggle for the next d20.
@@ -42,6 +45,16 @@ prompt beyond what OBR already shows.
   dust, etc.).
 - **Reactive ability hints** — War Caster, Mage Slayer, Sentinel,
   and similar feats surface as in-context tooltips.
+- **Blood Hunter (Critical Role 2020 revised)** — full class with
+  4 Orders (Ghostslayer, Lycan, Mutant, Profane Soul). Dedicated
+  panel section: Crimson Rite picker, Blood Maledict counter,
+  Hemocraft die info, Mutagen toggles (Mutant), patron picker
+  (Profane Soul), Lycan Hybrid Transformation toggle, Order-
+  granted curses with badges. All wikidot-verified.
+- **Multi-source spellcasting** — multiclass casters with two
+  different spellcasting abilities (e.g. Cleric WIS + Wizard INT)
+  see one row per source with that source's own DC, attack, and
+  ability — no more rolling wizard saves with cleric DC by mistake.
 
 ## Screenshots
 
@@ -49,7 +62,10 @@ prompt beyond what OBR already shows.
 ![Abilities tab — checks, saves, full skill list](./screenshots/02-abilities.png)
 ![Spells tab — spell save DC, slot pips, prepared spells with per-slot cast buttons](./screenshots/03-spells.png)
 ![Items tab — coins, weight, weapons, gear](./screenshots/04-items.png)
-![Feed tab — party-wide roll history](./screenshots/05-feed.png)
+
+(The previous "Feed" tab screenshot was retired in 0.3.0 — Dice+
+now owns roll history, so the panel no longer renders a duplicate
+in-iframe feed.)
 
 ## What's in this repo
 
@@ -85,6 +101,16 @@ room open.
 - `0.2.x` — Comprehensive D&D rules audit, live HP/init token sync,
   inventory with coins/weight, autoSource badges, reactive feat
   hints, multiclass header, OBR-iframe-safe dialogs.
+- `0.3.0` — Blood Hunter class (Critical Role 2020 revised) with 4
+  Orders + Crimson Rite damage rider + Mutagen ASI engine + dedicated
+  panel section. Multi-source spell DC/attack display for multiclass
+  casters with mixed abilities. 64 new DMG magic items (90 total)
+  wikidot-verified. Dice+ compliance: panel no longer rolls its own
+  dice — every roll routes to Dice+ for 3D scene physics, in-iframe
+  Feed tab removed (Dice+ owns roll history). Profane Soul pact slot
+  table corrected (was using Warlock's by mistake), Hemocraft INT/WIS
+  picker, Lycan Hybrid Transformation toggle, Order-granted Blood
+  Curse auto-display.
 
 ## Compatibility
 
