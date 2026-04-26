@@ -133,6 +133,17 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.3` — Blood Hunter Fighting Style fix: at level 2 the picker now
+  shows the four wikidot-listed options (Archery, Dueling, Great
+  Weapon Fighting, Two-Weapon Fighting). The picker had the right gate
+  but the underlying Fighting Style catalog was missing 'bloodhunter'
+  in its eligibility lists, so the dropdown was empty. The OBR weapon
+  panel now correctly applies these damage/attack modifiers for Blood
+  Hunters (e.g. Archery +2 ranged atk, Dueling +2 melee dmg, Great
+  Weapon Fighting reroll-1s on two-handed). Also expanded the test
+  suite to ~4.6M assertions across 7 test layers (engine math, oracle
+  data, journey simulation, combat math, persistence round-trip, DOM
+  E2E, regression suite) — every assertion wikidot-verified.
 
 ## Compatibility
 
