@@ -133,6 +133,28 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.5` — Wikidot expert deep audit (Sonnet subagent, 14 sınıf × L1-L20):
+  • Spiritual Weapon upcast formula off-by-one düzeltildi (L3 slot artık 2d8,
+    L5 slot 3d8 — RAW: "1d8 her 2 slot 2nd üzeri").
+  • Cleric Disciple of Life L1: heal +(2 + spell level) artık otomatik
+    OBR heal formülüne ekleniyor.
+  • Cleric Blessed Healer L6: başkasını iyileştirince self-heal +(2 + lvl)
+    notify olarak görünüyor.
+  • Cleric Divine Strike L8 (Life/Forge/Nature/Tempest/Trickery/War/Death/
+    Twilight/Order/Peace/Grave): silah saldırılarına +1d8 (L14'te +2d8)
+    domain-specific damage type rider — composeWeaponDamage'a eklendi.
+  • Paladin L10 Aura of Courage: derived.hasAuraOfCourage flag (10 ft
+    içinde fear immune badge).
+  • Knowledge Cleric L1: subclass skill picks (Arcana/History/Nature/
+    Religion arasından seçilen 2 skill) artık otomatik expertise alıyor
+    (RAW: "doubled prof bonus" — ayrı pick gerektirmiyor).
+  • Artificer L7 Flash of Genius: OBR resource tracker (INT mod uses/LR).
+  • Artificer L20 Soul of Artifice: derived.saveMiscBonus'a +1/aktif
+    infusion eklendi (RAW: +1 per attuned magic item proxy).
+  • Rogue L20 Stroke of Luck: OBR resource tracker (1 use/SR), shortRest
+    action'a 'stroke-of-luck' reset eklendi.
+  • Warlock Lifedrinker invocation (L12+ Pact of Blade): pact weapon
+    saldırılarına +CHA mod necrotic damage rider (min +1).
 - `0.3.4` — Deep audit fixes (2 paralel Sonnet rule-consistency-verifier
   subagent çıkarımı):
   • Blood Hunter Fighting Style: data + LevelsStep `FightingStyleCard`
