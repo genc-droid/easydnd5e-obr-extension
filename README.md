@@ -116,6 +116,23 @@ room open.
   non-caster characters — Barbarian, Fighter, Lycan/Mutant Blood
   Hunter — couldn't access them). Moved to the global panel area
   alongside Class Resources.
+- `0.3.2` — Community bug fixes from the Discord:
+  Plane Shift: Kaladesh dwarf race added (CON +2 / WIS +1 with Dwarven
+  Toughness + Artisan's Expertise, wikidot-verified). Tool proficiency
+  picker now stacks class + background grants instead of overwriting
+  ("Guild Artisan + Artificer" gives 2 separate picks). Replicate
+  Magic Item infusion picker now lists the TCoE replicable items table
+  by tier (level 2 / 6 / 10 / 14) with item descriptions, instead of
+  showing the player's inventory. Other infusion item dropdowns now
+  flag unequipped items as "(not equipped)" with a warning that the
+  bonus only applies while worn — explains why some players reported
+  Enhanced Defense not "working." Artificer infusion +1→+2 scaling
+  now correctly uses the artificer slice (matters for multiclass
+  artificer builds). Arcane Propulsion Armor adds the +5 ft speed.
+  Helm of Awareness shows "Initiative (ADV)" on the panel button.
+  Stoneskin's diamond dust is now flagged consumed; non-consumed
+  spell material components are now visible in the panel as an "M"
+  badge (previously they were hidden unless consumed).
 
 ## Compatibility
 
