@@ -111,6 +111,11 @@ room open.
   table corrected (was using Warlock's by mistake), Hemocraft INT/WIS
   picker, Lycan Hybrid Transformation toggle, Order-granted Blood
   Curse auto-display.
+- `0.3.1` — Short Rest / Long Rest buttons are now visible on every
+  panel tab (previously they were tucked inside the Spells tab, so
+  non-caster characters — Barbarian, Fighter, Lycan/Mutant Blood
+  Hunter — couldn't access them). Moved to the global panel area
+  alongside Class Resources.
 
 ## Compatibility
 
