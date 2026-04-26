@@ -133,6 +133,21 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.6` — Wikidot expert deep audit (devamı, engine no-op'lar):
+  • Cleric Light/Knowledge L8 Potent Spellcasting: cleric cantrip damage'a
+    +WIS modifier otomatik eklendi (PHB p.61).
+  • Wizard Evocation L10 Empowered Evocation: wizard evocation spell
+    damage'a +INT eklendi (PHB p.118).
+  • Sorcerer Draconic L6 Elemental Affinity: spell roll'a +CHA optional
+    label eklendi (oyuncu damage type'ı dragon ancestry'sine eşleştirirse).
+  • Halfling Racial Lucky (PHB p.28): nat 1 reroll badge — Lucky FEAT'inden
+    ayrı `hasHalflingLucky` flag.
+  • Halfling Brave: "vs frightened" save-tag hint.
+  • Dwarf Stonecunning: "vs stonework History (double PB)" derived flag.
+  • Paladin L10 Aura of Courage: save-tag "immune to frightened".
+  • Brutal Critical: derived.brutalCriticalDice (önceden OBR inline).
+  • Druid Wild Shape: derived.wildShapeMaxCr ("1/4" / "1/2" / "1" / Moon
+    formülü).
 - `0.3.5` — Wikidot expert deep audit (Sonnet subagent, 14 sınıf × L1-L20):
   • Spiritual Weapon upcast formula off-by-one düzeltildi (L3 slot artık 2d8,
     L5 slot 3d8 — RAW: "1d8 her 2 slot 2nd üzeri").
