@@ -133,6 +133,23 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.7` — Spell components ekosistemi:
+  • Google Sheet (D&D 5e Material Spell Components Table) + wikidot ile
+    cross-check edildi (385 satır, 263 spell, 268 unique component).
+  • 7 spell'in `(consumed)` flag'i eksikti — eklendi (CSV doğrulamalı).
+  • 3 spell material'ı tamamen eksikti — Google Sheet kaynaklı eklendi.
+  • Envanterde yeni "Büyü Bileşenleri" kategori filtresi (filter chip
+    "component"), oyuncu doğrudan spell focus / consumed materyalleri
+    göz atabilir.
+  • gear.ts'e 15 yeni component eklendi: 25.000gp diamond (True
+    Resurrection), 5.000gp ruby dust mix (Sequester), holy water (Bless/
+    Protection from Evil), forked rod (Plane Shift), lodestone (Reverse
+    Gravity), black pearl 500gp (Circle of Death), agate 1000gp (Awaken),
+    miniature platinum sword (Mordenkainen's Sword), tiny ivory door +
+    marble + spoon (Magnificent Mansion), 5000gp chest (Secret Chest),
+    crystal vial (high-tier abjurations), 1000gp reliquary (Holy Aura),
+    500gp gold statuette (Invulnerability), 500gp diamond (Raise Dead),
+    250gp focal sword.
 - `0.3.6` — Wikidot expert deep audit (devamı, engine no-op'lar):
   • Cleric Light/Knowledge L8 Potent Spellcasting: cleric cantrip damage'a
     +WIS modifier otomatik eklendi (PHB p.61).
