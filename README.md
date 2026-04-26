@@ -133,6 +133,25 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.9` — Discord bug raporları (4 fix):
+  • Replicable Magic Item items (Bag of Holding, Goggles of Night, Alchemy
+    Jug, Wand of Magic Detection, vs. — TCoE Replicate listesindeki 53
+    item) artık equipment picker'da gözükmüyor. Sadece Artificer infusion
+    picker'ı üzerinden erişilebilir.
+  • Spell cast Dice+ kuralı sıkılaştırıldı: SpellRow'daki 3 postSceneRoll
+    çağrısı kaldırıldı (save+damage / save-only / utility). Panel artık
+    KESİNLİKLE scene yazısı atmıyor — sadece Dice+ formula + panel
+    notify. Test'ler de bu kurala göre güncellendi.
+  • 20 yeni spell component eklendi (toplam 52): Diamond 200gp (Glyph of
+    Warding), Mercury, Silver Rod, Crystal Hemisphere, Crystal Sphere,
+    Amber Rod, Phosphorus, Brimstone, Iron Filings, Sulfur, Yew Leaf,
+    Blood Vial, Bat Fur, Black Ink (5gp), Quill (50gp), Diamond 50gp
+    Focus, Generic Gem 25gp, Find Familiar herbs+incense+charcoal set,
+    Diamond 300 (Revivify), Diamond 1000 (Resurrection).
+  • AC infusion stacking wikidot teyitli — Enhanced Defense +1/+2 (L10),
+    Repulsion Shield +1, Resistant Armor (damage resist, no AC). Engine
+    bunları farklı kaynaklardan stack ediyor (Defense FS, Warforged,
+    Forge Cleric L6 ile birlikte) per RAW.
 - `0.3.8` — Racial spell fix:
   • Drow Rogue / Tiefling Fighter / Aasimar Barbarian gibi sınıf büyü
     yeteneği OLMAYAN karakterlerde, race'den gelen büyüler (Drow Magic,
