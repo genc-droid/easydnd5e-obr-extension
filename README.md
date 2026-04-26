@@ -133,6 +133,25 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.4` — Deep audit fixes (2 paralel Sonnet rule-consistency-verifier
+  subagent çıkarımı):
+  • Blood Hunter Fighting Style: data + LevelsStep `FightingStyleCard`
+    body düzeltildi — gate önce tetikliyordu ama branch yokmuş, picker
+    boş kalıyordu. Şimdi 4 stil seçilebilir (Archery / Dueling / Great
+    Weapon Fighting / Two-Weapon Fighting).
+  • Race Bonus Language picker eklendi — Half-Elf, High Elf Descent,
+    Custom Lineage, Locathah artık ekstra dilini seçebilir (önceden
+    `bonusLanguages` field'ı vardı ama UI hiç render etmiyordu).
+  • Half-Elf SCAG subraces (Wood/Drow/Aquatic/Weapons descent) artık
+    Skill Versatility picker'ı göstermiyor — RAW: SCAG p.116 SCAG
+    subraces explicitly replace Skill Versatility.
+  • Autognome Specialized Design 2 tool seçimi artık picker'da görünüyor
+    (data'da trait vardı ama `toolChoices` field'ı yoktu).
+  • Barbarian L7 Feral Instinct: inisiyatife avantaj artık derived
+    state'e taşınıyor — OBR panelde "Initiative (ADV)" görünüyor.
+  • Sorcerer L20 Sorcerous Restoration: kısa dinlenmede 4 sorcery point
+    geri kazanma artık `shortRest` action'da uygulanıyor.
+  • Persist version 36 → 37 (yeni `raceLanguageChoices` field'ı için).
 - `0.3.3` — Blood Hunter Fighting Style fix: at level 2 the picker now
   shows the four wikidot-listed options (Archery, Dueling, Great
   Weapon Fighting, Two-Weapon Fighting). The picker had the right gate
