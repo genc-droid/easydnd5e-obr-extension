@@ -133,6 +133,24 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.20` — Component cast-block için **görsel feedback** (silent bypass UX bug fix):
+  • **Discord raporu:** "component modu açıkken kullanıyo büyüyü, item
+    de harcamıyor" — sebebi UX'di. Cast butonu visually değişmiyordu,
+    user bypass olduğunu sanıyordu.
+  • **Fix:** SpellRow'da `isBlockedByMaterial` hesaplanır. Eğer toggle
+    AÇIK + spell cost-bearing material gerektiriyor + envanterde
+    yeterli tier yoksa:
+    - Spell row **kırmızı border** + **kırmızı arka plan**
+    - Sağda **⛔ BLOCKED** kırmızı rozet
+    - Cursor **not-allowed** (görünüm "tıklanamaz")
+    - Tooltip: "BLOCKED — X gp material component (text). Add it to
+      your inventory in the Items tab to cast."
+    - Click yine de bilgilendirir: WARNING toast "Cannot cast — missing
+      material component."
+  • Toggle KORUNDU (kullanıcı isteği: "isteyen açık isteyen kapalı").
+    OFF iken visual block feedback yok, cast serbest, item harcanmaz.
+  • +3 yeni regression test (BLOCKED badge görünür/gizli, toggle
+    OFF'ta yok). 1275 test sıfır hata.
 - `0.3.19` — Discord 3'lü tekrar bug raporu için derin fix:
   • **Bug 5 KÖK SEBEP (Nameplate hiç çalışmıyordu):** `linkTokenToCharacter`
     sadece OBR context-menu Link butonu tıklandığında çağrılıyordu.
