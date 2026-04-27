@@ -133,6 +133,39 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.15` — Test infrastructure derinleştirme + 2 CSV-RAW drift bulgusu:
+  • **+236 yeni regression test** (985 → 1221, sıfır hata, TypeScript
+    temiz). 8 yeni layer eklendi:
+      - spellComponentRegistry: gear.ts'teki 250+ component'in id-set
+        bütünlüğü (unique, gp, Diamond/Pearl/Ruby tier ladder, Round-5
+        eklemeler).
+      - spellComponentRawCoverage: wikidot-canonical 16 RAW spell'in
+        material text'i + gp + consumed flag tutarlılığı.
+      - restCycle: long/short rest reset matrix (slots, sorcery, ki,
+        pact, stroke-of-luck, exhaustion, hit dice, concentration).
+      - multiclassSpellcastingDC: Cleric/Wizard, Bard/Druid gibi farklı
+        ability-based MC build'lerde her source kendi DC'sini hesaplıyor
+        (no averaging).
+      - critRiderMath: PHB p.196 crit dice doubling — sneak attack,
+        smite, hex/HM, IDS, Brutal Crit, Crimson Rite, Divine Strike,
+        Rage flat (NOT doubled), kombo crit.
+      - raceClassSpellMerge: Drow Wizard/Rogue, Tiefling Asmodeus
+        Fighter, High Elf cantrip, Aasimar Light gating + non-caster
+        race fallback.
+      - concentrationInteraction: PHB p.203 single-spell rule — yeni
+        concentration cast eskini düşürür, non-concentration buff
+        coexist eder, LR clear, dedup by spellId.
+      - castFlowMatrix DOM: 17 senaryo Revivify/Resurrection/True
+        Resurrection/Tele Circle/Symbol/Animate Dead/cantrip/multi-cast
+        flow için.
+  • **2 CSV-RAW drift bulundu**: Apple Sorcerer Sheet 2 spell'i yanlış
+    işaretlemiş — wikidot fetch ile teyitlenip test'lerde belge­lendi:
+      1. Animate Dead — CSV "25gp onyx consumed" diyor; wikidot RAW'da
+         "drop of blood, piece of flesh, pinch of bone dust" (no gp/no
+         consumed). 25gp onyx aslında Create Undead için.
+      2. Drawmij's Instant Summons — CSV "consumed" işaretli; wikidot
+         RAW "a sapphire worth 1,000 gp" (no consumed wording — sapphire
+         only consumed when crushed later, not on cast).
 - `0.3.14` — Component filter UI fix:
   • EquipmentStep'in "Bileşenler" filter chip'i hardcoded id-prefix
     listesine dayanıyordu (sadece 25 prefix). 0.3.13'te eklenen 155 yeni
