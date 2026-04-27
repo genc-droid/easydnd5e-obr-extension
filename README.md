@@ -133,6 +133,33 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.16` — Discord bug raporu (2/5 fix) + tüm 16 RAW spell wikidot teyitli + 30 yeni test:
+  • **Bug 1 FIX (Enhanced Defense Shield):** `selectors.ts`'te bir
+    fallback path bug'ı yakalandı — Enhanced Defense infusion
+    UNEQUIPPED bir item'a (örn. çıkarılmış Shield) atanmış olsa bile
+    yanlışlıkla başka equipped item'ın AC'sine +1 ekliyordu. RAW
+    diyor ki: "a creature wearing or wielding the infused item."
+    Fix: fallback path artık sadece itemId === '__none__' ise çalışıyor.
+    12 test layer'ı kapsıyor.
+  • **Bug 3 NEW FEATURE (Component cast-block toggle):** Bazı DM'ler
+    PHB p.203 cost-bearing component'leri handwave eder. RestControls'a
+    "Components: RAW / OFF" toggle'ı eklendi (default RAW). Off'ken
+    cast-block + auto-consume DEVRE DIŞI. 5 test ile teyitli.
+  • **Tüm 16 RAW spell wikidot ile cross-checked** (Stoneskin, Identify,
+    Revivify, Resurrection, True Resurrection, Hallow, Find Familiar,
+    Continual Flame, Glyph of Warding, Nondetection, Magic Mouth,
+    Augury, Plane Shift, Raise Dead, Drawmij's, Animate Dead). Daha önce
+    bulunan 2 CSV-RAW drift dışında hepsi tutuyor.
+  • +30 regression test (985 → 1251 toplam, sıfır hata):
+      - infusionAcMatrix (12): Enhanced Defense armor/shield/unassigned,
+        Repulsion Shield, Defense FS + Forge L6 + Warforged stack.
+      - componentBlockToggle (5): RAW vs OFF mode behavior.
+      - weaponAttackFightingStyleMatrix (13): Archery / Dueling /
+        Two-Weapon Fighting / Defense FS + Hexblade pact-bond + Battle
+        Smith INT-swap + spell effect riders.
+  • Persist version 37 → 38 (yeni `enforceMaterialComponents` field için).
+  • Bug 2 (short rest), Bug 4 (heal cast UI kutusu), Bug 5 (linked token
+    HP bar UI) — kullanıcıdan detay/image bekliyor.
 - `0.3.15` — Test infrastructure derinleştirme + 2 CSV-RAW drift bulgusu:
   • **+236 yeni regression test** (985 → 1221, sıfır hata, TypeScript
     temiz). 8 yeni layer eklendi:
