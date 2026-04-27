@@ -133,6 +133,27 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.18` — Component matcher STRICT + Short Rest fey-step + 10 yeni test:
+  • **Component matcher gp tier STRICT** (PHB p.203 RAW): Önceki
+    matcher token-only çalışıyordu — Stoneskin (100gp diamond) için
+    envanterdeki ANY diamond'ı (50gp, 300gp, vs.) match ediyordu.
+    Artık item gp ≥ spell required gp olmazsa reject. Discord
+    feedback: "component'ler açık olsa da kullanıyo büyüyü" — kök
+    sebep buydu (ucuz item'lar pahalı spell'leri tatmin ediyordu).
+  • **Multi-component spells (Astral Projection)**: material text'ten
+    BÜTÜN gp value'ları parse edilir (`gpAll: number[]`). Matcher
+    MIN(gpAll)'ı per-component threshold olarak kullanır. Astral
+    Projection'da silver bar 100gp → MIN=100, jacinth 1000gp ≥ 100 +
+    silver 100 ≥ 100 → ikisi de match. Eskiden silver bar 100gp <
+    1000gp (max) yüzünden reject oluyordu.
+  • **Short Rest fey-step eklendi** (Eladrin MPMM): "until you finish
+    a short or long rest." Artık SR'da reset oluyor.
+  • **Defensive LR-only filter**: srKeys'ten yanlışlıkla flash-of-
+    genius/lay-on-hands/arcane-recovery eklenirse otomatik filtrelenir.
+  • +10 yeni test: strictTierMatcher (8) — Stoneskin/Resurrection/
+    Astral tier matrix; restCycle (+2) — fey-step SR + flash-of-genius
+    LR-only.
+  • 1272 test, sıfır hata, TS temiz.
 - `0.3.17` — Discord bug raporu (5/5 fix) + scene clutter kaldırıldı + persist migration kritik fix:
   • **KRİTİK FIX (cast-block çalışmıyordu):** Persist migration eski
     localStorage snapshot'larında yeni `enforceMaterialComponents` ve

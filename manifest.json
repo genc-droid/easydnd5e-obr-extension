@@ -1,7 +1,7 @@
 {
   "manifest_version": 1,
   "name": "Easy 5e Sheet",
-  "version": "0.3.17",
+  "version": "0.3.18",
   "action": {
     "title": "Easy 5e Sheet",
     "icon": "https://easydnd5e.app/obr/icon.png",
