@@ -133,6 +133,22 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.13` — Spell component katalogu tam kapsam (278 toplam):
+  • Apple Sorcerer Material Components Sheet (385 row × 263 spell × 268
+    unique component) ile envanter cross-check edildi; eksik 155 component
+    eklendi (toplam 278 component, 470 → 625 item).
+  • RAW cost-bearing (PHB p.203 cast-block enforce edilen) 69 entry zaten
+    %100 mevcut + wikidot ile doğrulandı (Create Undead 150gp Black Onyx,
+    Summon Shadowspawn 300gp Gem, Teleportation Circle 50gp Chalks/Inks,
+    Bigby's Hand RAW-fiyatsız).
+  • Yeni eklenenler 3 kategoride: (a) Sheet author'ın "(suggested)" RP
+    fiyatları (Adder's Stomach 8gp, Bull Hairs 5sp, Mistletoe Sprig vs.) —
+    spell text'te fiyat YOK, focus substitute eder. (b) "Suggested" canon
+    fiyatları (Bell tiny 1gp, Petrified Eye of Newt 15gp). (c) Harvested
+    no-price (Eyeball, Tears, Snow, Air, Pebble) — narrate-only, 0 gp.
+  • Cast-block davranışı değişmedi: sadece RAW gp veya consumed flag'li
+    component'ler envanterde aranır. Suggested/harvested entries sadece
+    tracker — blocking değil.
 - `0.3.12` — Çoklu-component spell auto-consume + cast-block test güvencesi:
   • **Multi-component spells** (Astral Projection: 1000gp jacinth + 100gp
     silver bar; Symbol: powdered diamond+opal mix; Clone: vessel +
