@@ -133,6 +133,28 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.19` — Discord 3'lü tekrar bug raporu için derin fix:
+  • **Bug 5 KÖK SEBEP (Nameplate hiç çalışmıyordu):** `linkTokenToCharacter`
+    sadece OBR context-menu Link butonu tıklandığında çağrılıyordu.
+    Toggle ON yapıldığında HİÇBİR ŞEY olmuyordu çünkü nameplate
+    creation re-link gerektiriyordu. Fix: `useEffect`
+    `[linkedTokenId, ready, showCharacterNameplate, name]` dependency'ye
+    eklendi — toggle değiştiğinde otomatik re-link tetiklenir,
+    nameplate anında oluşur/kaldırılır.
+  • **Bug 1 (Short Rest çalışmıyor):** SR butonu RAW per PHB p.186
+    sadece resource'ları reset eder — HP yenileme HD spend gerektirir.
+    Yeni: "SR + Heal" shortcut butonu eklendi (sadece HD varsa görünür).
+    Tek tıkla TÜM available HD'yi avg + CON ile harcar, HP'yi günceller.
+    Per-die "Spend" butonları RAW Dice+ akışı için duruyor.
+  • **Bug 3 KÖK SEBEP (Component bypass):**
+    1. Persist migration `version: 40`'a yükseltildi, `if (version <
+       40) return { ...initialState, ...persistedState }` — eski state'te
+       eksik olan tüm yeni field'lar default değerini alır.
+    2. `state.enforceMaterialComponents ?? true` defensive nullish —
+       undefined olsa bile RAW = true varsayılır. İkinci savunma hattı.
+  • **Version badge** panel header'a eklendi ("v0.3.19") — user
+    yüklediği bundle'ın gerçek versiyonunu görsün, cache hot-spot
+    olduğunda hard-refresh gerek olduğunu anlar (index.html cache 2dk).
 - `0.3.18` — Component matcher STRICT + Short Rest fey-step + 10 yeni test:
   • **Component matcher gp tier STRICT** (PHB p.203 RAW): Önceki
     matcher token-only çalışıyordu — Stoneskin (100gp diamond) için
