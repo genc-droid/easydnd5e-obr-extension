@@ -133,6 +133,26 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.21` — Component sistemi ÇOK GÖRÜNÜR: inline status satırı + force reset:
+  • **INLINE COMPONENT STATUS** — her cost-bearing spell'in altında her
+    zaman görünür mini satır:
+      - Component yok: kırmızı arka plan + `M: 100 gp consumed · ⛔
+        NONE — add to inventory` 
+      - Component var: yeşil arka plan + `M: 100 gp consumed · ✓
+        Diamond Dust (100 gp) ×2`
+      - Toggle OFF: gri arka plan + `[components: handwave OFF]`
+    Player artık cast butonuna basmadan ÖNCE durumu görüyor — bypass
+    sürprizi yok.
+  • **⟲ Force Reset Panel State** butonu RestControls'a eklendi
+    (kırmızı, en altta). Tıklayınca confirm prompt → localStorage'tan
+    'dnd5e-character' kaydını siler + sayfayı yeniler. Eski persist
+    state'in cast-block'u bypass ettiği son-çare durum için.
+  • Test'ler güncellendi: MAT badge selector "100gp" (no space) inline
+    status'ün "100 gp" (space)'inden ayırt edilir.
+  • Discord raporu için: "compenent yokken büyü atılıyo" — bu fix'le
+    visually NET olur. Status satırı kırmızı + ⛔ NONE → user görür ki
+    component eksik, kullanım blockable. Cast etmeye çalışırsa WARNING
+    toast + "Components: RAW" toggle açıkken cast olamaz.
 - `0.3.20` — Component cast-block için **görsel feedback** (silent bypass UX bug fix):
   • **Discord raporu:** "component modu açıkken kullanıyo büyüyü, item
     de harcamıyor" — sebebi UX'di. Cast butonu visually değişmiyordu,
