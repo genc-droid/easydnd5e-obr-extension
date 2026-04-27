@@ -133,6 +133,22 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.22` — Inline status satırı **HER SPELL** için (cantrip dahil):
+  • Önceki version sadece cost-bearing spell'lerde inline satır
+    gösteriyordu. Şimdi 4 kategori var, her spell'in altında her zaman
+    görünür:
+      - **V/S only (no M):** gri satır — `Components: V/S · ✓ no
+        material` (cantripler, Prestidigitation, Mage Hand, vs.)
+      - **M reusable, no gp:** koyu altın satır — `M: reusable
+        (focus/pouch OK) · ✓ no inventory check` (Bigby's Hand
+        eggshell, Animate Dead bone dust, focus-substitutable)
+      - **M cost-bearing, satisfied:** yeşil satır — `M: 100 gp
+        consumed · ✓ Diamond Dust ×2`
+      - **M cost-bearing, missing:** kırmızı satır — `M: 100 gp
+        consumed · ⛔ NONE — add to inventory`
+      - **Toggle OFF:** gri satır — `[components: handwave OFF]`
+  • Player artık her spell için instant feedback görüyor — V/S
+    cantrip'i blockable mı, focus-pouch yeter mi, gp gerekiyor mu.
 - `0.3.21` — Component sistemi ÇOK GÖRÜNÜR: inline status satırı + force reset:
   • **INLINE COMPONENT STATUS** — her cost-bearing spell'in altında her
     zaman görünür mini satır:
