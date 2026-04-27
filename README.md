@@ -133,6 +133,35 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.17` — Discord bug raporu (5/5 fix) + scene clutter kaldırıldı + persist migration kritik fix:
+  • **KRİTİK FIX (cast-block çalışmıyordu):** Persist migration eski
+    localStorage snapshot'larında yeni `enforceMaterialComponents` ve
+    `showCharacterNameplate` field'larını UNDEFINED bırakıyordu →
+    cast-block check `if (enforceComponents && ...)` her zaman false →
+    component'ler envanterde olmasa da spell cast oluyordu. Fix: v39'dan
+    eski tüm versiyonlar artık `initialState` ile shallow-merge ediliyor,
+    yeni field'lar default değerini alır. 3 yeni regression testi.
+  • **Bug 2 FIX (Short Rest):** RestControls'a Hit Dice spend UI
+    eklendi. Her HD size (d6/d8/d10/d12) için kalan/max pip + "Spend"
+    butonu. Click → `1d{size} + CON mod` formula Dice+'a gönderilir,
+    HD counter +1. PHB p.186 RAW + wikidot teyitli.
+  • **Bug 4 FIX (heal cast'te kutu):** Heal flow'da 3 ayrı notify
+    toast (Disciple of Life + heal formula + Blessed Healer) tek
+    banner'a indirildi. Wikidot teyitli: Disciple of Life "+2 + spell
+    level", Blessed Healer "+2 + spell level (other than you)".
+  • **Bug 5 FIX (token nameplate kötü görünüyor):** Nameplate
+    `linkTokenToCharacter()` opt-in oldu (default OFF). RestControls
+    altında "Token nameplate: ON / OFF" toggle. Açıldığında fontSize
+    14 (önce 28), padding 4 (önce 10), pointer chevron kaldırıldı —
+    daha temiz chip görünümü.
+  • **YENİ KURAL (Dice+-only):** `postSceneRoll` ve
+    `postSpellTemplate` fonksiyonları no-op haline getirildi —
+    extension HİÇBİR scene-text/AoE-shape çıkarmıyor. Sadece Dice+
+    sahnede 3D dice atar; tüm cast/feature text'leri panel-içi
+    `notify()` toast'larında kalır. 8 yeni regression testi
+    (`diceOnlyRule.test.ts`) bunu pinler.
+  • Persist version 38 → 39.
+  • Total: 1262 test, sıfır hata, TypeScript temiz.
 - `0.3.16` — Discord bug raporu (2/5 fix) + tüm 16 RAW spell wikidot teyitli + 30 yeni test:
   • **Bug 1 FIX (Enhanced Defense Shield):** `selectors.ts`'te bir
     fallback path bug'ı yakalandı — Enhanced Defense infusion
