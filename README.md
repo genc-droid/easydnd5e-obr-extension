@@ -133,6 +133,14 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.14` — Component filter UI fix:
+  • EquipmentStep'in "Bileşenler" filter chip'i hardcoded id-prefix
+    listesine dayanıyordu (sadece 25 prefix). 0.3.13'te eklenen 155 yeni
+    component (adamantine-, ash-, bull-hairs-, caterpillar-, vs.) bu
+    listeye dahil olmadığı için envanterde gözükmüyordu.
+  • Yeni: gear.ts'ten `SPELL_COMPONENT_IDS` registry export edilip
+    EquipmentStep'e import edildi. O(1) Set lookup — hardcoded prefix yok,
+    component eklendikçe otomatik gözükür.
 - `0.3.13` — Spell component katalogu tam kapsam (278 toplam):
   • Apple Sorcerer Material Components Sheet (385 row × 263 spell × 268
     unique component) ile envanter cross-check edildi; eksik 155 component
