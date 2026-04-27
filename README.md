@@ -133,6 +133,21 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.12` — Çoklu-component spell auto-consume + cast-block test güvencesi:
+  • **Multi-component spells** (Astral Projection: 1000gp jacinth + 100gp
+    silver bar; Symbol: powdered diamond+opal mix; Clone: vessel +
+    diamond + flesh) artık tek cast'te BÜTÜN listelenen materyalleri
+    tüketiyor — önceden sadece ilk eşleşen component qty düşüyordu.
+  • **6 yeni cast-flow regression testi** OBRPanel için: PHB p.203 cast-
+    block (envanterde diamond yokken Stoneskin block edilmeli, slot
+    yanmamalı), auto-consume (Stoneskin/Find Familiar/Hallow → qty -1),
+    non-consumed RAW (Identify pearl reusable → qty değişmez), multi-
+    component drain (Astral Projection → her iki item -1). Toplam 985
+    test geçiyor.
+  • Component matcher artık `matchingItems` array (önceden tek match
+    döndürüyordu) — multi-component spell'ler için drain loop'u tüm
+    eşleşmeleri tarıyor. Display ve cast-block davranışı değişmedi
+    (ilk match badge'de gösterilmeye devam ediyor).
 - `0.3.10` — Custom item auto-equip + 25 daha component (toplam 77):
   • Custom item oluşturma form'unda weapon/armor/shield artık otomatik
     equipped olarak işaretleniyor — önceden EquipmentStep'te toggleEquipped
