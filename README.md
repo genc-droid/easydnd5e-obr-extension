@@ -133,6 +133,30 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.25` — 4 paralel Sonnet subagent uzmanlık çalışması (+497 yeni test):
+  • **Component System uzmanı:** 363 test (`componentSystemExhaustive.test.tsx`
+    278 + `reusableComponents.test.tsx` 85). 6-boyutlu kapsam: block,
+    unblock, consume, toggle OFF, strict gp tier, multi-component drain.
+    Magic Jar test pairing fix (`crystal-vial-1000gp`), Gate item tier
+    düzeltme. 28 expansion spell catalog gap belgelendi.
+  • **Class Resource & Rest uzmanı:** 57 yeni test
+    (`restCycleExhaustive.test.ts`). 19 class feature recharge cycle
+    audit. **1 bug fix:** Dread Ambusher (Gloomstalker) `srKeys`'ten
+    kaldırıldı — XGtE p.42 RAW: per-combat passive, no rest cycle.
+  • **Cast Flow uzmanı:** 41 test (`castDispatchExhaustive.test.tsx`).
+    14 dispatch branch (attack/save/heal/buff/utility/arcanum/ritual/pact)
+    audit. **2 RAW bug belgelendi:** ritual cast slot harcaması (PHB
+    p.202 dışı) + racial spell 1/LR gating eksik. Test'lerde pinlendi,
+    fix sonraki commit'te.
+  • **Inventory + Multiclass uzmanı:** 65 test
+    (`inventoryMatcherEdgeCases.test.ts` 10 + `acStackingExhaustive.test.ts`
+    37 + `weaponAttackExhaustive.test.ts` 18) + extending mevcut testler.
+    Custom item sp/cp/pp gp dönüşümü, 18 AC kaynak stacking matrix,
+    Hexblade pact-bond, Battle Smith INT swap, MC slot table doğrulaması.
+    Barkskin DEX-negative drift documented.
+  • **TOPLAM 1820 test** geçiyor (önceki 1323 → +497), TypeScript temiz,
+    build temiz.
+  • Wikidot + Apple Sorcerer Sheet ile cross-check edildi her test.
 - `0.3.22` — Inline status satırı **HER SPELL** için (cantrip dahil):
   • Önceki version sadece cost-bearing spell'lerde inline satır
     gösteriyordu. Şimdi 4 kategori var, her spell'in altında her zaman
