@@ -133,6 +133,33 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.34` — Tüm engine wirelarının panelde görünür hale gelmesi
+  + 4 yeni conditionFlags + Homunculus Servant tam stat:
+  • **conditionFlags** — 4 yeni alan: attackedWithDisadvantage
+    (Cloak of Displacement equipped), critImmunity (Adamantine Plate),
+    forceResistance (Brooch of Shielding), spellSaveAdvantage
+    (Mantle of Spell Resistance + Yuan-Ti Magic Resistance).
+  • **Homunculus Servant** — Artificer infusion: derived `homunculusStats`
+    alanı (HP = 1 + INT mod + artificer level, AC 13, attack +PB+INT,
+    1d4+INT force damage). TCoE p.16 RAW.
+  • **Arcane Propulsion Armor speed +5** — zaten wired olduğunu
+    test ile doğruladık (Artificer L14 + APA + equipped armor).
+  • **OBR Panel "Reactive abilities" bloğu** — 25+ yeni chip:
+    - Subclass riders: Colossus Slayer +1d8, Dread Ambusher +1d8 +10ft,
+      Totem Warrior raging
+    - Class abilities: Sculpt Spells (Wizard Evocation), Cutting Words
+      (Lore Bard reaction)
+    - 10 Eldritch Invocation chip: Agonizing Blast, Repelling Blast,
+      Eldritch Spear, Eldritch Mind, Aspect of the Moon, One With
+      Shadows, Eldritch Sight, Armor of Shadows, Fiendish Vigor,
+      Mask of Many Faces — hepsi RAW açıklama metniyle birlikte
+    - 9 magic item chip: Cloak of Displacement, Cloak of Elvenkind,
+      Periapt of Wound Closure, Sentinel Shield, Brooch of Shielding,
+      Necklace of Adaptation, Mantle of Spell Resistance, Adamantine
+      Plate, Slippers of Spider Climbing
+  • Test: 3504 → **3515 pass + 11 todo** (107 dosya, 0 fail).
+    11 yeni assertion. tsc + build temiz. Manifest 0.3.33 → 0.3.34.
+
 - `0.3.33` — Belgelenmiş todo listesinin geri kalanı engine'e wire edildi
   (63 → 14 todo, hepsi cast-time decision olan veya UI rendering
   gerektiren artıklar). Hepsi wikidot RAW doğrulu:
