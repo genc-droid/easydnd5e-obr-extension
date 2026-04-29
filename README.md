@@ -133,6 +133,35 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.49` — Conditions + exhaustion gerçekten çalışıyor + spell description
+  inline (kullanıcı raporu: "yeni eklediğimiz condition ve exhaust mantık
+  olarak çalışmıyo / spellere açıklama ekleyelim"):
+  • **Wiki-doğrulu mantık wire (PHB Appendix A + exhaustion table)**:
+    eskiden conditions/exhaustion sadece görsel chip'ti, hiçbir d20 atışına
+    etki etmiyordu. Şimdi:
+    – **Saldırı atışları** (silah + büyü saldırısı): poisoned, blinded,
+      frightened, prone, restrained, exhaustion 3+ → otomatik dezavantaj.
+    – **Ability check'ler** (yetenek + skill): frightened, poisoned,
+      exhaustion 1+ → dezavantaj. Initiative de DEX check olduğu için
+      aynı kurala dahil.
+    – **Saving throw'lar**: exhaustion 3+ tüm save'lerde dezavantaj.
+      Paralyzed/petrified/stunned/unconscious'da STR ve DEX save'leri
+      **otomatik fail** — zar atılmaz, panel direkt "AUTO-FAIL" notify.
+    – **Concentration save**: War Caster adv + exhaustion 3+ disadv =
+      iptal (PHB p.173). Doğru mod gönderiliyor.
+  • **Manuel toggle vs durum çakışması**: PHB p.173 "adv + dis = none"
+    kuralı uygulanır. Reckless Attack + frightened ⇒ none (örn).
+  • **Critical state banner**: panel başında HP'nin altında, kırmızı
+    şerit. Incapacitated, Dead, Speed 0, HP max half, all-saves disadv,
+    attack disadv, ability disadv durumlarında otomatik görünür.
+  • **Spell description inline (site parity)**: her büyü satırının
+    sağında **ⓘ butonu**. Tıklayınca açılan blok: school + level,
+    casting time, range, duration, components (V/S/M), material text,
+    sınıf listesi, **tam RAW description**, At Higher Levels scaling.
+    Eskiden sadece tooltip hover'dı, Owlbear iframe'de hover bazen
+    çalışmıyor — artık inline, tek tıkla açılır.
+  • Test: 3498/3498 pass. Manifest 0.3.48 → 0.3.49.
+
 - `0.3.48` — Trackers genişletildi + Warlock pact slot UX bug giderildi
   (kullanıcı raporu: "trackerler owl da eklensin / inspiration sayı seçebilme
   kısmı eklensin / warlock spell slotları harcamıyor"):
