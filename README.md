@@ -133,7 +133,17 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
-- `0.3.34` — Tüm engine wirelarının panelde görünür hale gelmesi
+- `0.3.35` — Effect chip'leri görünmeme bug'ı giderildi:
+  • OBR panel'de `ReactiveAbilitiesBlock` "Abilities" tab'ine
+    gömülmüştü; default "Actions" tab'inde de görünür hale getirildi.
+    Combat sırasında her trigger (Hexblade Curse, Colossus Slayer,
+    Eldritch Invocation chipleri vb.) anında okunur.
+  • Site (Builder) `CharacterSheetSidebar`'a `ReactiveAbilitiesChips`
+    bileşeni eklendi (40+ chip türü). Daha önce site karakter
+    sayfasında reactive ability bloğu hiç yoktu — şimdi sidebar'da
+    tone-renkli (feat=altın, race=yeşil, class=kan kırmızı,
+    item=koyu) bir liste olarak görünür.
+  • Manifest 0.3.34 → 0.3.35.
   + 4 yeni conditionFlags + Homunculus Servant tam stat:
   • **conditionFlags** — 4 yeni alan: attackedWithDisadvantage
     (Cloak of Displacement equipped), critImmunity (Adamantine Plate),
