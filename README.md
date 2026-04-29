@@ -133,6 +133,37 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.26` — Karakter slot 5→20 + 145 yeni gameplay/feat/serialization test:
+  • **MAX_SLOTS 5 → 20** — `src/utils/characterSlots.ts`. ReviewStep
+    "saved characters" kısmında artık 20 slot var. Tüm referanslar
+    constant'a bağlı, test'ler güncellendi.
+  • **+145 yeni test** (1820 → 1965, sıfır hata):
+    - `exhaustionLevels.test.ts` (15 test) — PHB Appendix A clamp
+      (0..6), LR -1, SR no-op, sequential decrement.
+    - `spellSlotManagementMatrix.test.ts` (54 test) — Wikidot-doğru
+      tüm Wizard L1-L20 + Paladin L1/L5/L11/L17/L20 + Warlock pact
+      L1-L20 + multiclass combined caster + EK third-caster + slot
+      consume invariants + LR/SR reset.
+    - `featInteractionsMatrix.test.ts` (15 test) — GWM heavy-melee
+      gating, Sharpshooter ranged-only, GWM+Sharpshooter combo, Tough
+      +2/level (L4/L8/L20), Resilient half-feat, ASI stacking,
+      Polearm Master + Crossbow Expert.
+    - `characterSerialization.test.ts` (24 test) — importCharacter
+      round-trip, prototype-pollution rejection (`__proto__`,
+      `constructor`, `prototype`), action-key spoof rejection
+      (setStep/resetAll/importCharacter), level/name clamping,
+      sequential imports, resetAll.
+    - `gameplayFullRound.test.ts` (37 test) — **oyuncu deneyim**
+      simulasyonu: slot consume, Bless cast, concentration drop,
+      damage take, death save flow (clamps + LR clear), DC =
+      max(10, ⌊dmg/2⌋) math, initiative DEX+JoaT+Alert, Sorcerous
+      Restoration L20, Warlock pact SR, Hit Dice spend + LR recovery,
+      Inspiration toggle, conditions stack, coin currency, end-to-end
+      Wizard L5 round (Magic Missile + damage + Mage Armor → AC bump
+      + LR full reset).
+  • Wikidot RAW ile cross-check edilmiş 6 kritik kural: Tough,
+    GWM, Sharpshooter, Wizard slots, Warlock pact, Lucky.
+
 - `0.3.25` — 4 paralel Sonnet subagent uzmanlık çalışması (+497 yeni test):
   • **Component System uzmanı:** 363 test (`componentSystemExhaustive.test.tsx`
     278 + `reusableComponents.test.tsx` 85). 6-boyutlu kapsam: block,
