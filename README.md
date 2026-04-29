@@ -133,6 +133,29 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.28` — MEGA combinatorial sweep — yüzbinlerce karakter
+  kombinasyonu derive ediyor:
+  • **`megaSweep.test.ts`** — yeni mega test dosyası 4 ana sweep ile:
+    - **Class × Subclass × Level × Race × Background × Loadout × CON-build
+      mega sweep** — 14 sınıf × ~5 subclass × 5 level × 14 race × 14
+      background × 3 equipment loadout × 2 ability build = **~400,000+
+      kombinasyon**. Her birinde `deriveCharacter` çalıştırılıp sanity
+      envelope ölçülür (maxHp 1..1000, AC ≥ 8, speed > 0, PB 2..6,
+      no throw). 215 saniyede sweep tamamlandı.
+    - **Spell catalog × cost-bearing parse** — tüm 563 spell'in material
+      text'inden gp + consumed flag stable parse edildi (no NaN, no
+      negative). 60+ cost-bearing spell.
+    - **Level-up sweep** — 14 sınıfın L1-L20 her seviyesinde derive
+      cleanly (14 × 20 = 280 derive).
+    - **Race × Class L1 sweep** — 14 sınıf × 14 race = 196 pair, hepsi
+      derives.
+  • Toplam yeni test: ~17 test (mega sweep batchleri), iç döngülerde
+    400K+ deriveCharacter çağrısı. Engine her olası combo'da sane.
+  • Test sayımı (vitest): 2736 → ~2750 (mega test'ler bir batch
+    içinde milyonlarca assertion barındırıyor; vitest "test" sayısı
+    küçük gözükür ama iç döngü dev).
+  • Wikidot RAW per-class playthrough'lar (0.3.27) sweep'in temeli —
+    bu sweep "asla crash etme" güvencesi.
 - `0.3.27` — Exhaustive class × subclass × level matrix + 5 playthrough dosyası (+771 test):
   • **`exhaustiveClassSubclassMatrix.test.ts`** (614 test): 14 sınıf
     × her subclass (3-12 her sınıf için) × 5 level (1, 5, 10, 15, 20)
