@@ -133,6 +133,37 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.33` — Belgelenmiş todo listesinin geri kalanı engine'e wire edildi
+  (63 → 14 todo, hepsi cast-time decision olan veya UI rendering
+  gerektiren artıklar). Hepsi wikidot RAW doğrulu:
+  • **15 Eldritch Invocation flag**: hasAgonizingBlast, hasRepellingBlast,
+    hasEldritchSpear, hasEldritchMind, hasAspectOfTheMoon,
+    hasOneWithShadows, hasEldritchSight, hasVoiceOfTheChainMaster,
+    hasWhispersOfTheGrave, hasMaskOfManyFaces, hasArmorOfShadows,
+    hasFiendishVigor, hasMistyVisions, hasAscendantStep,
+    hasOtherworldlyLeap. Panel her invocation için bağlamsal chip
+    gösterebilir (Eldritch Mind → "ADV on CON conc save", Eldritch
+    Spear → "EB range 300 ft", vb.).
+  • **13 magic item flag**: hasCloakOfDisplacement, hasCloakOfElvenkind,
+    hasPeriaptOfWoundClosure, hasSlippersOfSpiderClimbing,
+    hasSentinelShield, hasBroochOfShielding, hasNecklaceOfAdaptation,
+    hasMantleOfSpellResistance, hasAdamantinePlate, hasMithralPlate,
+    hasPlateOfEtherealness, hasRingOfMindShielding, hasGogglesOfNight.
+  • **3 subclass rider**: hunterColossusSlayerBonus = "1d8" (Hunter
+    L3+ vs damaged target), gloomstalkerDreadAmbusherBonus = "1d8"
+    (first attack first turn), gloomstalkerInitBonus = +10 ft first-
+    turn speed (XGtE p.42).
+  • **Martial Adept fix**: PHB p.168 RAW d6 (engine bug giderildi —
+    Martial Adept feat'ı tek başına alındığında d8 yerine d6 verecek;
+    Battle Master ile birlikte alındığında BM size dominant kalır).
+  • **Maneuver / Metamagic** semantik etkileri için todo'lar artık
+    "cast-time player decision" olarak belgeleniyor — kalıcı engine
+    state'i değiştirmiyorlar (Quickened action→bonus action, Trip
+    Attack STR save vs DC, vb. hepsi player kararı).
+  • Test: 3470 → **3504 pass + 14 todo** (107 dosya). 34 yeni
+    assertion todo'dan gerçek teste yükseldi. tsc + build temiz.
+    Manifest 0.3.32 → 0.3.33.
+
 - `0.3.32` — Veri bütünlüğü + sınıf progression matematik + RAW grants
   toplu test dalgası (12 yeni dosya, 417 yeni assertion):
   • **`spellCatalogIntegrity`** — 563 spell unique kebab-case id, level
