@@ -133,6 +133,35 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.36` — Component matcher gap'leri kapatıldı (kullanıcı raporu:
+  "components hala bozuk"):
+  • **Token filtresi 4→3 karakter** indirildi: `gem`, `egg`, `bar`,
+    `rod` gibi 3 harfli component kelimeleri artık eşleşiyor. NOISE
+    listesi 19 yeni 3-harfli kelimeyle genişletildi (one/two/three/
+    each/four/five/six/all/set/bit/top/end/use/has/are/for/its/any/
+    not vb) ki false positive olmasın.
+  • **Yeni gear catalog component item'ları** eklendi (gap-fill):
+    - Gem (100 gp) → Incite Greed
+    - Gem (400 gp) → genel 400gp gem spell
+    - Eyeball in Gilded Egg (400 gp) → Summon Aberration
+    - Elemental Gem (400 gp) → Summon Elemental
+    - Gilded Death Card (400 gp) → Spirit of Death
+    - Platinum Dragon Scale (500 gp) → Fizban's Platinum Shield
+    - Book (25 gp, spell focus) → Borrowed Knowledge
+    - Coin (1 gp) → Jim's Magic Missile
+    - Gauze (component) → Gaseous Form
+    - Crystal Vial of Phosphorescent Material → Hypnotic Pattern
+    - Holy/Unholy Water (component vial) → Commune
+    - Burning Incense → Speak with Dead
+  • **Yeni audit testleri**: `componentMatcherAudit.test.tsx` her
+    cost-bearing spell için catalog gap raporu çıkarıyor (full ITEMS
+    catalog match). 4 reusable + 12 consumable gap kapatıldı.
+    Iconic regression guard: identify, find-familiar, arcane-lock,
+    hallow, forbiddance, planar-binding, magic-circle hepsi
+    eşleşiyor.
+  • Test: 3515 → **3523 pass + 11 todo** (109 dosya, 0 fail).
+    Manifest 0.3.35 → 0.3.36.
+
 - `0.3.35` — Effect chip'leri görünmeme bug'ı giderildi:
   • OBR panel'de `ReactiveAbilitiesBlock` "Abilities" tab'ine
     gömülmüştü; default "Actions" tab'inde de görünür hale getirildi.
