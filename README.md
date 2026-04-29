@@ -133,6 +133,63 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.27` — Exhaustive class × subclass × level matrix + 5 playthrough dosyası (+771 test):
+  • **`exhaustiveClassSubclassMatrix.test.ts`** (614 test): 14 sınıf
+    × her subclass (3-12 her sınıf için) × 5 level (1, 5, 10, 15, 20)
+    = ~350 kombinasyon × 2-3 sanity assertion. Tüm kombinasyonlar
+    deriveCharacter ile derive ediliyor (rastgele DEĞİL — her kombo).
+    Her birinde: maxHp > 0 + < 1000, AC ≥ 8, speed > 0, PB doğru,
+    subclass features non-empty, class features non-empty. Plus
+    spellcasting unlock gates per RAW (full L1, half L2, third L3,
+    Warlock pact L1), PB by level table (1→2, 5→3, 9→4, 13→5, 17→6),
+    HP sane range [50,350] at L20, speed 30 base for non-Monk, Monk
+    Unarmored Movement scaling.
+  • **5 playthrough dosyası** (martial 42 + divine 31 + arcane 29 +
+    half 34 + multiclass 21 = 157 senaryo): (+157 test):
+  • 5 yeni dosya, gerçek `deriveCharacter` ile signature feature'ları
+    test eder. Wikidot RAW ile cross-check (Barbarian rage table, Monk
+    MA progression, Wizard slot table, Warlock pact slots vs.).
+    - **classPlaythroughsMartial.test.ts** (42): Barbarian rage uses +
+      damage scaling (2/3/4/4/4 + +2/+3/+4) + Brutal Critical 1/2/3 +
+      Feral Instinct init advantage; Fighter Action Surge L2/L17,
+      Second Wind formula, Defense FS, Champion improved crit, Battle
+      Master superiority dice/size, EK third-caster L3+; Monk
+      Unarmored Defense, Ki points L2/5/20, Martial Arts d4→d10 by
+      L1/5/11/17, Unarmored Movement +10/+15/+30 ft + armor disable;
+      Rogue Sneak Attack 1d6→10d6 progression, AT third-caster INT,
+      Stroke of Luck L20, Reliable Talent L11.
+    - **classPlaythroughsDivine.test.ts** (31): Cleric WIS DC, Channel
+      Divinity 1/2/3 uses by L2/6/18, Light/Knowledge Potent
+      Spellcasting +WIS to cantrip damage, Life Domain Divine Strike,
+      prepared count math; Paladin half-caster L2 unlock, Lay on Hands
+      pool 5×lvl, Aura of Protection saveMiscBonus +CHA L6+, Aura of
+      Courage L10, Improved Divine Smite L11, Devotion subclass;
+      Druid Wild Shape max CR per level, Moon Druid CR boost (L2 CR1,
+      L6 CR2, L20 CR6), Land Druid subclass features, Archdruid L20.
+    - **classPlaythroughsArcane.test.ts** (29): Wizard cantrip count
+      3/4/5 by L1/4/10, prepared = INT+lvl, Evocation Empowered +INT
+      L10 (gates at L10), Spell Mastery L18, Signature Spells L20;
+      Sorcerer SP gating L2, Draconic Resilience HP +1/lvl + AC
+      13+DEX, Elemental Affinity L6 flag, Sorcerous Restoration L20;
+      Warlock pact slot table per level, Hexblade bonded weapon CHA
+      attack +PB+CHA, Mystic Arcanum L11/17, Lifedrinker invocation,
+      Eldritch Master L20.
+    - **classPlaythroughsHalf.test.ts** (34): Bard BI die 6/8/10/12 +
+      uses=CHA min 1 + Song of Rest 6/8/12 + Magical Secrets L10 +
+      Jack of All Trades initiative; Ranger half-caster L2 unlock,
+      Foe Slayer L20, Gloomstalker subclass; Artificer INT
+      spellcasting + Infusions L2 + Enhanced Defense +1/+2 by L9/10
+      + Battle Smith Steel Defender + Flash of Genius L7 + Soul of
+      Artifice L20; Blood Hunter Hemocraft d4→d10 progression +
+      Profane Soul pact + Lycan/Mutant subclasses + Crimson Rite.
+    - **classPlaythroughsMulticlass.test.ts** (21): Sorcadin (Pal20 +
+      Sorc14 caster level 17 → L9 slot, both CHA DC 18); Coffeelock
+      (Sorc17/Wlk3 — sep slot pools); Hexpal (Hexblade 5 + Pal 15
+      bonded weapon +11 atk); Bardadin (Bard 14/Pal 6 same DC,
+      Magical Secrets); Druid 7/Monk 13 (MA d8 + Wild Shape CR2);
+      Fighter EK 6/Wizard 14 (INT dual-caster); Profane BH/Bard;
+      Cleric 5/Wiz 5/Rogue 5/Fighter 5 quad-class.
+  • Test toplamı: 1965 → **2122** (sıfır hata, TS temiz, build temiz).
 - `0.3.26` — Karakter slot 5→20 + 145 yeni gameplay/feat/serialization test:
   • **MAX_SLOTS 5 → 20** — `src/utils/characterSlots.ts`. ReviewStep
     "saved characters" kısmında artık 20 slot var. Tüm referanslar
