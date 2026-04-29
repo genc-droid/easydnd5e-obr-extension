@@ -133,6 +133,21 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.38` — Components toggle persistent banner (root-cause iceberg):
+  user raporlarının asıl nedeni `enforceMaterialComponents` toggle'ının
+  user'ın haberi olmadan OFF olarak persist etmesiydi. 0.3.37'deki
+  cast guard fix'i doğru çalışıyordu — ama toggle OFF iken RAW gereği
+  envanter kontrolü bypass ediliyor.
+  • **`ComponentToggleBanner`** her tab'in en üstüne eklendi:
+    - ON: yeşil ✓ chip "Components: RAW (PHB p.203) — cast blocks on
+      missing material"
+    - OFF: kırmızı yanıp sönen ⚠ chip "Components: OFF — casts ignore
+      inventory! Click to enable RAW"
+  • Banner tıklanabilir — direkt toggle eder, hiçbir tab'a gitmek
+    gerekmez.
+  • Test: 3537 pass / 11 todo (110 dosya, 0 fail).
+  • Manifest 0.3.37 → 0.3.38.
+
 - `0.3.37` — KRİTİK CAST BUG'LARI giderildi (user raporu): "spell slot
   olmasa da atıyo, component harcamıyo, envanterde yoksa bile atıyo".
   Hepsi wikidot/PHB doğrulu:
