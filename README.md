@@ -133,6 +133,46 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.31` — Belgelenmiş boşlukların büyük dalgası engine'e wire edildi:
+  • **Magic itemler artık otomatik uygulanıyor** (DMG + Wikidot RAW):
+    - Cloak of Protection: equipped → +1 AC, +1 saves
+    - Ring of Protection: equipped → +1 AC, +1 saves (Cloak ile stack)
+    - Bracers of Defense: zırhsız + kalkansız → +2 AC
+    - Stone of Good Luck: equipped → +1 saves + ability checks
+    - Belt of Hill/Stone/Frost/Fire/Cloud/Storm Giant Strength:
+      STR'yı 21/23/23/25/27/29'a SET ediyor (sadece mevcuttan büyükse)
+    - Gauntlets of Ogre Power: STR = 19
+    - Headband of Intellect: INT = 19
+    - Amulet of Health: CON = 19 (HP otomatik scale ediyor)
+    - Boots of Speed: speed × 2
+    - Boots of Striding and Springing: speed minimum 30
+    - Goggles of Night: darkvision minimum 60
+  • **Conditions ve Exhaustion artık derived state'i etkiliyor**:
+    - Grappled / Restrained / Paralyzed / Petrified / Stunned /
+      Unconscious → speed = 0
+    - Exhaustion 1 → ability checks dezavantaj
+    - Exhaustion 2 → speed yarıya iner
+    - Exhaustion 3 → attack rolls + saves dezavantaj
+    - Exhaustion 4 → maxHp yarıya iner
+    - Exhaustion 5 → speed = 0
+    - Exhaustion 6 → ölü flag
+    - Yeni `conditionFlags` derived alanı: attackedWithAdvantage,
+      attackRollsDisadvantage, abilityChecksDisadvantage,
+      autoFailStrDexSaves, allSavesDisadvantage, speedZero,
+      hpMaxHalved, resistAllDamage, incapacitated, dead.
+  • **Eldritch Invocations**:
+    - Devil's Sight: darkvision 120 ft (büyülü karanlığı deler,
+      panel hint)
+  • **Subclass flagleri**:
+    - bearTotemActive: Path of the Totem Warrior + rage active
+    - wolfTotemActive: aynı (totem-spirit seçimi state'te yok,
+      panel manuel toggle ile ayrım sağlıyor)
+    - hasSculptSpells: Wizard Evocation L2+
+    - hasCuttingWords: Bard Lore L3+
+  • Test: 2998 → **3053 pass + 63 todo** (95 dosya, hepsi geçti).
+    `acStackingExhaustive` Cloak/Bracers display-only assertion
+    güncellendi (artık auto-apply). Manifest 0.3.30 → 0.3.31.
+
 - `0.3.30` — Mekanik feature etki testleri (139 yeni test + 101 belgelenmiş
   tasarım boşluğu), tamamı wikidot doğrulu:
   • **`subclassFeatureEffects.test.ts`** — Hexblade Curse (PB damage,
