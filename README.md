@@ -133,6 +133,41 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.29` — Test matrislerinin MEGA sürümü, yaklaşık 1000+ yeni test:
+  • **`componentMatrixMega.test.tsx`** — canlı `ALL_SPELLS` kataloğunu
+    `gear.ts` ile eşleyip her cost-bearing büyüyü 6 envanter durumunda
+    test eder: toggle ON + boş envanter → ENGELLİ; toggle ON + uygun
+    item → ETKİN; toggle OFF + boş envanter → ETKİN (handwave); lower-tier
+    item → ENGELLİ; consume vs reusable kategorisi sayısal olarak
+    doğrulanır. Catalog gap raporu da çıkarır (kaç büyü için item yok).
+  • **`multiclassDipMega.test.ts`** — 14 ana × 13 dip × 4 seviye × 2
+    oran ≈ 1500+ multiclass kombinasyonu. Her (primary, dip) çiftinde
+    `deriveCharacter` throw etmiyor; PB doğru hesaplanıyor; full+full
+    casters her iki spellcasting source'u görüyor; sorcerer 17 + warlock 3
+    pact slotlarının regular slotlardan ayrı tablodan geldiğini doğrular.
+  • **`featClassMatrix.test.ts`** — PHB_FEATS × 14 class × 3 ASI seviyesi
+    ≈ 4000+ feat kombinasyonu. Multi-feat fighter L20 (Tough+GWM+PAM+
+    Resilient), Resilient yarı-feat ability bumpları, Tough'un L1-L20
+    HP scaling'i her seviyede +2 başına doğrulanır.
+  • **`fightingStyleEquipmentMega.test.ts`** — 11 fighting style ×
+    7 ekipman × 4 sınıf × 3 seviye = 924 kombinasyon. Defense + plate
+    → AC 19; Archery + longbow → +8 attack; Dueling + dual-wield → bonus
+    yok; TWF off-hand DEX bonus alıyor.
+  • **`racialBackgroundMatrix.test.ts`** — 56 test: race × subrace ×
+    class L5 mega sweep + race × class × background L1 sweep + Drow/
+    Tiefling/Aasimar racial spell visibility + Half-Elf/Mountain Dwarf/
+    High Elf/Tiefling Asmodeus ASI stacking + speed override (Halfling 25,
+    Wood Elf 35) + darkvision (Drow 120, Elf 60, Tiefling 60).
+  • **`playJourneyMega.test.ts`** — Her sınıf × subclass × seviye için
+    GERÇEK bir oyun oturumu simülasyonu: build → spell slot harca →
+    SR → SR-rechargeable resourceların reset olduğunu, spell slotların
+    spent kaldığını doğrula → LR → her şeyin reset olduğunu doğrula →
+    death save akışı. 150+ run + multiclass SR/LR ayrımı + exhaustion
+    LR -1 doğrulaması + concentration switch.
+  • Toplam: ~1000+ yeni test. Vitest 1820 → 2859 toplam test
+    (84 dosya, hepsi pass). Engine her olası combo'da sane, her
+    cost-bearing büyü doğru envanter koşullarında engellenip izin
+    veriyor, her sınıf real session akışında çökmeden.
 - `0.3.28` — MEGA combinatorial sweep — yüzbinlerce karakter
   kombinasyonu derive ediyor:
   • **`megaSweep.test.ts`** — yeni mega test dosyası 4 ana sweep ile:
