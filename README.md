@@ -133,6 +133,60 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.30` — Mekanik feature etki testleri (139 yeni test + 101 belgelenmiş
+  tasarım boşluğu), tamamı wikidot doğrulu:
+  • **`subclassFeatureEffects.test.ts`** — Hexblade Curse (PB damage,
+    crit 19, heal = warlock lvl + CHA), Draconic Resilience (+1 HP/lvl,
+    13+DEX AC), Battle Master DC (8+PB+max(STR,DEX)) ve dice tablosu
+    (4d8/5d8/5d10/6d10/6d12 L3/7/10/15/18), Soulknife Psionic Energy
+    (2×PB count, d6→d12 L3/5/11/17), Beast Master companion (4×lvl HP,
+    L11 Bestial Fury), Cleric Life (Preserve 5×lvl) + Light (Radiance
+    2d10+lvl), Champion crit 19→18, Monk Stunning Strike DC. 34/34 pass.
+  • **`invocationEffects.test.ts`** — Improved Pact Weapon (+1 atk/dmg
+    pact only), Lifedrinker (+CHA necrotic min 1, pact only),
+    IPW+Lifedrinker stack. 7/7 pass + 10 todo (Agonizing Blast,
+    Repelling Blast, Devil's Sight vb.).
+  • **`infusionEffects.test.ts`** — Enhanced Defense (+1 AC L<10,
+    +2 L10+, armor + shield), Enhanced Weapon (+1/+2 atk/dmg),
+    Helm of Awareness (initiative advantage), Repulsion Shield (+1 AC).
+    9/9 pass + 8 todo.
+  • **`maneuverEffects.test.ts`** — DC formula 8+PB+STR/DEX her seviyede,
+    full superiority dice tablosu (11 row), Superior Technique +
+    Martial Adept feat. 18/18 pass + 21 todo (her PHB maneuver).
+  • **`metamagicEffects.test.ts`** — Sorcery point pool L1/2/9/20,
+    metamagic known L3/10/17. 6/6 pass + 10 todo.
+  • **`magicItemEffects.test.ts`** — Catalog parity + engine'in
+    bilinçli olarak magic itemleri auto-apply ETMEDİĞİ kontratının
+    pinnenmesi (Cloak of Protection equipped → AC değişmiyor; Belt
+    of Storm Giant Strength → STR değişmiyor; Headband of Intellect
+    → INT değişmiyor). 9/9 pass + 26 todo (her item için RAW kuralı).
+  • **`conditionsDerivedState.test.ts`** — 15 condition catalog parity,
+    activeConditions ve exhaustionLevel'in derived state'i auto-değiştirmemesi.
+    9/9 pass + 20 todo (Prone, Restrained, Paralyzed vb. + Exhaustion
+    1-6 her seviye için RAW etkisi).
+  • **`characterRoundTrip.test.ts`** — Tam multiclass build export →
+    import → export bit-by-bit eşitlik, __proto__ pollution drop,
+    action override drop, level clamp, slot save/load shape parity.
+    11/11 pass.
+  • **`multiSourceSpellDC.test.ts`** — Cleric WIS / Wizard INT
+    multiclass: ayrı DC + attack bonus per source. Sorcerer/Warlock
+    pact slot ayrımı. EK/AT INT routing. Triple-class 3 source.
+    Paladin half + Sorcerer full caster level math. 9/9 pass.
+  • **`persistMigrationChain.test.ts`** — v1..v39 her snapshot v40'a
+    yükselirken yeni field'lar (enforceMaterialComponents,
+    showCharacterNameplate, lycanHybridActive vb.) doğru default
+    alıyor. Pre-v40 cast-block bug'ının regresyon koruması. 16/16 pass.
+  • **`tokenSyncFlow.test.ts`** (OBR) — linkTokenToCharacter →
+    pushHpToLinkedToken → pushInitiativeToLinkedToken → unlinkToken
+    full flow + nameplate creation/cleanup + community Initiative
+    Tracker compat (rodeo.owlbear.initiative/metadata as string).
+    11/11 pass.
+  • **Yakalanan engine bug'ı:** Subclass id `sorcerer-draconic` aslında
+    `sorcerer-draconic-bloodline`; Martial Adept feat'ı d6 yerine
+    d8 superiority die veriyor (PHB p.168 RAW d6) — flaglandi.
+  • Test: 2859 → **2998 pass + 101 todo** (95 dosya), tsc temiz, build
+    7.48 sn, deploy.
+
 - `0.3.29` — Test matrislerinin MEGA sürümü, yaklaşık 1000+ yeni test:
   • **`componentMatrixMega.test.tsx`** — canlı `ALL_SPELLS` kataloğunu
     `gear.ts` ile eşleyip her cost-bearing büyüyü 6 envanter durumunda
