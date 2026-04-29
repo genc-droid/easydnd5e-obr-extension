@@ -133,6 +133,55 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.37` — KRİTİK CAST BUG'LARI giderildi (user raporu): "spell slot
+  olmasa da atıyo, component harcamıyo, envanterde yoksa bile atıyo".
+  Hepsi wikidot/PHB doğrulu:
+
+  ÜÇ BUG TEK KÖKLE: `consumeSlot()` fonksiyonu `void` dönüyordu. Slot
+  yoksa erken `return` ediyor ama `handle()` bunu BİLMİYORDU — devam
+  edip spell efektini uyguluyor, Dice+'a damage gönderiyor, sonrasında
+  handleAndReset material'ı consume ediyordu. Yani slot yokken cast
+  giriyor, component sayısı eksiliyordu.
+
+  DÜZELTMELER:
+  • `consumeSlot(): boolean` — başarıyı/başarısızlığı döndürüyor.
+    Slot yoksa false döner.
+  • `handle(): boolean` — consumeSlot false dönerse erken abort eder
+    (no broadcast, no effect, no damage). Tüm 6 branch'in (attack,
+    save+damage, healing, buff-die, save-only, utility) sonu `return
+    true` ile bitti.
+  • `handleAndReset` — `if (!handle()) return;` material consume'u
+    bypass eder. Cast başarısızsa pearl/diamond korunur.
+  • `slotExhausted` flag → cast butonu görsel disabled. Slot yokken
+    tıklamaya bile çalışılmaz.
+  • **Mystic Arcanum** (Warlock L11+) — RAW PHB p.107: slot harcamadan
+    cast. consumeSlot bunun için bypass eder.
+  • **Ritual cast** — RAW PHB p.202: ritüel cast slot harcamaz.
+    consumeSlot bunun için bypass eder.
+
+  REGRESSION TESTLERİ (`castGuardsRegression.test.tsx`, 14/14 pass):
+  • BUG #1: Wizard L5 + tüm L1 slotları kullanılmış → Magic Missile
+    button DISABLED, tıklayınca slot artmaz. Identify + Pearl + slot
+    yoksa → Pearl korunur. Stoneskin + Diamond Dust + slot yoksa →
+    Diamond Dust korunur.
+  • BUG #2: Stoneskin + Diamond Dust 100gp x3 + slot var → cast →
+    qty 3→2. Continual Flame + Ruby 50gp → 1→0. Identify (REUSABLE) +
+    Pearl → qty UNCHANGED. L1 cast → usedSpellSlots[1]++.
+  • BUG #3: Stoneskin (no inv) → button DISABLED. Tıklarsa slot
+    artmaz, item eklenmez. Revivify + Diamond 50gp (lower-tier) →
+    DISABLED. Toggle OFF + Stoneskin (no inv) → ENABLED, cast geçer,
+    NO consume.
+
+  Eski 7 test dosyasının setup'ı güncellendi (eskiden buggy bypass'a
+  dayanıyorlardı): castFlowMatrix, componentBlockToggle,
+  componentBugRegression, componentMatrixMega, componentSystemExhaustive,
+  castDispatchExhaustive, OBRPanelGaps, reusableComponents, SpellRow,
+  strictTierMatcher — hepsi artık caster + slot kuruyor. Eski "BUG"
+  damgalı ritual slot test'i artık RAW-doğru davranışı doğrular.
+
+  TEST: 3523 → **3537 pass + 11 todo** (110 dosya, 0 fail).
+  Manifest 0.3.36 → 0.3.37.
+
 - `0.3.36` — Component matcher gap'leri kapatıldı (kullanıcı raporu:
   "components hala bozuk"):
   • **Token filtresi 4→3 karakter** indirildi: `gem`, `egg`, `bar`,
