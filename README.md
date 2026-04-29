@@ -133,6 +133,46 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.32` — Veri bütünlüğü + sınıf progression matematik + RAW grants
+  toplu test dalgası (12 yeni dosya, 417 yeni assertion):
+  • **`spellCatalogIntegrity`** — 563 spell unique kebab-case id, level
+    0-9, 8 valid school, V/S/M flag, classes referans tutarlılığı,
+    iconic spell membership, concentration/ritual catalog. (16/16)
+  • **`itemCatalogIntegrity`** — 625+ item id + type + weight + cost
+    + weapon damage + armor baseAc + shield. PHB p.149 longsword 1d8,
+    greatsword 2d6, plate baseAc 18 vb. (15/15)
+  • **`classSpellListIntegrity`** — her class spell list referans
+    tutarlılığı, EB sadece warlock, Cure Wounds wizard listesinde değil
+    vb. (25/25)
+  • **`classProficienciesProgression`** — 14 sınıf hit die, save profs,
+    skill choice count, subclass unlock level, ASI levels, armor + weapon
+    profs, spellcasting ability hepsi RAW. (69/69)
+  • **`spellSlotTablesRaw`** — full caster L1-20, half caster L1-20,
+    third caster L1-20, warlock pact L1-20, profane soul L1-20 her
+    seviye için tam slot tablosu RAW. (101/101)
+  • **`spellPreparationFormulas`** — Cleric/Druid/Wizard (lvl + mod),
+    Paladin/Artificer (lvl/2 + mod) min 1 floor. (8/8)
+  • **`cantripScalingRaw`** — Fire Bolt/EB/Sacred Flame/Ray of Frost/
+    Poison Spray L1-L20 her seviye kontrol + Magic Missile/Fireball/
+    Cure Wounds upcast. (65/65)
+  • **`sneakAttackScaling`** — Rogue L1 1d6 → L20 10d6 her seviye +
+    multiclass (Rogue 5/Wizard 5 = 3 dice). (23/23)
+  • **`raceFeatureGrants`** — Human/Dwarf/Elf/Halfling/Tiefling vb.
+    speed + darkvision + ASI + languages + traits RAW. (38/38)
+  • **`backgroundFeatureGrants`** — 14 PHB background skill/tool/
+    language grants ve feature isimleri. (29/29)
+  • **`spellEffectsImpact`** — Bless/PwT/Haste/Longstrider/Shield of
+    Faith engine derived state etki: AC bonus, speed bonus, stealth
+    bonus, attack/save bonus + stacking. (8/8)
+  • **`componentBugRegression`** — Discord-rapor edilen iki bug
+    (toggle ON bypass + reusable spell yanlış engelleme) tam regresyon
+    test (15/15): Identify + Pearl 100gp ENABLED + qty UNCHANGED;
+    Stoneskin + Diamond Dust 100gp ENABLED + qty -1 (consumed RAW);
+    Revivify + Diamond 50gp lower-tier reject; cross-product sweep
+    her cost-bearing × pair item.
+  • Test: 3053 → **3470 pass + 63 todo** (107 dosya, 0 fail).
+    Manifest 0.3.31 → 0.3.32. tsc + build temiz.
+
 - `0.3.31` — Belgelenmiş boşlukların büyük dalgası engine'e wire edildi:
   • **Magic itemler artık otomatik uygulanıyor** (DMG + Wikidot RAW):
     - Cloak of Protection: equipped → +1 AC, +1 saves
