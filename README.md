@@ -133,6 +133,65 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.48` — Trackers genişletildi + Warlock pact slot UX bug giderildi
+  (kullanıcı raporu: "trackerler owl da eklensin / inspiration sayı seçebilme
+  kısmı eklensin / warlock spell slotları harcamıyor"):
+  • **Trackers paneline 2 yeni bölüm**: Exhaustion (PHB Appendix A, 0–6
+    pip seçici, her seviyenin tooltip'i RAW etkisini gösterir) ve
+    Conditions (15 PHB durumu, aktif chip listesi + collapsible picker).
+    Site'teki Trackers bloğuyla bire bir RAW eşleşme.
+  • **Inspiration**: yıldız toggle yerine **+/− sayı seçici** (RAW DMG
+    p.240'a göre max 1 olduğundan +/- arası 0↔1 hareket eder, gold "★ 1"
+    görsel feedback). Kullanıcı talebi: "sayı seçebilme kısmı".
+  • **Temp HP duplikasyonu giderildi**: Trackers içindeki Temp HP input'u
+    silindi — zaten panel başındaki HP satırında (HpStat) ileri-eksi
+    edit edilebiliyor. Tek doğru yerde tek input.
+  • **Warlock pact slot UX bug**: saf Warlock için varsayılan slot seçimi
+    `{regular, level=spell.level}` idi — karakter regular slot olmadığı
+    için cast butonu disabled, kullanıcı "Pact L" butonuna manuel
+    basana kadar hareket yok. Multiclass W/X'te ise default regular slot
+    Warlock spell'ini cast ederken X-class slot'unu yakıyor, pact slot
+    harcanmıyordu. Düzeltme:
+    1. Slot picker default'u `useState` lazy init ile akıllandı:
+       — regular slot yok + pact var → pact varsayılan
+       — Warlock-only spell + pact var → pact varsayılan
+       — diğer durumlar → ilk uygun regular (en düşük level, en az israf)
+    2. `useEffect` slot seçimi geçersizleştiğinde otomatik düzeltir
+       (örn. son pact slot harcanınca regular'a düşer).
+  • Test: 3498/3498 pass. Manifest 0.3.47 → 0.3.48.
+
+- `0.3.47` — Initiative push to OBR Tracker (kullanıcı isteği):
+  inline d20 input + butonla rolled değerini OBR Initiative Tracker'a
+  link'li token üzerinden push eder. Player Dice+'ta atar, OBR panele
+  yazar, panel modifier'ı ekler ve metadata'ya yazar.
+
+- `0.3.46` — Sorcerer L5 spell tablosu user raporu doğrulaması (RAW
+  PHB p.99, Wikidot teyitli): L5'te 6 spells known **doğru**, bug yok.
+  26 yeni regression test (full L1-L20 Sorcerer slot + spells known +
+  sorcery points + Aberrant Mind/Clockwork Soul subclass spells).
+
+- `0.3.45` — Component sistemi: reusable item preservation (PHB p.203
+  RAW). Toggle ON'da reusable material'lı spell'ler (Identify pearl,
+  Hallow incense, Find Familiar charcoal vs.) cast'ten sonra envanterde
+  kalır. Sadece "consumed" işaretli material auto-decrement edilir.
+
+- `0.3.44` — Auto-add component pouch davranışı kaldırıldı (kullanıcı:
+  "gizli auto-add yok"). Wizard/Sorcerer/Warlock yeni karakter setup'ta
+  artık sessiz pouch eklemiyor — kullanıcı kendi envanterini yönetiyor.
+
+- `0.3.43` — Dragon's Breath spell zarlama düzeltmesi (3d6 + 1d6/upcast
+  formula spellDamage.ts'e eklendi). Arcane Trickster Mage Hand granted
+  cantrip otomatik öğretiliyor (PHB p.98).
+
+- `0.3.42` — Multiclass slot tablosu kapsamlı audit (4 paralel Sonnet
+  subagent: full caster / half caster / pact + third caster /
+  multiclass). Third-caster L<3 ghost source guard, Pact of the Tome
+  IPW L5+ prereq gate düzeltildi.
+
+- `0.3.41` — Reactive Abilities chips dokümantasyonu kullanıcı için:
+  31 chip türü (feat/race/class/item kategorileri), tooltip ile RAW
+  açıklama. Site-only feature; OBR panel kapsam dışı.
+
 - `0.3.40` — Lightning Bolt component bug fix — STRICT RAW (PHB p.203):
   user raporu: "lightning bolt componenent mantığı çalışmıyor".
   • **Kök neden**: Lightning Bolt material text "a bit of fur and a
