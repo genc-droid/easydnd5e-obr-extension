@@ -133,6 +133,31 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.40` — Lightning Bolt component bug fix — STRICT RAW (PHB p.203):
+  user raporu: "lightning bolt componenent mantığı çalışmıyor".
+  • **Kök neden**: Lightning Bolt material text "a bit of fur and a
+    rod of amber, crystal, or glass" — gp 0, consumed false.
+    Engine eskiden bunu HANDWAVE moduna alıyor, focus/pouch envanterde
+    olmasa bile cast'i geçiriyordu.
+  • **PHB p.203 RAW** (strict): "A character can use a component pouch
+    or a spellcasting focus in place of the components specified for a
+    spell." → Yani no-cost M spell için **bir focus VEYA pouch envanterde
+    OLMALI**, yoksa cast yapılamaz.
+  • **Düzeltme**: `isBlockedByMaterial` artık 2 branch:
+    1. Cost-bearing/consumed → spesifik item gerekli (eski davranış)
+    2. No-cost M → focus VEYA pouch gerekli (yeni RAW)
+  • Lightning Bolt, Fireball, Mage Armor, Hold Person vb. **artık
+    Component Pouch / Arcane Focus / Holy Symbol / Druidic Focus
+    envanterde yoksa BLOCKED**.
+  • Toggle OFF olduğunda kontrol bypass (handwave) — DM seçimi.
+  • Yeni 7 regression test (BUG #4 grubu): Lightning Bolt + Pouch =
+    ENABLED, + Wand = ENABLED, + Holy Symbol için Cleric = ENABLED,
+    + Druidic Focus için Druid = ENABLED, no focus = DISABLED, V/S
+    only spell (Magic Missile) hep ENABLED, toggle OFF + no focus =
+    ENABLED.
+  • Test: 3537 → **3545 pass + 11 todo** (110 dosya, 0 fail).
+  • Manifest 0.3.39 → 0.3.40.
+
 - `0.3.39` — Focus/Pouch farkındalığı + 4-state component badge (user
   raporu: "focus/pouch okeylerde hala sorun var"):
   • Spell row üzerindeki M/material badge'leri artık 6 durumlu:
