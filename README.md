@@ -133,6 +133,27 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.39` — Focus/Pouch farkındalığı + 4-state component badge (user
+  raporu: "focus/pouch okeylerde hala sorun var"):
+  • Spell row üzerindeki M/material badge'leri artık 6 durumlu:
+    - **`✓ Xgp`** (yeşil): cost-bearing CONSUMED, item envanterde →
+      auto-consume on cast
+    - **`✗ Xgp`** (gri-kırmızı): cost-bearing CONSUMED, item yok →
+      cast BLOCKED (button disabled)
+    - **`✓ Xgp`** (altın): cost-bearing REUSABLE (Identify pearl,
+      Hallow incense vb.), item envanterde → cast OK, item korunur
+    - **`✗ Xgp`** (kırmızı): cost-bearing REUSABLE, item yok → cast
+      BLOCKED
+    - **`M ✓`** (gri): no-cost M, focus/pouch envanterde → her şey OK
+    - **`M ⚠`** (sarı): no-cost M, focus/pouch YOK → RAW PHB p.203
+      uyarısı (cast blocked değil — handwave warning)
+  • Yeni `hasFocusOrPouch` flag — Component Pouch / Arcane Focus /
+    Holy Symbol / Druidic Focus item'larını tarar, herhangi biri
+    varsa true.
+  • Tooltip her badge'de: ne gerekli, ne karşılandı, ne RAW kuralı.
+  • Test: 3537 pass / 11 todo (110 dosya, 0 fail).
+  • Manifest 0.3.38 → 0.3.39.
+
 - `0.3.38` — Components toggle persistent banner (root-cause iceberg):
   user raporlarının asıl nedeni `enforceMaterialComponents` toggle'ının
   user'ın haberi olmadan OFF olarak persist etmesiydi. 0.3.37'deki
