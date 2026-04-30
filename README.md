@@ -133,6 +133,51 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.50` — Discord 7-bug temizlik dalgası (custom items, ability scores,
+  exhaustion stacking, BLOCKED material, Channel Divinity, Hit Dice → HP,
+  Agonizing Blast doğrulama):
+  • **Custom item isimleri/açıklamaları** (kullanıcı: "bunlar custom itemler
+    siteden ekledim ama açıklamaları görünmüyor"): items tab'da custom
+    item lookup `state.customItems`'a fallback eder. Önceden raw ID
+    ("custom-spint-blade-2-moldgen9") gözüküyordu, şimdi friendly name +
+    açıklama tooltip'te + ağırlık carry capacity'e dahil.
+  • **Ability scores OBR'da görünüyor** (kullanıcı: "ben kac strim var
+    kac cham var fln"): Abilities tab'a 6'lı grid eklendi — STR/DEX/CON/
+    INT/WIS/CHA için raw score (15) + modifier (+2) yan yana. Tooltip
+    base + race/feat/item bonusları gösterir.
+  • **Exhaustion debuffs cumulative** (Wikidot RAW: "Effects of exhaustion
+    are cumulative"): kullanıcı "debufflar birikiyor sadece secli debuf
+    varmis gibi nalasiliyor" — eski UI sadece o seviyeyi göriyordu.
+    Şimdi Lvl 3'te 1, 2 ve 3 etkilerinin hepsi listeli "L1: ... / L2: ...
+    / L3: ..." formatında.
+  • **BLOCKED spell row material text inline** (kullanıcı: "bu kısımda
+    sadece bloc diyor ama oyuncu buyunun ne yapmka istediğine bakabilecek
+    isteyecektir"): Mending'in lodestone'ları, Fireball'un guano+sulfur'u
+    gibi material text'i artık inline italik olarak gözüküyor. Tooltip
+    yerine direkt görünür.
+  • **Turn Undead Channel Divinity** (kullanıcı: "kismi var divinitynin
+    kendisi yok / hep iki tane divinity var"): Cleric L2+ için Turn Undead
+    butonu eklendi. PHB p.59 — 30 ft, undead WIS save vs DC, turned 1 min.
+    Cleric L5/8/11/14/17'de Destroy Undead CR threshold otomatik (0.5/1/2/
+    3/4) tooltip + button'da görünür. Domain CD'leri (Preserve Life,
+    Radiance of the Dawn, Sacred Weapon) zaten vardı, üstüne base CD eklendi.
+  • **Hit Dice → HP otomatik** (kullanıcı: "hit diceler hpye oto eklense
+    güzel olur"): her HD satırında 2 buton:
+    – **Avg +N**: ⌈(d+1)/2⌉ + CON ortalama HP'yi anında HP'ye ekler,
+      tek tıklamada short rest'i halleder
+    – **Roll**: Dice+'ta zar at → açılan inline input'a yazılan total
+      HP'ye eklenir. Cancel ile HD harcandığı geri alınmaz (RAW: HD
+      atılınca harcanır). Average path Heal All butonuyla aynı formula.
+  • **Agonizing Blast invocation doğrulama** (kullanıcı: "warlock ta
+    eldritch invocationlar onlardan bu özelliği alınca sadece eldritch
+    blast cantripine güçlendiriyor ama çalışmıyor"): kod incelendi —
+    invocation ID 'agonizing-blast', spell.id 'eldritch-blast', regex
+    `^(\d+)d10$` formula'yı yakalar, CHA mod > 0 koşulu var. Tüm
+    matching doğru. 2 yeni regression test eklendi (formula'ya CHA bonus
+    eklenir; invocation yokken eklenmez). User'ın muhtemelen invocation'ı
+    siteden seçmediği için hard-refresh gerekti — engine doğru.
+  • Test: 3483/3483 pass + 2 yeni Agonizing Blast test. Manifest 0.3.49 → 0.3.50.
+
 - `0.3.49` — Conditions + exhaustion gerçekten çalışıyor + spell description
   inline (kullanıcı raporu: "yeni eklediğimiz condition ve exhaust mantık
   olarak çalışmıyo / spellere açıklama ekleyelim"):
