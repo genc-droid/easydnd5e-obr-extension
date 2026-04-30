@@ -133,6 +133,39 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.51` — Tüm PHB+XGtE Cleric domain Channel Divinity'leri + Paladin
+  Vengeance/Devotion oath CD'leri (kullanıcı: "hep iki tane divinity var
+  ikise farklı ise yarıyor bazıları zarları etkiliyor"). Eski sürümde
+  sadece Life (Preserve), Light (Radiance), Devotion Paladin (Sacred
+  Weapon) vardı, geri kalan domain ve oath'lerde 2. CD görünmüyordu.
+  Şimdi Cleric subclass'ına göre otomatik:
+  • **War Domain L2** — **Guided Strike** (PHB p.62): zarları etkileyen
+    en büyük CD. Saldırı atışından sonra +10 ekler (ZAR atıldıktan
+    SONRA karar verirsin)
+  • **Tempest Domain L2** — **Destructive Wrath** (PHB p.62): thunder
+    veya lightning damage atışını ZARLAMADAN max'a çıkarır
+  • **Knowledge Domain L2** — Knowledge of the Ages (PHB p.59): 10 dk
+    boyunca seçtiğin skill veya tool'da prof
+  • **Trickery Domain L2** — Invoke Duplicity (PHB p.63): 30 ft içinde
+    illüzyon kopya, 1 dk concentration. Kopyadan 5 ft içindeki
+    yaratıklara saldırılarda adv
+  • **Nature Domain L2** — Charm Animals & Plants (PHB p.62): 30 ft,
+    her beast/plant WIS save (panelde DC otomatik) ya da 1 dk charmed
+  • **Death Domain L2** — Touch of Death (DMG p.96): melee hit'te
+    +5 + 2 × cleric_lvl necrotic ekstra damage
+  • **Forge Domain L2** — Artisan's Blessing (XGtE p.18): 1 saat
+    ritüel ile ≤ 100 gp metal item üretir
+  • **Grave Domain L2** — Path to the Grave (XGtE p.20): 30 ft hedef
+    cursed, BİR sonraki damage atışı vulnerability ile ÇİFTLENİR
+  • **Paladin Vengeance L3** — Vow of Enmity (PHB p.88): 10 ft hedef,
+    1 dk boyunca ona yapılan tüm saldırılar ADVANTAGE
+  • **Paladin Devotion L3** — Turn the Unholy (PHB p.86): 30 ft içindeki
+    fiend/undead'lere WIS save (panelde DC otomatik), 1 dk turn
+
+  Her butonun tooltip'i tam RAW açıklamayı ve sayfa numarasını gösterir.
+  CD sayacı bittiğinde butonlar otomatik disabled. Test 3483/3483 pass.
+  Manifest 0.3.50 → 0.3.51.
+
 - `0.3.50` — Discord 7-bug temizlik dalgası (custom items, ability scores,
   exhaustion stacking, BLOCKED material, Channel Divinity, Hit Dice → HP,
   Agonizing Blast doğrulama):
