@@ -133,6 +133,39 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.76` — Ascendant Dragon + Astral Self Monk paneli.
+
+  TCoE/FToD'nun iki popüler Monk subclass'ı için panele tek-
+  dokunuşlu ki butonları, Breath of the Dragon zar atan buton ve
+  reactive chip'ler eklendi.
+
+  **Way of the Ascendant Dragon** (FToD p.31):
+  • Breath of the Dragon (L3+) butonu — 2× martial arts die
+    (2d4/2d6/2d8/2d10 at L3/L5/L11/L17) acid/cold/fire/lightning/
+    poison damage. PB/LR free, sonra 1 ki/use. Free use sayaç row.
+  • Wings Unfurled (L6+, PB/LR) sayaç row — Step of the Wind
+    sprouts wings
+  • Draconic Disciple chip — unarmed elemental + PB Persuasion/
+    Intimidation
+  • Aspect of the Wyrm (L11+) chip — 3 ki frightful presence /
+    resistance aura
+  • Ascendant Aspect (L17+) chip — blindsight + no halving on breath
+
+  **Way of the Astral Self** (TCoE p.46-48):
+  • Arms of the Astral Self (L3+, 1 ki) butonu — +5 reach + WIS
+    unarmed + force damage 10 min
+  • Visage of the Astral Self (L6+, 1 ki) butonu — 120-ft darkvision
+    + ADV Insight/Intimidation
+  • Body of the Astral Self (L11+) chip — reaction reduce 5 elemental
+    damage by 1d10+WIS
+  • Awakened Astral Self (L17+) chip — 5 ki all features + 3 arm
+    attacks per Attack action
+
+  Engine: 11 yeni derived field. Multiclass desteği var.
+
+  Test: 20 yeni test. Toplam 4513/4513 pass.
+  Manifest 0.3.75 → 0.3.76.
+
 - `0.3.75` — War Magic Wizard + Aberrant Mind + Clockwork Soul.
 
   Üç caster subclass'ı için panele kapsamlı destek eklendi.
