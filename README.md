@@ -133,6 +133,22 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.82` — OBR toolbar icon fix (beyaz kare bug).
+
+  Bug: OBR sahnesindeki toolbar'da extension icon'u beyaz kare
+  olarak gözüküyordu (Discord screenshot). Sebep: OBR toolbar
+  icon'u monochrome white SVG/PNG bekliyor (toolbar tema rengini
+  benimseyebilsin diye). Bizim mevcut icon.png rich gradient'li
+  D20'ydi — render edilemiyordu.
+
+  Fix: Yeni `public/obr/toolbar-icon.svg` (32×32 monochrome white
+  D20 silüeti, transparent background) eklendi. Manifest action.icon
+  artık `https://easydnd5e.app/obr/toolbar-icon.svg`'ye işaret
+  ediyor. Eski `icon.png` (gradient'li, rich version) mağaza
+  listing icon olarak korundu (manifest dışı kullanım).
+
+  Manifest 0.3.81 → 0.3.82.
+
 - `0.3.81` — Panel header'a logo + marka adı eklendi.
 
   Easy 5e Sheet markasını panelde görünür kılan kısa bir başlık
