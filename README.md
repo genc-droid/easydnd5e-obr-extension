@@ -133,6 +133,36 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.73` — Genie + Conquest + Bladesinger panel paketi.
+
+  Üç farklı subclass'a kompakt panel desteği eklendi.
+
+  **Genie Warlock** (TCoE p.71-72):
+  • Genie's Wrath chip — 1/turn rider, +PB damage, kind'a göre
+    bludgeoning/thunder/fire/cold (Dao/Djinni/Efreeti/Marid)
+  • Elemental Gift (L6+, PB/LR) sayaç row
+
+  **Conquest Paladin** (XGtE p.37):
+  • Aura of Conquest chip (L7+) — frightened creatures speed 0 +
+    floor(palLvl/2) psychic damage at start of turn. Aura range
+    L18+ Aura Expansion ile 30 ft'a çıkar.
+  • Scornful Rebuke chip (L15+) — hit alınca attacker'a CHA psychic
+  • Invincible Conqueror chip (L20+) — capstone hatırlatma
+
+  **Bladesinger Wizard** (TCoE p.74):
+  • Bladesong toggle button (L2+) — tıkla aktif et / dismiss et.
+    +INT AC / +10 ft speed / ADV Acrobatics / +INT concentration
+    saves. Aktivasyon PB/SR kullanım harcar.
+  • Bladesong (SR) sayaç row
+
+  Engine: 8 yeni derived field. Multiclass desteği var.
+
+  Test: 25 yeni test (Genie 4 kind dmg type, Aura range L7/L18
+  expansion, Bladesinger PB scaling, rest cycle SR vs LR).
+  Toplam 4446/4446 pass.
+
+  Manifest 0.3.72 → 0.3.73.
+
 - `0.3.72` — Rune Knight Fighter + Phantom Rogue panel desteği.
 
   TCoE'nin iki popüler subclass'ı için panele tek-dokunuşlu LR
