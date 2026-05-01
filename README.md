@@ -133,6 +133,43 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.84` — Discord bug dalgası: 4 OBR fix.
+
+  Discord screenshot raporlarındaki kritik bug'lar düzeltildi.
+
+  **Vengeance Paladin Channel Divinity 2 buton** (PHB p.88):
+  Eskiden sadece "Vow of Enmity" butonu vardı, RAW Vengeance
+  Paladin'in 2 CD seçeneği var. Artık panele her ikisi de geliyor:
+  • Abjure Enemy — action, 60 ft, WIS save vs DC. Fail: speed 0
+    + frightened 1 min. Success: speed half + not frightened.
+  • Vow of Enmity — bonus action, 10 ft, ADV vs target 1 min.
+
+  **Metamagic Adept feat → +2 sorcery points** (TCoE p.74):
+  Eskiden feat alındığında ekstra 2 SP panelde gözükmüyordu.
+  RAW: "You gain 2 sorcery points to spend on Metamagic." Artık
+  selectorda takenFeatIds.has('metamagic-adept') ? +2 : 0.
+
+  **Rune Knight Rune Carver picker** (TCoE p.51):
+  Rune Knight Fighter'ın 6 farklı runesi (Cloud / Fire / Frost /
+  Stone / Hill / Storm) için panele picker geldi. Cloud/Fire/
+  Frost/Stone L3'te, Hill/Storm L7'de açılıyor. Bilinen rune
+  sayısı 2/3/4/5 at L3/L7/L10/L15. Her seçilen rune'un kendi
+  SR-counter row'u var (1 use; L15+ Master of Runes ile 2 use).
+  Tooltip'larda her rune'un passive + active etkisi yazıyor.
+
+  **Barbarian Rage başlat butonu** (PHB p.48):
+  Discord raporu: "Barbarda Rage basmak için tuş yok takıp için
+  var ama tusa basıp kullanılmalı". Artık panelde toggle button
+  var — tıkla aktif et (kullanım -1 + sahnede chip), tekrar tıkla
+  bitir. Mevcut +/- pip tracker hâlâ duruyor. Buton state'e göre
+  değişir: "Rage (start, +X dmg)" → "Rage (ACTIVE — tap to end)".
+
+  Engine: 4 yeni Rune Knight derived field + 1 new state field
+  (knownRunes) + setter. Tests: 6 test stub güncellendi (5
+  panel test mock'ı + 1 obrResourceFlow). Toplam 4560/4560 pass.
+
+  Manifest 0.3.83 → 0.3.84.
+
 - `0.3.83` — Hunter Conclave Ranger 4-tier picker + Colossus Slayer RAW fix.
 
   Hunter Conclave Ranger için panele **4 tier picker UI** eklendi.
