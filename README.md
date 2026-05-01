@@ -133,6 +133,38 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.68` — Spell formula bulk: 30 yeni büyü.
+
+  PHB + XGtE + TCoE'den eksik kalan formul bulundu ve eklendi.
+  Eskiden bu büyüleri OBR panelden cast ettiğinde Dice+'a hiçbir
+  formula gitmiyordu — artık doğru zar atışı yapılıyor.
+
+  **P2 (sık kullanılan, 15 adet)**:
+  • Color Spray — 6d10 HP havuzu (slot başına +2d10)
+  • Sleep — 5d8 HP havuzu (slot başına +2d8)
+  • Ensnaring Strike — 1d6 piercing/round (Ranger smite)
+  • Hail of Thorns — 1d10 burst, 6d10 cap
+  • Flame Blade — 3d6 fire, her 2 slot levelda +1d6
+  • Shadow Blade — 2d8/3d8/4d8/5d8 psychic (XGtE breakpoints)
+  • Phantasmal Force — 1d6 psychic per turn
+  • Bestow Curse — +1d8 necrotic curse rider
+  • Wind Wall — 3d8 bludgeoning
+  • Glyph of Warding — 5d8 (slot başına +1d8) explosive runes
+  • Lightning Arrow — 4d8 (slot başına +1d8) primary + 2d8 burst
+  • Conjure Barrage — 3d8 weapon damage type 60-ft cone
+  • Warding Bond (effect) — +1 AC + saves + resistance to all
+  • Magic Weapon (effect) — +1/+2/+3 attack & damage scaling
+  • Elemental Weapon (effect) — +1/+1d4 ila +3/+3d4 elemental scaling
+
+  **P3 (niş, 12 adet)**:
+  Catapult, Chaos Bolt, Earth Tremor, Cordon of Arrows, Dust Devil,
+  Snilloc's Snowball Swarm, Mind Spike, Maximilian's Earthen Grasp,
+  Healing Spirit, Tasha's Caustic Brew, Tasha's Mind Whip, Life
+  Transference.
+
+  Test: 53 yeni regression test. 4332/4332 toplam pass.
+  Manifest 0.3.67 → 0.3.68.
+
 - `0.3.67` — Beast Master Ranger reactive chip seti (PHB p.93).
 
   PHB Beast Master Ranger için panele 4 reactive chip eklendi.
