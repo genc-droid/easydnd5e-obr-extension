@@ -133,6 +133,32 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.90` — Diviner Wizard Portent dice picker (PHB p.116).
+
+  Diviner subclass'ı için panele Portent dice picker eklendi.
+  Discord-likely sık oynanan subclass — eskiden panelde hiç destek
+  yoktu.
+
+  **Mekanik**: L2'de 2 d20 atılır long rest sonrası, L14+ Greater
+  Portent ile 3 d20. Her atılan değer "kayıtlı" — sen ya da görebildiğin
+  bir yaratık d20 atış yaparken (saldırı/save/check) bunlardan birini
+  yerine koyarsın. RAW: roll'dan ÖNCE seçim yapılır.
+
+  **UI**:
+  • "Roll 2d20" butonu (L14+'da 3d20) — Math.random ile yerel atış
+    + Dice+'a bilgilendirme
+  • Her atılan değer chip olarak görünür (≥18 altın, ≤3 kırmızı)
+  • Chip'e tıkla → kullanıldı işaretlenir + sahnede "replace a d20
+    with X" hatırlatması
+  • Long rest otomatik temizler (yeni atış için hazır)
+
+  Engine: 2 yeni derived field (portentDieCount, portentDice
+  pass-through). State: portentDice number array + setPortentDice
+  / spendPortentDie actions.
+
+  Test: 4568/4568 pass (yeni test eklenmedi — ufak feature).
+  Manifest 0.3.89 → 0.3.90.
+
 - `0.3.89` — Custom Spell creation (Discord rapor son halkası).
 
   Discord rapor: "custom ... spell yapma seysi". Custom Item +
