@@ -133,6 +133,48 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.83` — Hunter Conclave Ranger 4-tier picker + Colossus Slayer RAW fix.
+
+  Hunter Conclave Ranger için panele **4 tier picker UI** eklendi.
+  Eskiden sadece "Colossus Slayer" otomatik aktifti — RAW yanlış-
+  tı çünkü oyuncu 3 seçenekten birini seçer. Artık sen seçiyorsun.
+
+  **Hunter's Prey** (L3) picker — 3 seçenek:
+  • Colossus Slayer (1/turn +1d8 wounded targets)
+  • Giant Killer (reaction attack vs Large+ within 5 ft)
+  • Horde Breaker (1/turn extra attack vs different creature)
+
+  **Defensive Tactics** (L7) picker — 3 seçenek:
+  • Escape the Horde (OAs vs you have disadvantage)
+  • Multiattack Defense (+4 AC vs follow-up attacks)
+  • Steel Will (ADV saves vs frightened)
+
+  **Multiattack** (L11) picker — 2 seçenek:
+  • Volley (action: ranged AoE vs creatures within 10 ft of point)
+  • Whirlwind Attack (action: melee AoE vs creatures within 5 ft)
+
+  **Superior Hunter's Defense** (L15) picker — 3 seçenek:
+  • Evasion (DEX save half)
+  • Stand Against the Tide (reaction redirect missed melee)
+  • Uncanny Dodge (reaction halve damage)
+
+  Picker ClassResourcesPanel'da yeşil moss renkte. Pick yaptıktan
+  sonra ReactiveAbilitiesBlock'ta otomatik chip gösterir. Pick
+  yapmazsan chip gözükmez (RAW: feature pasif).
+
+  **RAW fix**: hunterColossusSlayerBonus eski kodu Hunter olan
+  herkese +1d8 veriyordu. Artık `hunterPreyChoice === 'colossus-
+  slayer'` ise aktif, değilse null. Discord'da "Giant Killer
+  seçtim ama panel hâlâ Colossus Slayer chip'i gösteriyor" tipi
+  bir bug bekliyordu.
+
+  Engine: 8 yeni derived field + 4 state field + 4 setter.
+  Multiclass desteği var. Test: 20 yeni Hunter test + 3 mevcut
+  Colossus Slayer test RAW pick gerektirecek şekilde güncellendi.
+  Toplam 4560/4560 pass.
+
+  Manifest 0.3.82 → 0.3.83.
+
 - `0.3.82` — OBR toolbar icon fix (beyaz kare bug).
 
   Bug: OBR sahnesindeki toolbar'da extension icon'u beyaz kare
