@@ -133,6 +133,25 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.61` — Druid Land Natural Recovery picker (PHB p.69).
+
+  Land Druid'ler için uzun zamandır eksik olan Natural Recovery
+  picker'ı eklendi. Wizard Arcane Recovery'nin aynısı:
+
+  • L2+ Land Druid otomatik açılıyor (8 alt çevre — Arctic / Coast /
+    Desert / Forest / Grassland / Mountain / Swamp / Underdark)
+  • Short rest sırasında harcanmış L1-L5 spell slot'larını seçip
+    geri kazanırsın
+  • Budget = ⌈druidLvl / 2⌉ slot-level toplamı (L2: 1, L5: 3, L20: 10)
+  • 1/LR — uzun dinlenme arası tek kullanım
+  • L6+ slot'lar geri kazanılamaz (Arcane Recovery ile aynı kural)
+
+  Multiclass desteği var (Fighter 5 / Land Druid 4 → budget 2).
+  Renk paleti emerald — Wizard'ın altın ARC'ından ayırt edilebilir.
+
+  Test: 4161/4161 pass + 26 yeni test (14 derived + 12 picker UI).
+  Manifest 0.3.60 → 0.3.61.
+
 - `0.3.60` — Dragonborn Breath Weapon panel butonu (PHB p.34 + FToD).
 
   Dragonborn karakter seçtiğinizde panelde otomatik olarak ırk
