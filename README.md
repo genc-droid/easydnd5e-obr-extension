@@ -133,6 +133,27 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.109` — Fathomless Warlock (TCoE).
+
+  TCoE Fathomless Warlock için 7 reactive chip + 3 LR/SR sayaç row
+  eklendi.
+
+  **The Fathomless** (TCoE p.71):
+  • Tentacle of the Deep (L1+, PB/LR) — BA spectral tentacle 60 ft,
+    melee spell attack 1d8 cold (2d8 L10) + speed -10 ft
+  • Gift of the Sea (L1+) — 40 ft swim + breathe underwater
+  • Oceanic Soul (L6+) — cold resist + submerged comm
+  • Guardian Coil (L6+) — reaction reduce damage 1d8/2d8
+  • Grasping Tentacles (L10+, 1/LR) — Evard's Black Tentacles
+    free + warlockLvl temp HP + conc immune
+  • Fathomless Plunge (L14+, 1/SR) — action teleport 1 mile to
+    water + 5 willing creatures
+
+  Engine: 8 yeni derived field, multiclass desteği var. RAW
+  doğrulaması WebFetch ile yapıldı.
+
+  Manifest 0.3.108 → 0.3.109.
+
 - `0.3.108` — Arcane Archer + Graviturgy + Order of Scribes.
 
   XGtE Arcane Archer + EGtW Graviturgy + TCoE Order of Scribes
