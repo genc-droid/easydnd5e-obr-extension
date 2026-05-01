@@ -133,6 +133,41 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.95` — Shadow Sorc + 3 PHB Warlock patron paketi (büyük dalga).
+
+  Discord-popüler 4 subclass için 17 yeni reactive chip + 6 LR/SR
+  sayaç row + 1 yeni state field eklendi.
+
+  **Shadow Magic Sorcerer** (XGtE p.51-52, 5 chip):
+  • Eyes of the Dark (L1+) — 120 ft darkvision + Darkness 2 SP
+  • Strength of the Grave (L1+, 1/LR) — sayaç row + chip
+  • Hound of Ill Omen (L6+) — 3 SP shadow dire wolf summon
+  • Shadow Walk (L14+) — 120 ft teleport in dim/dark
+  • Umbral Form (L18+) — 6 SP all-resist 1 min
+
+  **Archfey Warlock** (PHB p.108):
+  • Fey Presence (L1+, 1/SR) sayaç + chip
+  • Misty Escape (L6+, 1/SR) sayaç + chip
+  • Beguiling Defenses (L10+) chip — charm immune + reflect 1d10/lvl
+  • Dark Delirium (L14+, 1/LR) sayaç + chip
+
+  **Fiend Warlock** (PHB p.109):
+  • Dark One's Blessing (L1+) chip — temp HP = CHA + warlock lvl
+  • Dark One's Own Luck (L6+, 1/SR) sayaç + chip — +d10 check/save
+  • Fiendish Resilience (L10+) chip — chosen damage type resist
+  • Hurl Through Hell (L14+, 1/LR) sayaç + chip — 10d10 psychic
+
+  **Great Old One Warlock** (PHB p.110):
+  • Awakened Mind (L1+) chip — 30 ft telepathy
+  • Entropic Ward (L6+, 1/SR) sayaç + chip — DIS attacker, miss → ADV
+  • Thought Shield (L10+) chip — psychic resist + reflect
+  • Create Thrall (L14+) chip — touch incap → permanent charm
+
+  Engine: 17 yeni derived field. Multiclass desteği var.
+
+  Test: 4568/4568 pass.
+  Manifest 0.3.94 → 0.3.95.
+
 - `0.3.94` — Necromancer Wizard + Berserker Barbarian chip seti (PHB).
 
   İki klasik PHB subclass'ı için 7 reactive chip eklendi.
