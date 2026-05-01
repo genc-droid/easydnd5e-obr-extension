@@ -133,6 +133,31 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.85` — Site builder bug dalgası: 3 fix.
+
+  Discord raporundaki site (full builder) bug'ları düzeltildi.
+
+  **Inspiration > 1**: Eskiden boolean'dı (max 1 ★), Discord rapor
+  "1 den yukarıya çıkabilmeli" istiyordu. RAW PHB p.125 max 1 ama
+  Halfling Bountiful Luck / homebrew için stack gerekebilir. Artık
+  number — site sheet'inde +/- pip tracker, OBR panelde de aynı.
+  Eski boolean save'leri otomatik 0/1'e migrate oluyor.
+
+  **Coin Purse Card** (sitede para girişi): "sitede ekipman kısmana
+  para girme seysi lazım owlbearda var sitede yok" raporu.
+  EquipmentStep'e CoinPurseCard eklendi — PP/GP/EP/SP/CP için
+  beş ayrı number input. Store coins state'i zaten vardı, sadece
+  builder'da surface edildi.
+
+  **Guild Artisan tool picker**: "guild artisan backgroundu da
+  tool proficiencies seçiniyor ama seçemiyorum burada" raporu.
+  Eskiden `toolProficiencies: ["One type of artisan's tools"]`
+  literal string vardı (placeholder, gerçek prof değildi). Artık
+  Background type'a `toolChoices` field eklendi, Guild Artisan
+  17 PHB artisan tool'undan biri için picker sunuyor.
+
+  Manifest 0.3.84 → 0.3.85.
+
 - `0.3.84` — Discord bug dalgası: 4 OBR fix.
 
   Discord screenshot raporlarındaki kritik bug'lar düzeltildi.
