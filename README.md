@@ -133,6 +133,33 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.58` — Resource consumption audit P0 dalgası (subagent fresh audit).
+
+  **P0-1: Blood Maledict SR recharge eksikliği**: srKeys array'inde
+  'blood-maledict' yoktu, Short Rest'te use'lar geri gelmiyordu. Blood
+  Hunter L5+ Pact of Investiture / Blood Curse spend ettikten sonra SR
+  alsa bile spent state'te kalıyordu. Bir satırlık fix: srKeys'e
+  'blood-maledict' eklendi. Wiki: https://dnd5e.wikidot.com/blood-hunter
+  ("PB uses, regain on short or long rest").
+
+  **P0-2: Favored Foe eager-spend (Tasha's RAW ihlali)**: chip tap'te
+  `adjustResource('favored-foe', 1)` çağırılıyordu — chip'i arm edip
+  miss yapan ranger'lar use'ı boşa harcıyordu. RAW: "When you HIT a
+  creature with an attack roll" — use ON HIT consumed olur, arm değil.
+  Stunning Strike + smite + maneuvers ile aynı pattern uygulandı:
+  arm chip free, requestDamage().onHit'te use harcanır.
+
+  **P0-3: Crimson Rite HP cost auto-debit**: Blood Hunter aktivasyon
+  maliyeti panel-no-dice rule yüzünden sadece notify'dı, oyuncu manuel
+  HP'sini düşürmesi gerekiyordu. RAW: "Activating a rite causes you to
+  take damage equal to one roll of your hemocraft die. This damage
+  cannot be reduced or prevented in any way." — zorunlu. Şimdi
+  rollWithDicePlus('1d{HC}') kicks Dice+ AND avg HP loss otomatik
+  debit edilir (Hit Dice avg pattern'a benzer). Player gerçek roll
+  ortalamadan farklıysa manuel ayarlar.
+
+  Test: 4087/4087 pass + tip check temiz. Manifest 0.3.57 → 0.3.58.
+
 - `0.3.57` — Spell formula bulk add (subagent audit) + 2 yeni P0 fix.
 
   **Subagent audit P0 #1: 14 spell formula eklendi** (Hex, Hunter's Mark,
