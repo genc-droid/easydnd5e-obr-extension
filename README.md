@@ -133,6 +133,31 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.64` — Wild Magic Sorcerer panel desteği (PHB p.103-104).
+
+  Wild Magic Sorcerer için panele iki tek-dokunuşlu buton + üç
+  reactive chip eklendi.
+
+  **Tides of Chaos** (L1, 1/LR) — tıkla → kullanım -1 + sahnede
+  hatırlatma chip'i ("ADV on next attack/check/save"). DM Wild
+  Magic Surge tetikleyerek kullanımı geri verebilir.
+
+  **Wild Magic Surge** trigger butonu — d20=1 sonrası DM'in surge
+  tablosuna gönderdiği rolü oynatır. Tek tıkla 1d100 atılır
+  (Dice+'a). Sınır yok, kaç kere tetiklenirse o kadar atış.
+
+  **Bend Luck** (L6+) chip — 2 SP / reaction / 1d4 hatırlatması.
+  **Controlled Chaos** (L14+) chip — Surge tablosunda iki kere
+  zar atıp birini seç hatırlatması.
+  **Spell Bombardment** (L18+) chip — max die rerolls + adds.
+
+  Engine: 4 yeni derived flag (hasTidesOfChaos, hasBendLuck,
+  hasControlledChaos, hasSpellBombardment). Multiclass desteği
+  var (Fighter 5 / Wild Magic Sorc 1 → Tides of Chaos açılır).
+
+  Test: 25 yeni test (14 derived + 11 panel UI). Toplam 4235/4235.
+  Manifest 0.3.63 → 0.3.64.
+
 - `0.3.63` — Echo Knight panel desteği (Fighter, EGtW p.183).
 
   Critical Role / Wildemount kaynaklı Echo Knight subclass'ı için
