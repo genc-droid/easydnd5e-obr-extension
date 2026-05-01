@@ -133,6 +133,32 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.77` — Fey Wanderer Ranger + Battle Smith Artificer paneli.
+
+  TCoE'nun iki Tasha's subclass'ı için panele tek-dokunuş Arcane
+  Jolt butonu, sayaç row'ları ve reactive chip'ler eklendi.
+
+  **Fey Wanderer Ranger** (TCoE p.59-60):
+  • Dreadful Strikes (L3+) chip — silah hit'inde +1d4 (L11+ +1d6)
+    psychic. 1/turn per creature.
+  • Otherworldly Glamour (L3+) chip — +WIS to all CHA checks
+  • Beguiling Twist (L7+, 1/LR) sayaç row — reaction redirect
+    failed charm/frighten save
+  • Misty Wanderer (L15+) chip — Misty Step CHA mod /LR free
+
+  **Battle Smith Artificer** (TCoE p.79-80):
+  • Battle Ready (L3+) chip — INT for magic weapon attack/damage
+  • Steel Defender (L3+) chip — companion HP floor (2 + INT +
+    5×art lvl), AC 15, Force-Empowered Rend 1d8+PB
+  • Arcane Jolt (L9+, INT mod /LR) sayaç row + tek-dokunuş Dice+
+    button — 2d6/4d6 force damage VEYA heal 30 ft
+  • Improved Defender (L15+) chip — Jolt 4d6 + defender +2 AC
+
+  Engine: 11 yeni derived field. Multiclass desteği var.
+
+  Test: 22 yeni test. Toplam 4535/4535 pass.
+  Manifest 0.3.76 → 0.3.77.
+
 - `0.3.76` — Ascendant Dragon + Astral Self Monk paneli.
 
   TCoE/FToD'nun iki popüler Monk subclass'ı için panele tek-
