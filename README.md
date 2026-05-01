@@ -133,6 +133,42 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.114` — Swashbuckler + Watchers + Divine Soul + Chronurgy panel chip seti.
+
+  Engine'de var ama panel chip eksik olan 4 subclass için 17 chip
+  + 8 LR/SR sayaç row eklendi.
+
+  **Swashbuckler Rogue** (XGtE p.47):
+  • Fancy Footwork L3 — melee attack denies OA from target
+  • Rakish Audacity L3 — +CHA mod init + Sneak Attack alone
+  • Panache L9 — action CHA Persuasion vs WIS Insight
+  • Elegant Maneuver L13 — BA ADV Athletics/Acrobatics
+  • Master Duelist L17 — reroll miss with ADV 1/SR
+
+  **Oath of the Watchers Paladin** (TCoE p.53):
+  • Aura of the Sentinel L7 — +PB init aura 10/30 ft
+  • Vigilant Rebuke L15 — reaction 2d8+CHA force
+  • Mortal Bulwark L20 — BA truesight + ADV vs extraplanar 1/LR
+
+  **Divine Soul Sorcerer** (XGtE p.50):
+  • Favored by the Gods L1 — reaction +2d4 fail/miss 1/SR
+  • Empowered Healing L6 — 1 SP reroll healing dice 1/turn
+  • Angelic Form L14 — BA fly 30 ft until incap
+  • Unearthly Recovery L18 — BA half max HP if below half 1/LR
+
+  **Chronurgy Magic Wizard** (EGtW p.184):
+  • Chronal Shift L2 — 2/LR reaction force reroll
+  • Temporal Awareness L2 — +INT init
+  • Momentary Stasis L6 — INT mod /LR action 60 ft CON save
+  • Arcane Abeyance L10 — 1/SR cast L4 spell into bead
+  • Convergent Future L14 — reaction force success/fail (1
+    exhaustion/use)
+
+  Engine: 17 yeni derived field, multiclass desteği var. RAW
+  doğrulaması WebFetch ile yapıldı.
+
+  Manifest 0.3.113 → 0.3.114.
+
 - `0.3.113` — Echo Knight + Psi Warrior + Soulknife panel chip seti.
 
   Engine'de derived field'ları olan ama panel UI'da chip eksikliği
