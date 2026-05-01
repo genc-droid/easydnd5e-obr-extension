@@ -133,6 +133,29 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.63` — Echo Knight panel desteği (Fighter, EGtW p.183).
+
+  Critical Role / Wildemount kaynaklı Echo Knight subclass'ı için
+  panelde kaynak tracker'ları ve Reclaim Potential butonu eklendi.
+
+  **Unleash Incarnation** (L3+, LR) — CON modifier kadar kullanım,
+  echo'nun olduğu noktadan ek saldırı atmanı sağlıyor. Tracker
+  +/- pip'leri ile takip edilir. Long Rest'te yenilenir.
+
+  **Shadow Martyr** (L10, SR) — 1/short rest reaction. Yakındaki
+  bir müttefiğe gelen saldırıyı echo'ya yönlendir.
+
+  **Reclaim Potential** (L15+, LR) — echo yok edildiğinde 2d6+CON
+  geçici HP. Tek-dokunuş Dice+ butonu, formula buton üstünde
+  görünür. CON modifier kadar kullanım/LR.
+
+  Engine: 4 yeni derived field (unleashIncarnationUses, shadow
+  MartyrUses, reclaimPotentialFormula, reclaimPotentialUses).
+  Multiclass desteği var (Wizard 5 / Echo Knight 3 → çalışır).
+
+  Test: 31 yeni test (20 derived + 11 panel UI). 4210/4210 pass.
+  Manifest 0.3.62 → 0.3.63.
+
 - `0.3.62` — Indomitable & Stroke of Luck quick-spend butonları.
 
   Fighter ve Rogue capstone'ları için hızlı kullanım butonları
