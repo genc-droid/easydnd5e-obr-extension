@@ -133,6 +133,32 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.67` — Beast Master Ranger reactive chip seti (PHB p.93).
+
+  PHB Beast Master Ranger için panele 4 reactive chip eklendi.
+  Companion HP/AC tracker ayrı bir sürümde gelecek; bu sürüm
+  feature hatırlatmalarını ve PB-to-stats kuralını surfaclıyor.
+
+  **Ranger's Companion** (L3+) chip — beast HP floor (4×ranger
+  level) hesaplanıp gösterilir, PB'in companion AC/attack/damage/
+  saves'e eklendiği hatırlatılır.
+
+  **Exceptional Training** (L7+) chip — bonus action ile Dash/
+  Disengage/Help komutu, beast saldırıları magical sayılır.
+
+  **Bestial Fury** (L11+) chip — companion attack komutuyla 2
+  saldırı yapar.
+
+  **Share Spells** (L15+) chip — kendine cast ettiğin self-target
+  spell'ler 30 ft içindeki companion'a da etki edebilir.
+
+  Engine: 5 yeni derived (hasRangersCompanion, rangersCompanion
+  HpFloor, hasExceptionalTraining, hasBestialFury, hasShareSpells).
+  Multiclass desteği var.
+
+  Test: 12 yeni test. Toplam 4279/4279 pass.
+  Manifest 0.3.66 → 0.3.67.
+
 - `0.3.66` — Path of Wild Magic Barbarian (TCoE p.50).
 
   Tasha's Wild Magic Barbarian için panelde Wild Surge tek-dokunuş
