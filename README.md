@@ -133,6 +133,48 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.53` — 6 QA subagent'ından çıkan kritik exploit ve production bug
+  paketi. Subagent'lar paralel çalıştırıldı, 120 bulgu / 18 P0 raporlandı.
+  Bu sürüm en kritik 7 P0'ı kapatıyor (geri kalanı 0.3.54-55 için sıralı):
+  • **Sorcery Points key mismatch** — PRODUCTION BUG. Runtime `'sorcery'`
+    key'i kullanırken store recharge `'sorcery-points'`. Sorcerer L20
+    Sorcerous Restoration UZUN SÜREDİR ÇALIŞMIYORDU. Test'ler yanlış
+    side'ı seed ettiği için maskelenmişti. PHB p.103 RAW.
+  • **Hexblade's Curse 1/SR gate** — eskiden serbest re-toggle, sınırsız
+    activate. RAW (XGtE p.55): "Once you use this feature, you can't use
+    it again until you finish a short or long rest." Resource counter
+    eklendi, short rest'te recharge olur, butonun ⌛ durumu var.
+  • **Rage / Bladesong activation resource spend** — `setRageActive(true)`
+    ve `setBladesongActive(true)` rage/bladesong counter'ını bypass
+    ediyordu. Sınırsız rage/bladesong! RAW (PHB p.48 + XGtE p.74): her
+    activation 1 use harcar. Şimdi state transition'da spend yapılıyor.
+  • **Stunning Strike: ki on hit** — eskiden chip tıklayınca ki harcanıyordu
+    (miss olsa bile). RAW (PHB p.79): "When you HIT a creature with a
+    melee weapon attack". Şimdi armable chip + onHit callback'inde spend.
+  • **Multi-item over-consume fix** — Speak with Dead'i envanterde 4
+    incense varsa 4'ünü de yakıyordu! Şimdi tek-component için sadece
+    matchingItems[0] decrement. Multi-component (Astral Projection,
+    Symbol, Sequester) için per-tier item match'i ile her gp tier'ı
+    için ayrı decrement.
+  • **Twinned Spell multi-ray gate** — Scorching Ray, Magic Missile,
+    Eldritch Blast'ta Twinned chip yanlışlıkla eligible'dı. RAW (PHB
+    p.102): "If it can target more than one creature at the chosen level,
+    it can't be twinned." Multi-projectile detection eklendi.
+  • **Paralyzed/Stunned/Petrified/Unconscious → concentration auto-drop**
+    — RAW (PHB p.203): "You also lose concentration on a spell if you
+    become incapacitated or if you die." `toggleCondition` ve
+    `setExhaustion` artık incapacitated ya da exhaustion 6 olunca
+    `concentratingOn`'u null'a alıp ilgili spell effect'lerini temizliyor.
+  • Test: 3483/3483 pass + güncellenmiş test'ler (sorcery key, Stunning
+    Strike behavior). Manifest 0.3.52 → 0.3.53.
+
+  **Henüz kapatılmadı (0.3.54-55 sıralı):** Battle Master maneuvers on
+  hit (cross-component refactor), 4 cleric domain CD eksik (Arcana,
+  Order, Peace, Twilight), 6 paladin oath CD eksik, Hexadin pact slot
+  smite, Eldritch Smite rider, Hunter Colossus / Gloomstalker Dread
+  Ambusher rider chip'leri, Lay on Hands bulk spend, OUT OF SLOTS chip,
+  Save DC strip default tab.
+
 - `0.3.52` — Site Background step'e Clear butonu (kullanıcı: "yanlışlıkla
   tıkladım seçmemi iptal edemiyorum") + 6 yeni geliştirme subagent'ı
   ihale projesinin kapsamlı QA katmanı için.
