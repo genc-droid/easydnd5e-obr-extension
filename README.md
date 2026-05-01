@@ -133,6 +133,41 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.98` — 4 XGtE Monk subclass paneli (Long Death + Sun Soul + Drunken Master + Kensei).
+
+  XGtE'nin 4 popüler Monk subclass'ı için 1 button + 17 reactive
+  chip eklendi.
+
+  **Way of the Long Death** (XGtE p.31):
+  • Touch of Death (L3+) — kill on creature, temp HP = WIS + monkLvl
+  • Hour of Reaping (L6+) action 30 ft frighten
+  • Mastery of Death (L11+) 1 ki = 1 HP at 0
+  • Touch of the Long Death (L17+) 1-10 ki, 2d10 necrotic each
+
+  **Way of the Sun Soul** (XGtE p.34):
+  • Radiant Sun Bolt (L3+) buton — 1d4/6/8/10 + DEX radiant ranged
+    spell attack 30 ft (martial arts die scaling)
+  • Searing Arc Strike (L3+) chip — 2 ki Burning Hands
+  • Searing Sunburst (L11+) chip — 2d6 sphere + ki upcast
+  • Sun Shield (L17+) chip — 5+WIS radiant on melee hit
+
+  **Way of the Drunken Master** (XGtE p.30):
+  • Drunken Technique (L3+) — Flurry Disengage + 10 ft
+  • Tipsy Sway (L6+) — stand 5 ft + 1 ki redirect
+  • Drunkard's Luck (L11+) — 2 ki cancel DIS
+  • Intoxicated Frenzy (L17+) — Flurry +3 attacks
+
+  **Way of the Kensei** (XGtE p.32):
+  • Path of the Kensei (L3+) — Kensei Shot + Agile Parry
+  • One with the Blade (L6+) — magical kensei + Deft Strike
+  • Sharpen the Blade (L11+) — 1-3 ki: +1/+2/+3
+  • Unerring Accuracy (L17+) — reroll missed monk weapon
+
+  Engine: 18 yeni derived field. Multiclass desteği var.
+
+  Test: 4568/4568 pass.
+  Manifest 0.3.97 → 0.3.98.
+
 - `0.3.97` — Crown + Glory Paladin + Horizon Walker + Monster Slayer Ranger.
 
   4 popüler PHB+XGtE+TCoE subclass'ı için 25 reactive chip + 2 LR
