@@ -133,6 +133,43 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.54` — %100 RAW doğruluk yol haritası Faz 1: 17 yeni RAW-doğrulamalı
+  feature button + rider chip. Wikidot RAW spec'leri (PHB+XGtE+TCoE+SCAG+
+  MoT) live-fetch ile doğrulandı. Tümü uygun subclass + level
+  kombinasyonunda otomatik render olur.
+
+  **4 cleric XGtE/SCAG/TCoE domain CD:**
+  • Arcana L2: Arcane Abjuration (SCAG p.125) - WIS save fey/fiend/celestial/elemental
+  • Order L2: Order's Demand (TCoE p.33) - 30 ft multi-target WIS save charm
+  • Peace L2: Balm of Peace (TCoE p.34) - 2d6+WIS heal each creature near move (zar atilir)
+  • Twilight L2: Twilight Sanctuary (TCoE p.36) - 30 ft sphere 1 dk, 1d6+cleric_lvl temp HP per turn-end (zar atilir)
+
+  **6 paladin oath x 12 yeni CD button:**
+  • Ancients: Nature's Wrath (10 ft restrain) + Turn the Faithless
+  • Conquest: Conquering Presence (frighten) + Guided Strike (+10 atk after roll)
+  • Crown: Champion Challenge (movement-lock) + Turn the Tide (1d6+CHA heal, zar atilir)
+  • Glory: Peerless Athlete (Athletics/Acrobatics) + Inspiring Smite (2d8+pal_lvl temp HP, zar atilir)
+  • Redemption: Emissary of Peace (+5 Persuasion) + Rebuke the Violent (radiant retaliate)
+  • Watchers: Watcher's Will (CHA mod allies INT/WIS/CHA save adv) + Abjure Extraplanar
+
+  **Eldritch Smite rider chip** (Pact-of-Blade Warlock L5+ XGtE p.56):
+  silah saldiri row'unda armable chip - on-hit pact slot harca,
+  (slot+1)d8 force damage + Huge altinda prone. Once per turn.
+
+  **Hexadin pact slot smite** (SAC ruling Crawford 2017): Divine Smite
+  picker'a yeni "Smite Pact LX" chip. Pact slot kullanir (regular slot
+  degil); pact slot level'inda smite dice atilir.
+
+  **Ranger rider chip'leri:**
+  • Hunter Colossus Slayer (PHB p.93) - +1d8 weapon-type, target's HP < max
+  • Gloomstalker Dread Ambusher (XGtE p.42) - +1d8 first-turn extra attack
+
+  Tum yeni feature'lar wikidot RAW verbatim text'ten turetildi. Sayfa
+  numarasi tooltip + scene roll'da. Zar atan CD'ler Dice+ formula'yi
+  otomatik gonderir. Subclass + level gating dogru.
+
+  Test: 3941/3941 pass + tip check temiz. Manifest 0.3.53 -> 0.3.54.
+
 - `0.3.53` — 6 QA subagent'ından çıkan kritik exploit ve production bug
   paketi. Subagent'lar paralel çalıştırıldı, 120 bulgu / 18 P0 raporlandı.
   Bu sürüm en kritik 7 P0'ı kapatıyor (geri kalanı 0.3.54-55 için sıralı):
