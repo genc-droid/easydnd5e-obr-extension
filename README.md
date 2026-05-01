@@ -133,6 +133,45 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.99` — Alchemist + Artillerist + Armorer Artificer paneli (TCoE).
+
+  TCoE'nin 3 popüler Artificer subclass'ı için 12 reactive chip + 4
+  LR sayaç row eklendi. (Battle Smith zaten 0.3.77'de shipped — bu
+  sürümle tüm 4 PHB+TCoE Artificer subclass'ı tamamlandı.)
+
+  **Alchemist** (TCoE p.74-75):
+  • Experimental Elixir (L3+) — 1/2/3 LR free elixir (Healing,
+    Swiftness, Resilience, Boldness, Flight, Transformation)
+  • Alchemical Savant (L5+) — INT mod auto on heal/poison/acid/fire/
+    necrotic damage of focus-cast spells
+  • Restorative Reagents (L9+) — INT mod /LR free Lesser Restoration
+    + 2d6+INT temp HP elixir option
+  • Chemical Mastery (L15+) — acid/poison resist + immune poisoned +
+    free Greater Restoration & Heal 1/LR each
+
+  **Artillerist** (TCoE p.76-77):
+  • Eldritch Cannon (L3+) — Tiny/Small construct, Flamethrower /
+    Force Ballista / Protector. 1/LR free OR L1+ slot
+  • Arcane Firearm (L5+) — +1d8 to one spell damage roll (focus)
+  • Explosive Cannon (L9+) — cannon +1d8, detonate 3d8 force
+  • Fortified Position (L15+) — half cover within 10 ft, 2 cannons
+
+  **Armorer** (TCoE p.77-79):
+  • Arcane Armor (L3+) — Guardian (thunder gauntlet) or Infiltrator
+    (lightning launcher) model. Don/doff 1 action, treats STR as 19
+  • Extra Attack (L5+) flag (separate from base)
+  • Armor Modifications (L9+) — +2 effective infusion slots on armor
+    parts
+  • Perfected Armor (L15+) — Guardian pull 30 ft / Infiltrator
+    +1d6 + multi-target lightning
+
+  Engine: 12 yeni derived field, multiclass desteği var
+  (subclass.id veya multiclassInfo). Kaynak: easydnd5e.app + wikidot
+  Artificer:Alchemist/Artillerist/Armorer sayfaları.
+
+  Test: 4568+/4568+ pass.
+  Manifest 0.3.98 → 0.3.99.
+
 - `0.3.98` — 4 XGtE Monk subclass paneli (Long Death + Sun Soul + Drunken Master + Kensei).
 
   XGtE'nin 4 popüler Monk subclass'ı için 1 button + 17 reactive
