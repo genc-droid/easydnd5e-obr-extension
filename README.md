@@ -133,6 +133,25 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.87` — Blood Hunter multiclass desteği (CR2020 revised).
+
+  Discord rapor: "Blood hunter classı multiclasss yapılmıyor".
+  Mevcut MULTICLASS_RULES listesinde bloodhunter eksikti — şimdi
+  eklendi.
+
+  **Prereq**: INT 13 + (STR 13 OR DEX 13). Critical Role 2020
+  revised: "Strength or Dexterity score of 13, in addition to an
+  Intelligence score of 13" (Hemocraft INT-bound olduğu için).
+
+  **Proficiency gain on multiclass**: Light armor, medium armor,
+  shields, simple weapons, martial weapons, alchemist's supplies.
+
+  Test: 6 yeni test (INT+STR pass, INT+DEX pass, INT only fail,
+  STR only fail, INT 12 + STR/DEX 13 fail, all 13s pass).
+  Toplam 4568/4568 pass.
+
+  Manifest 0.3.86 → 0.3.87.
+
 - `0.3.86` — Custom Item refactor: Others kategorisi + proficiency override.
 
   Discord raporundaki 3 custom item bug'ı düzeltildi.
