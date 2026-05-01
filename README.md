@@ -133,6 +133,33 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.71` — Monk Way of Mercy + Samurai Fighter panel desteği.
+
+  İki popüler XGtE/TCoE subclass'ı için panele tek-dokunuşlu
+  ki harcayan butonlar, LR sayaç row'ları ve reactive chip'ler
+  eklendi.
+
+  **Way of Mercy Monk** (TCoE p.49):
+  • Hand of Healing (L3+) butonu — 1 ki -1 + Dice+'a martial arts
+    die + WIS heal formülü (1d4+WIS / 1d6+WIS / 1d8+WIS / 1d10+WIS
+    at L3/L5/L11/L17)
+  • Hand of Harm (L3+) butonu — 1 ki -1 + Dice+'a martial arts
+    die + WIS necrotic. 1/turn rider on unarmed hit.
+  • Hand of Ultimate Mercy (L17+) butonu — 5 ki -5 + 1/LR + Dice+'a
+    4d10+WIS revive HP. 24 saat içinde ölmüş yaratık için.
+  • Physician's Touch (L6+) chip — Healing/Harm condition rider
+  • Flurry of Healing and Harm (L11+) chip — Flurry combo
+
+  **Samurai Fighter** (XGtE p.34):
+  • Fighting Spirit (L3+) butonu — 3/LR -1 + temp HP (5/10/15 at
+    L3/L10/L15) + ADV on melee weapon attacks chip
+  • Strength Before Death (L18+) 1/LR sayaç row
+  • Tireless Spirit (L10+) chip — initiative refill hatırlatması
+  • Rapid Strike (L15+) chip — ADV trade for extra attack
+
+  Test: 25 yeni test. Toplam 4396/4396 pass.
+  Manifest 0.3.70 → 0.3.71.
+
 - `0.3.70` — Spores Druid panel desteği (TCoE p.41-42).
 
   Tasha's Circle of Spores için panele Halo of Spores reaction
