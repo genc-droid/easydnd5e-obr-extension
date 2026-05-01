@@ -133,6 +133,26 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.80` — Wikidot RAW drift fix 3. dalga: Whispers + Fey Wanderer.
+
+  0.3.78/79 doğrulamasının üçüncü dalgası. Whispers Bard ve Fey
+  Wanderer Ranger'ın bazı detayları RAW'a hizalandı.
+
+  **Whispers Bard Psychic Blades** (XGtE p.16):
+  • RAW kısıtı eklendi: **once per round on your turn**. Buton
+    title + scene chip + notify metni hatırlatması içerir.
+
+  **Fey Wanderer Ranger** (TCoE p.60):
+  • Beguiling Twist (L7): "1/long rest" yanlıştı, RAW **short or
+    long rest**'te yenilenir. lrOnlyKeys'ten srKeys'e taşındı.
+  • Misty Wanderer (L15) chip metni: "CHA modifier" yanlıştı,
+    RAW **WIS modifier (min 1)** /LR.
+
+  Test: 1 mevcut Beguiling Twist test güncellendi (artık SR'da
+  resetlenir). Toplam 4537/4537 pass.
+
+  Manifest 0.3.79 → 0.3.80.
+
 - `0.3.79` — Wikidot RAW drift fix devam: War Magic Wizard.
 
   0.3.78'in devamı olarak War Magic Wizard'ın iki kritik formülü
