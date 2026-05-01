@@ -133,6 +133,33 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.104` — Wikidot RAW drift fix (Armorer Artificer) + Builder picker eklenmesi.
+
+  0.3.99 Armorer Artificer'ı kaynak doğrulamasız ship edilmişti.
+  Tekrar wikidot RAW karşılaştırması sonucu 4 önemli farklılık
+  düzeltildi:
+
+  • Guardian Thunder Gauntlets: 1d8+STR ❌ → 1d8 thunder + INT mod
+    attack/damage (RAW: Armorer hep INT scaling)
+  • Infiltrator Lightning Launcher: "+1d6 vs marked target" ❌ →
+    "1/turn extra +1d6 lightning (no marking required)"
+  • Perfected Armor Guardian: pull 30 ft ❌ → pull up to 25 ft,
+    sadece HUGE+ creature, PB/LR limit, 5 ft içine çekersen ekstra
+    melee saldırı
+  • Perfected Armor Infiltrator: tamamen yanlıştı (multi-target
+    INT mod) → glimmering 5-ft dim light + DIS attacks vs you +
+    next attack ADV + ekstra 1d6 lightning on hit
+
+  0.3.103'te 2 yeni state field (stormAuraEnvironment +
+  zealotDamageType) eklendi ama builder'da picker UI'ı yoktu —
+  kullanıcı seçim yapamıyordu. Bu sürüm 2 picker card ekliyor:
+  • Storm Aura Environment (Desert/Sea/Tundra) — Storm Herald'lar
+    için, her seviye atlamada değiştirilebilir
+  • Divine Fury Damage Type (Radiant/Necrotic) — Zealot'lar için,
+    L3'te seçilir, sticky
+
+  Manifest 0.3.103 → 0.3.104.
+
 - `0.3.103` — Barbarian XGtE üçlüsü: Ancestral Guardian + Storm Herald + Zealot.
 
   XGtE'nin 3 popüler Barbarian path'ı için 14 reactive chip + 2 LR/SR
