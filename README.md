@@ -133,6 +133,32 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.91` — Tempest Cleric + War Cleric panel desteği (PHB p.62-63).
+
+  İki PHB Cleric domain için panele tek-dokunuş Wrath of the Storm
+  reaction butonu, iki LR sayaç row'u ve 7 reactive chip eklendi.
+
+  **Tempest Cleric** (PHB p.62):
+  • Wrath of the Storm (L1+, WIS/LR) butonu — reaction tıkla → Dice+
+    2d8 lightning/thunder + sahnede DEX save chip
+  • Wrath of the Storm sayaç row
+  • Destructive Wrath (L2+) chip — CD ile MAX lightning/thunder
+  • Thunderous Strike (L6+) chip — lightning hit'inde 10 ft push
+  • Divine Strike (L8+ 1d8 / L14+ 2d8) chip — thunder rider
+  • Stormborn (L17+) chip — açıkta fly speed
+
+  **War Cleric** (PHB p.63):
+  • War Priest (L1+, WIS/LR) sayaç row — Attack action sonrası
+    bonus action ek silah saldırısı
+  • War God's Blessing (L6+) chip — CD reaction +10 ally attack
+  • Divine Strike (L8+ 1d8 / L14+ 2d8) chip — weapon damage type
+  • Avatar of Battle (L17+) chip — non-magic BPS resistance
+
+  Engine: 9 yeni derived field. Multiclass desteği var.
+
+  Test: 4568/4568 pass.
+  Manifest 0.3.90 → 0.3.91.
+
 - `0.3.90` — Diviner Wizard Portent dice picker (PHB p.116).
 
   Diviner subclass'ı için panele Portent dice picker eklendi.
