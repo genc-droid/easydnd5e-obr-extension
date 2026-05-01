@@ -133,6 +133,45 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.103` — Barbarian XGtE üçlüsü: Ancestral Guardian + Storm Herald + Zealot.
+
+  XGtE'nin 3 popüler Barbarian path'ı için 14 reactive chip + 2 LR/SR
+  sayaç row eklendi. Bu sürümle Barbarian (Berserker/Totem Warrior/
+  Beast/Wild Magic/Ancestral/Storm Herald/Zealot) için PHB+XGtE+TCoE
+  coverage tamamlandı.
+
+  **Path of the Ancestral Guardian** (XGtE p.10):
+  • Ancestral Protectors (L3+) — first hit per turn → DIS attack vs
+    others + resist on their hits to others
+  • Spirit Shield (L6+) — reaction reduce damage 2d6/3d6/4d6 by tier
+  • Consult the Spirits (L10+, 1/SR) — Augury or Clairvoyance free
+  • Vengeful Ancestors (L14+) — Spirit Shield damage echoes back
+
+  **Path of the Storm Herald** (XGtE p.10):
+  • Storm Aura (L3+) — 10-ft aura while raging, BA reactivate.
+    DC 8+PB+CON. 3 environments (env picked at L3, changeable each
+    level): Desert (2-6 fire damage), Sea (1d6-4d6 lightning DEX),
+    Tundra (2-6 temp HP)
+  • Storm Soul (L6+) — passive env resist (fire/lightning+swim/cold)
+  • Shielding Storm (L10+) — aura grants Storm Soul resist to allies
+  • Raging Storm (L14+) — env capstone reaction
+
+  **Path of the Zealot** (XGtE p.11):
+  • Divine Fury (L3+) — 1/turn while raging, first hit deals
+    1d6+halfBarbLvl extra damage (radiant or necrotic, pick at L3)
+  • Warrior of the Gods (L3+) — resurrection no material components
+  • Fanatical Focus (L6+) — 1/rage save reroll
+  • Zealous Presence (L10+, 1/LR) — BA, 10 allies in 60 ft ADV
+    attacks/saves until next turn start
+  • Rage Beyond Death (L14+) — 0 HP while raging, stay up
+
+  Engine: 16 yeni derived field, multiclass desteği var. 2 yeni
+  state field: stormAuraEnvironment + zealotDamageType (picker'lar).
+  Kaynak: easydnd5e.app + wikidot barbarian:ancestral-guardian/
+  storm-herald/zealot. Tüm RAW spec WebFetch ile doğrulandı.
+
+  Manifest 0.3.102 → 0.3.103.
+
 - `0.3.102` — Runtime version mismatch detection.
 
   0.3.101 .htaccess fix gelecek kullanıcılar için cache problemini
