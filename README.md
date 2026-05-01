@@ -133,6 +133,28 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.79` — Wikidot RAW drift fix devam: War Magic Wizard.
+
+  0.3.78'in devamı olarak War Magic Wizard'ın iki kritik formülü
+  yeniden WebFetch ile doğrulandı ve düzeltildi.
+
+  **Power Surge max stored**: ben yanlışlıkla `floor(INT/2)` yazdım.
+  RAW: **INT modifier (min 1)**. Yani L6 INT 18 War Magic eskiden
+  max 2 stored gösteriyordu, şimdi doğru şekilde 4 (full INT mod).
+
+  **Deflecting Shroud damage**: ben `2× wizardLvl` yazdım — büyük
+  drift! RAW: "**half your wizard level**" (her hedefe ayrı, split
+  değil). L14 War Magic eskiden 28 force gösteriyordu, doğrusu 7
+  per creature (3 hedefe kadar her biri ayrı 7).
+
+  Chip metni de düzeltildi — "split among 3 creatures" yanlıştı,
+  doğrusu "her hedef ayrı half wizard level damage alır".
+
+  Test: 4 mevcut War Magic test güncellendi + 1 yeni "INT 8 clamp"
+  testi. Toplam 4537/4537 pass.
+
+  Manifest 0.3.78 → 0.3.79.
+
 - `0.3.78` — Wikidot RAW drift fix (4 sürüm geriye dönük doğrulama).
 
   Son sürümlerin bazı detayları wikidot RAW ile yeniden WebFetch'lendi
