@@ -133,6 +133,40 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.96` — Cavalier + Banneret Fighter + Inquisitive/Mastermind/Scout Rogue.
+
+  XGtE'nin 5 sosyal/utility subclass'ı için 23 reactive chip + 2
+  LR sayaç row eklendi.
+
+  **Cavalier Fighter** (XGtE p.27):
+  • Unwavering Mark (L3+) chip — melee hit marks creature
+  • Warding Maneuver (L7+, CON mod /LR) sayaç row
+  • Hold the Line (L10+) / Ferocious Charger (L15+) / Vigilant Defender (L18+) chips
+
+  **Banneret Fighter** (SCAG):
+  • Rallying Cry (L3+) — Second Wind heals 3 allies
+  • Inspiring Surge (L10+ / L18+ 2 allies) chips
+  • Bulwark (L15+) chip
+
+  **Inquisitive Rogue** (XGtE p.46):
+  • Ear for Deceit / Eye for Detail / Insightful Fighting (L3+)
+  • Steady Eye (L9+)
+  • Unerring Eye (L13+, WIS mod /LR) sayaç row
+  • Eye for Weakness (L17+)
+
+  **Mastermind Rogue** (XGtE p.47-48):
+  • Master of Tactics (L3+) — Help bonus action + 30 ft
+  • Insightful Manipulator (L9+) / Misdirection (L13+) / Soul of Deceit (L17+)
+
+  **Scout Rogue** (XGtE p.48):
+  • Skirmisher / Survivalist (L3+)
+  • Superior Mobility (L9+) / Ambush Master (L13+) / Sudden Strike (L17+)
+
+  Engine: 23 yeni derived field. Multiclass desteği var.
+
+  Test: 4568/4568 pass.
+  Manifest 0.3.95 → 0.3.96.
+
 - `0.3.95` — Shadow Sorc + 3 PHB Warlock patron paketi (büyük dalga).
 
   Discord-popüler 4 subclass için 17 yeni reactive chip + 6 LR/SR
