@@ -133,6 +133,25 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.60` — Dragonborn Breath Weapon panel butonu (PHB p.34 + FToD).
+
+  Dragonborn karakter seçtiğinizde panelde otomatik olarak ırk
+  özelliğiniz için bir buton beliriyor. Wikidot RAW table tam:
+
+  **Hasar tipi & şekil & save** ancestry'e göre eşleniyor (15 toplam):
+  • PHB (10): Black/Blue/Brass/Bronze/Copper/Gold/Green/Red/Silver/White
+  • FToD gem (5): Amethyst/Crystal/Emerald/Sapphire/Topaz
+
+  **Hasar dice scaling** karakter level'a göre (sınıf değil):
+  • L1-5: 2d6 / L6-10: 3d6 / L11-15: 4d6 / L16+: 5d6
+
+  **Save DC** = 8 + CON mod + PB. Shape (line/cone) ve save ability
+  (DEX/CON) ancestry'e bağlı. SR/LR sonrası kullanım yenileniyor
+  ('breath-weapon' resource keyed).
+
+  Test: 4135/4135 pass + 21 yeni Dragonborn breath test.
+  Manifest 0.3.59 → 0.3.60.
+
 - `0.3.59` — Engine→UI binding chip dalgası (subagent fresh audit P1).
   Engine derive ediyor ama UI okumuyor pattern'ı 14 yeni chip ile kapatıldı.
   Hepsi wikidot RAW URL referanslı.
