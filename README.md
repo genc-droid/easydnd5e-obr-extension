@@ -133,6 +133,30 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.65` — Path of the Beast Barbarian (TCoE p.50).
+
+  Tasha's kaynaklı Path of the Beast subclass'ı için panele
+  Form of the Beast hatırlatma chip'leri ve Infectious Fury /
+  Call the Hunt LR sayaçları eklendi.
+
+  **Form of the Beast** chip'leri (L3+, raging) — üç doğal silah
+  seçeneği reactive abilities'te listeleniyor:
+  • Bite (1d8 piercing) — düşük HP'de hit on creature: 1d8+STR temp HP
+  • Claws (1d6 slashing) — Attack action sonrası bonus action ek pençe
+  • Tail (1d8 piercing, 10 ft) — reaction +1d8 AC
+
+  **Bestial Soul** (L6+) chip — natural weapons magical + LR'da
+  swim/climb/jump bonus seçimi.
+
+  **Infectious Fury** (L10+, PB/LR) — sayaç row, +/- pip tracker.
+  **Call the Hunt** (L14+, PB/LR) — sayaç row.
+
+  Engine: 4 yeni derived (hasFormOfTheBeast, hasBestialSoul,
+  infectiousFuryUses, callTheHuntUses). Multiclass desteği var.
+
+  Test: 17 yeni test. Toplam 4252/4252 pass.
+  Manifest 0.3.64 → 0.3.65.
+
 - `0.3.64` — Wild Magic Sorcerer panel desteği (PHB p.103-104).
 
   Wild Magic Sorcerer için panele iki tek-dokunuşlu buton + üç
