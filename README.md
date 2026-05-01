@@ -133,6 +133,37 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.107` — Swarmkeeper + Drakewarden Ranger (TCoE/FToD).
+
+  TCoE Swarmkeeper + FToD Drakewarden için 8 reactive chip + 5 LR
+  sayaç row eklendi. Bu sürümle Ranger (Hunter/Beast Master/Gloom
+  Stalker/Horizon Walker/Monster Slayer/Fey Wanderer/Swarmkeeper/
+  Drakewarden) için PHB+XGtE+TCoE+FToD coverage tamamlandı.
+
+  **Swarmkeeper** (TCoE p.59):
+  • Gathered Swarm (L3+) — 1/turn after hit, pick: 1d6/1d8 piercing,
+    target STR save vs DC 8+PB+WIS or moved 15 ft (L11 prone), self
+    moved 5 ft (L11 half cover)
+  • Writhing Tide (L7+, PB/LR) — BA 10 ft fly hover 1 min
+  • Mighty Swarm (L11+) — die 1d8, prone option, half cover option
+  • Swarming Dispersal (L15+, PB/LR) — reaction resist + teleport 30 ft
+
+  **Drakewarden** (FToD p.40):
+  • Drake Companion (L3+, 1/LR or slot) — Small dragon AC 14+PB,
+    HP 5+5×rangerLvl, 40 ft walk, bite 1d6+PB +1d6 typed
+    (acid/cold/fire/lightning/poison)
+  • Bond of Fang and Scale (L7+) — drake fly = walking, Medium,
+    mount, +1d6 bite, you resist drake type
+  • Drake's Breath (L11+, 1/LR or L3+ slot) — 30-ft cone DEX
+    8d6 (10d6 L15)
+  • Perfected Bond (L15+, PB/LR) — drake bite +1d6 more, Large,
+    fly mount, Reflexive Resistance reaction grant resist
+
+  Engine: 13 yeni derived field, multiclass desteği var. RAW
+  doğrulaması WebFetch ile yapıldı.
+
+  Manifest 0.3.106 → 0.3.107.
+
 - `0.3.106` — Paladin Redemption + Oathbreaker.
 
   XGtE'nin Redemption Paladin'i için 3 reactive chip eklendi
