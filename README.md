@@ -133,6 +133,38 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.105` — Twilight Cleric + Wildfire Druid (TCoE).
+
+  TCoE'nin 2 popüler subclass'ı için 11 reactive chip + 4 LR sayaç
+  row eklendi.
+
+  **Twilight Domain Cleric** (TCoE p.36):
+  • Eyes of Night (L1+) — 300 ft darkvision, action paylaş
+    WIS mod kişiyle 1 saat (1/LR or slot)
+  • Vigilant Blessing (L1+) — action, ADV next initiative
+  • CD: Twilight Sanctuary (L2+) — 30 ft sphere 1 min, 1d6+
+    clericLvl temp HP OR end charm/fear
+  • Steps of Night (L6+, PB/LR) — BA fly = walking, 1 min,
+    dim/dark gerek
+  • Divine Strike (L8+/14+) — 1d8/2d8 radiant 1/turn
+  • Twilight Shroud (L17+) — aura allies half cover
+
+  **Circle of Wildfire Druid** (TCoE p.41):
+  • Wildfire Spirit (L2+) — action expend Wild Shape, 30 ft
+    Tiny elemental, AC 13, HP 5+5×druidLvl, fire immune,
+    fly 30 ft hover. Summon DEX 2d6 fire 10 ft area. Flame
+    Seed ranged spell attack 60 ft 1d6+PB. Fiery Teleport 15 ft
+    teleport, vacated space DEX 1d6+PB fire.
+  • Enhanced Bond (L6+) — +1d8 fire/heal roll, spell from spirit
+  • Cauterizing Flames (L10+, PB/LR) — Small+ ölünce 30 ft
+    spectral flame, reaction 2d10+WIS heal/damage
+  • Blazing Revival (L14+, 1/LR) — 0 HP → spirit feda → half HP
+
+  Engine: 17 yeni derived field, multiclass desteği var. RAW
+  doğrulaması WebFetch ile yapıldı.
+
+  Manifest 0.3.104 → 0.3.105.
+
 - `0.3.104` — Wikidot RAW drift fix (Armorer Artificer) + Builder picker eklenmesi.
 
   0.3.99 Armorer Artificer'ı kaynak doğrulamasız ship edilmişti.
