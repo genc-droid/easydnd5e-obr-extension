@@ -133,6 +133,48 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.113` — Echo Knight + Psi Warrior + Soulknife panel chip seti.
+
+  Engine'de derived field'ları olan ama panel UI'da chip eksikliği
+  olan Fighter (Echo Knight, Psi Warrior) ve Rogue (Soulknife)
+  subclass'ları için 14 reactive chip + 6 LR/SR sayaç row eklendi.
+
+  **Echo Knight Fighter** (EGtW p.183):
+  • Manifest Echo (L3+) — BA echo AC 14+PB HP 1, 30 ft command,
+    15 ft swap teleport
+  • Echo Avatar (L7+) — action see/hear via echo 10 min, 1000 ft
+  • Shadow Martyr (L10+, 1/SR) — reaction redirect attack to echo
+  • Reclaim Potential (L15+, CON mod /LR) — echo destroyed →
+    2d6+CON temp HP (mevcut)
+  • Legion of One (L18+) — 2 echoes, init regain 1 Unleash use
+
+  **Psi Warrior Fighter** (TCoE p.66):
+  • Protective Field (L3+) — reaction die+INT damage reduce 30 ft
+  • Psionic Strike (L3+) — 1/turn after hit die+INT force
+  • Telekinetic Movement (L3+, 1/SR or die) — action 30 ft Large
+    move
+  • Psi-Powered Leap (L7+, 1/SR or die) — BA fly 2× walking
+  • Telekinetic Thrust (L7+) — Psionic Strike STR save 8+PB+INT
+  • Guarded Mind (L10+) — psychic resist + BA die end charm/fear
+  • Bulwark of Force (L15+, 1/LR or die) — half cover INT mod
+    creatures 30 ft 1 min
+  • Telekinetic Master (L18+, 1/LR or die) — Telekinesis +
+    BA weapon attack
+
+  **Soulknife Rogue** (TCoE p.62):
+  • Psi-Bolstered Knack (L3+) — fail skill check expend die add
+  • Psychic Whispers (L3+) — action telepathy PB creatures
+  • Soul Blades (L9+) — Homing Strikes + Psychic Teleportation
+  • Psychic Veil (L13+, 1/LR or die) — invisible 1 hour
+  • Rend Mind (L17+, 1/LR or 3 dice) — Sneak Attack stun WIS save
+    DC 8+PB+DEX
+
+  Engine: 16 yeni derived field, multiclass desteği var. Bu
+  sürümle Echo Knight + Psi Warrior + Soulknife için tam panel
+  coverage. RAW doğrulaması WebFetch ile yapıldı.
+
+  Manifest 0.3.112 → 0.3.113.
+
 - `0.3.112` — Drakewarden Draconic Essence picker + builder picker audit.
 
   0.3.107'de Drakewarden Ranger eklendi ama drake'in elemental
