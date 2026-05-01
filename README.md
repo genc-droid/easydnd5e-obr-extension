@@ -133,6 +133,27 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.56` — Spell slot race condition exploit kapatıldı + multiclass prereq
+  RAW doğrulamasi.
+
+  **Spell slot race condition (P0 exploit fix)**: rapid double-tap veya
+  iki simultane Hit confirm'in slot'u tek harcayıp iki cast tetiklemesi
+  exploit'i kapatıldı. Çözüm: store'da yeni atomic helper'lar
+  `trySpendSlot(level, max)` ve `trySpendPactSlot(max)` — check+increment
+  tek `set()` callback'inde. Eski read-then-write pattern'ı iki çağrının
+  da used=0 görüp 1 yazmasına izin veriyordu (1 slot harcanır, 2 cast).
+  consumeSlot + smite onHit + Eldritch Smite onHit hepsi yeni atomic
+  API'ye taşındı. 11 yeni stress test (high-volume 100 simultane
+  spend → tam 10 başarı, 90 reddedilir).
+
+  **Multiclass prereq enforcement (P0 doğrulama)**: subagent'in 0.3.51
+  raporunda "INT 8 wizard multiclass kabul ediliyor" iddiası test edildi
+  ve YANLIŞ çıktı. Mevcut engine doğru — `meetsMulticlassPrereqs()`
+  ClassStep.tsx'te aktif gating yapıyor. 23 yeni regression test
+  (PHB p.163 tüm 12 class için tek-stat / OR / AND prereqs).
+
+  Test: 4054/4054 pass + 2 skipped. Manifest 0.3.55 → 0.3.56.
+
 - `0.3.55` — UX gap dalgası + 0.3.54 regression test paketi.
 
   **OUT OF SLOTS chip** (P0): spell row'da slot tükendiğinde butonun
