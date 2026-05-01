@@ -133,6 +133,37 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.57` — Spell formula bulk add (subagent audit) + 2 yeni P0 fix.
+
+  **Subagent audit P0 #1: 14 spell formula eklendi** (Hex, Hunter's Mark,
+  Bless, Divine Favor, Guidance, Resistance, Circle of Death, Harm,
+  Freezing Sphere, Finger of Death, Psychic Scream, Abi-Dalzim's Horrid
+  Wilting + Hunger of Hadar + Melf's Acid Arrow id mismatch fix). Bunlar
+  spellDamage.ts'te eksik olduğu için Dice+'a gönderilmiyordu — oyuncular
+  manuel zar atmak zorundaydı. Şimdi getSpellRoll() doğru formula
+  üretir. P1 paladin smites (Blinding/Branding/Staggering/Banishing) +
+  high-level heals (Regenerate/Mass Heal/Power Word Heal) + XGtE damage
+  (Vitriolic Sphere/Synaptic Static/Steel Wind Strike/Wither and Bloom/
+  Thunder Step/Aganazzar's Scorcher/Spirit Shroud) de eklendi.
+
+  **Subagent audit P0 #2: Wild Shape concentration drop**: Druid
+  beast formundayken `wildShapeHp` damage alındığında concentration
+  CON save tetiklenmiyordu (sadece `currentHp` izleniyordu). PHB p.66
+  RAW + Sage Advice (Crawford): "concentration persists in Wild Shape
+  ve damage save gerektirir". Yeni useEffect watcher eklendi —
+  prevWildShapeHpRef ile damage hesaplanır, DC max(10, dmg/2) ile
+  concPrompt fire eder.
+
+  **Subagent audit P0 #3: Psi Warrior Fighter Psionic Energy gate**:
+  Engine sadece rogue-soulknife için Psionic Energy dice veriyordu.
+  Psi Warrior Fighter (TCoE p.118) aynı RAW mekanik ama panele hiç
+  gelmiyor → oyuncu Psionic Strike / Protective Field track edemiyor.
+  Gate union'a alındı (Soulknife OR Psi Warrior). Multiclass'ta higher
+  die size kullanılır.
+
+  Test: 14 spell formula + 13 Psi Warrior + Wild Shape regression =
+  +44 yeni test. 4087 toplam pass. Manifest 0.3.56 → 0.3.57.
+
 - `0.3.56` — Spell slot race condition exploit kapatıldı + multiclass prereq
   RAW doğrulamasi.
 
