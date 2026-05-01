@@ -133,6 +133,30 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.94` — Necromancer Wizard + Berserker Barbarian chip seti (PHB).
+
+  İki klasik PHB subclass'ı için 7 reactive chip eklendi.
+
+  **Necromancer Wizard** (PHB p.118-119):
+  • Grim Harvest (L2+) — kill on wizard spell L1+ → 2× spell level
+    HP regain (3× for necromancy spells), 1/turn
+  • Inured to Undeath (L10+) — necrotic resistance + immune to MAX
+    HP reduction
+  • Command Undead (L14+) — action: undead WIS save vs DC, fail =
+    charmed for life
+
+  **Berserker Barbarian** (PHB p.49):
+  • Frenzy (L3+) chip — Rage'e başlarken Frenzy seç: bonus action
+    melee saldırı her turn, ama Rage bitince 1 exhaustion
+  • Mindless Rage (L6+) — raging iken charmed/frightened immune
+  • Intimidating Presence (L10+) — action 30 ft, WIS save DC 8+PB+CHA
+  • Retaliation (L14+) — 5 ft içinden hasar alınca reaction melee
+
+  Engine: 7 yeni derived field. Multiclass desteği var.
+
+  Test: 4568/4568 pass.
+  Manifest 0.3.93 → 0.3.94.
+
 - `0.3.93` — Open Hand Monk + Way of Shadow Monk panel desteği (PHB p.78-80).
 
   İki PHB Monk subclass'ı için 3 button + 1 sayaç row + 5 reactive
