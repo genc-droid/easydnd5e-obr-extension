@@ -133,6 +133,37 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.106` — Paladin Redemption + Oathbreaker.
+
+  XGtE'nin Redemption Paladin'i için 3 reactive chip eklendi
+  (Aura of the Guardian L7, Protective Spirit L15, Emissary of
+  Redemption L20). DMG'nin Oathbreaker Paladin'i komple yeniden
+  yazıldı: 2 Channel Divinity butonu (Control Undead + Dreadful
+  Aspect) + 3 reactive chip (Aura of Hate L7, Supernatural
+  Resistance L15, Dread Lord L20) + 1 LR sayaç row (Dread Lord).
+
+  **Redemption** (XGtE p.39):
+  • Aura of the Guardian (L7+) — reaction take ally's damage
+    yourself, 10 ft aura (30 at L18)
+  • Protective Spirit (L15+) — combat'ta turn end < half HP →
+    1d6+halfPalLvl heal (no daily limit)
+  • Emissary of Redemption (L20+) — resist all damage + radiant
+    reflect on hit, kaybeder if you attack/harm
+
+  **Oathbreaker** (DMG p.97):
+  • CD Control Undead (L3+) — 30 ft undead WIS save, CR < palLvl
+  • CD Dreadful Aspect (L3+) — 30 ft creatures WIS save frightened
+  • Aura of Hate (L7+) — +CHA mod (min 1) melee damage to you,
+    fiends, undead in 10/30 ft
+  • Supernatural Resistance (L15+) — non-magical BPS resist
+  • Dread Lord (L20+, 1/LR) — 30 ft aura 1 min, frightened enemies
+    take 4d10 psychic, BA shadow attack 3d10+CHA necrotic
+
+  Engine: 13 yeni derived field, multiclass desteği var. RAW
+  doğrulaması WebFetch ile yapıldı.
+
+  Manifest 0.3.105 → 0.3.106.
+
 - `0.3.105` — Twilight Cleric + Wildfire Druid (TCoE).
 
   TCoE'nin 2 popüler subclass'ı için 11 reactive chip + 4 LR sayaç
