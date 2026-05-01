@@ -133,6 +133,22 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.101` — Cache busting kalıcı düzeltme.
+
+  Discord rapor: kullanıcılar uzun süre önce çözülmüş bug'ları (0.3.51
+  Vengeance Paladin Abjure Enemy + 0.3.85 Guild Artisan tool picker)
+  yeniden bildiriyordu. Kök neden: index.html için 120 saniyelik
+  cache TTL, OBR popover iframe'lerinde eski HTML'i tutarak eski JS
+  bundle hash'lerine sıkıştırıyordu.
+
+  **Düzeltme**: index.html için `Cache-Control: no-cache, no-store`.
+  Browser her panel açılışında ~6 KB index.html'i yeniden fetch eder
+  (bundle JS/CSS hala 1 yıl content-addressed cache). Yeni deploy
+  yapıldığı an her kullanıcı doğrudan en son sürümü görür — eski
+  bug'lar artık cache nedeniyle "geri dönmez".
+
+  Manifest 0.3.100 → 0.3.101.
+
 - `0.3.100` — Stars + Shepherd Druid + Valor + Eloquence + Creation Bard paneli.
 
   5 popüler PHB+XGtE+TCoE subclass'ı için 25 reactive chip + 7 LR/SR
