@@ -133,6 +133,39 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.52` — Site Background step'e Clear butonu (kullanıcı: "yanlışlıkla
+  tıkladım seçmemi iptal edemiyorum") + 6 yeni geliştirme subagent'ı
+  ihale projesinin kapsamlı QA katmanı için.
+  • **Background cancel/reset**: site BackgroundStep'inde seçili background
+    yoksa "Clear" butonu yoktu, oyuncu yanlış tıkladığında geri dönemiyordu.
+    Aktif background satırının üstünde "Selected: <Name> [✕ Clear]" şeridi.
+    Aynı background'a ikinci kez tıklamak da deselect yapar (toggle).
+    `setBackground(null)` zaten store'da çalışıyordu, sadece UI çıkışı yoktu.
+  • **6 yeni subagent** geçmiş Discord raporlarındaki bug pattern'larını
+    benzer case'lerde proaktif yakalamak için (`.claude/agents/`):
+    – **engine-ui-binding-auditor**: "engine doğru hesaplıyor ama UI
+      okumuyor" gap'leri (custom items 0.3.50, conditions 0.3.49,
+      pact slot 0.3.48, domain CDs 0.3.51 hep bu pattern'dı)
+    – **panel-information-density-auditor**: "tooltip'te var ama inline
+      değil" UX bug'ları (BLOCKED material 0.3.50, spell desc 0.3.49,
+      ability scores 0.3.50)
+    – **resource-consumption-tester**: tüm slot/SP/HD/CD/pact/Lay on
+      Hands/rage/superiority dice tüketim path'leri için 6-check matrix
+      (pool size, spend, side effect, payment, recharge, edge cases)
+    – **component-system-stress-tester**: 5-state cast matrix × inventory
+      × toggle × spell-kind. Lightning Bolt 0.3.40, reusable 0.3.45 gibi
+      bug'lar bu matrix'in kapsanmamış hücrelerinden çıkıyordu
+    – **multiclass-edge-case-tester**: full/half/third/pact caster
+      kombinasyonu, EK/AT L<3 gating, save proficiency stacking,
+      cantrip char-level scaling, mixed-ability casters DC
+    – **discord-bug-hunter**: yaratıcı/role-play tarzı player POV bug
+      yakalayıcı. "Ben yaparken Y oluyor" tipindeki UX bug'ları sistematik
+      auditor'ların kaçırdığı yerlerden bulur
+  • Hepsi NON-NEGOTIABLE wikidot doğrulama şartı içerir; her recommend
+    edilen fix wiki URL'siyle gelmeli (proje memory `feedback_wikidot.md`
+    kuralı). Subagent'lar kod yazmaz, sadece raporlar — main agent uygular.
+  • Test: 3483/3483 pass. Manifest 0.3.51 → 0.3.52.
+
 - `0.3.51` — Tüm PHB+XGtE Cleric domain Channel Divinity'leri + Paladin
   Vengeance/Devotion oath CD'leri (kullanıcı: "hep iki tane divinity var
   ikise farklı ise yarıyor bazıları zarları etkiliyor"). Eski sürümde
