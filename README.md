@@ -133,6 +133,25 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.69` — Bard Whispers + Glamour subclass butonları (XGtE p.16/14).
+
+  İki Bard subclass'ı için tek-dokunuşlu Bardic Inspiration
+  harcayan butonlar eklendi.
+
+  **Psychic Blades** (College of Whispers, L3+) — silah saldırısı
+  hit aldığında tıkla → 1 Bardic Inspiration -1 + Dice+'a psychic
+  zar. Scaling: 2d6/3d6/5d6/8d6 at L3/L5/L10/L15.
+
+  **Mantle of Inspiration** (College of Glamour, L3+) — bonus
+  action tıkla → 1 Bardic Inspiration -1 + sahnede chip:
+  CHA mod kadar müttefiğe temp HP (5/8/11/14 at L3/L5/L10/L15)
+  + reaction ile OA'sız hareket.
+
+  Multiclass desteği var (Sorc 5 / Glamour Bard 3 → 5 temp HP).
+
+  Test: 20 yeni test. Toplam 4352/4352 pass.
+  Manifest 0.3.68 → 0.3.69.
+
 - `0.3.68` — Spell formula bulk: 30 yeni büyü.
 
   PHB + XGtE + TCoE'den eksik kalan formul bulundu ve eklendi.
