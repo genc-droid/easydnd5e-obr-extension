@@ -133,6 +133,19 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.81` — Panel header'a logo + marka adı eklendi.
+
+  Easy 5e Sheet markasını panelde görünür kılan kısa bir başlık
+  satırı eklendi:
+  • D20 logosu (16×16 SVG, mevcut OBR mağaza icon'u ile aynı)
+  • "Easy 5e Sheet" wordmark (gold, küçük caps)
+  • Versiyon badge artık tab bar'dan başlık satırına taşındı
+
+  Sahnede yoğun OBR pencereleri arasında panelin kim olduğu
+  artık tek bakışta belli oluyor.
+
+  Manifest 0.3.80 → 0.3.81.
+
 - `0.3.80` — Wikidot RAW drift fix 3. dalga: Whispers + Fey Wanderer.
 
   0.3.78/79 doğrulamasının üçüncü dalgası. Whispers Bard ve Fey
