@@ -133,6 +133,36 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.75` — War Magic Wizard + Aberrant Mind + Clockwork Soul.
+
+  Üç caster subclass'ı için panele kapsamlı destek eklendi.
+
+  **War Magic Wizard** (XGtE p.59-60):
+  • Power Surge (L6+) sayaç row — INT'e göre max stored, label'da
+    +force damage değeri (örn. "Power Surge (max 2, +5 force)")
+  • Arcane Deflection (L2+) chip — reaction +2 AC / +4 save
+  • Tactical Wit (L2+) chip — +INT initiative
+  • Durable Magic (L10+) chip — +2 AC/saves while concentrating
+  • Deflecting Shroud (L14+) chip — Arcane Deflection split damage
+
+  **Aberrant Mind Sorcerer** (TCoE p.65-66):
+  • Warping Implosion (L18+) sayaç row — 3d10 1/LR or 5 SP
+  • Psionic Sorcery (L6+) chip — bonus psionic spells with SP
+  • Psychic Defenses (L6+) chip — psychic resist + ADV charm/fright
+  • Revelation in Flesh (L14+) chip — bizarre transformations
+
+  **Clockwork Soul Sorcerer** (TCoE p.68):
+  • Restore Balance (L1+, PB/LR) sayaç row — cancel ADV/DIS
+  • Trance of Order (L14+, 1/LR) sayaç row — d20≤9 treat as 10
+  • Clockwork Cavalcade (L18+, 1/LR) sayaç row — 100 HP heal,
+    end 6 spells, mend 6 objects
+  • Bastion of Law (L6+) chip — 1-5 SP → N d8 ward dice
+
+  Engine: 14 yeni derived field. Multiclass desteği var.
+
+  Test: 26 yeni test. Toplam 4493/4493 pass.
+  Manifest 0.3.74 → 0.3.75.
+
 - `0.3.74` — Forge + Grave Cleric domain paneli (XGtE p.18-20).
 
   Forge ve Grave domain için kalan feature'lar surface edildi
