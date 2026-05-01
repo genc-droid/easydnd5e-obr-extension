@@ -133,6 +133,30 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.92` — Storm Sorcerer + Eldritch Knight Fighter chip seti.
+
+  İki popüler PHB+XGtE subclass'ı için reactive chip'ler eklendi.
+
+  **Storm Sorcery Sorcerer** (XGtE p.55):
+  • Tempestuous Magic (L1+) — bonus action 10 ft fly after L1+ cast
+  • Heart of the Storm (L6+) — half sorcerer level lightning/thunder
+    auto-damage on cast within 10 ft + lightning/thunder resistance
+  • Storm's Fury (L14+) — reaction lightning damage + 20 ft push
+  • Wind Soul (L18+) — fly 60 ft + lightning/thunder immunity
+
+  **Eldritch Knight Fighter** (PHB p.74-75):
+  • Weapon Bond (L3+) — bonus action summon bonded weapon
+  • War Magic (L7+) — Attack action cantrip → bonus action weapon attack
+  • Eldritch Strike (L10+) — weapon hit imposes DIS on target's next
+    save vs your spell
+  • Arcane Charge (L15+) — Action Surge ile 30 ft teleport
+  • Improved War Magic (L18+) — Attack action ANY spell → bonus weapon
+
+  Engine: 9 yeni derived field. Multiclass desteği var.
+
+  Test: 4568/4568 pass.
+  Manifest 0.3.91 → 0.3.92.
+
 - `0.3.91` — Tempest Cleric + War Cleric panel desteği (PHB p.62-63).
 
   İki PHB Cleric domain için panele tek-dokunuş Wrath of the Storm
