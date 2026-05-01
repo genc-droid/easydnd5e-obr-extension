@@ -133,6 +133,36 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.72` — Rune Knight Fighter + Phantom Rogue panel desteği.
+
+  TCoE'nin iki popüler subclass'ı için panele tek-dokunuşlu LR
+  butonları, sayaç row'ları ve reactive chip'ler eklendi.
+
+  **Rune Knight Fighter** (TCoE p.51):
+  • Giant's Might (L3+, PB/LR) butonu — bonus action ile Large
+    (L18+ Huge) büyüme + ADV STR + +1d6/+1d8/+1d10 damage 1/turn
+    at L3/L10/L18. Buton label'ı boyut + die açıkça görünür
+    ("Giant's Might (Huge, +1d10)")
+  • Runic Shield (L7+, PB/LR) sayaç row + reactive chip — 60 ft
+    ally hit'te attacker reroll
+  • Master of Runes (L15+) reactive chip — runeleri 2/SR'ye çıkarır
+
+  **Phantom Rogue** (TCoE p.62-63):
+  • Wails from the Grave (L3+, PB/LR) butonu — Sneak Attack sonrası
+    ceil(SA/2)d6 (L17+ Death's Friend ile full SA dice) necrotic
+    ikinci hedefe 30 ft içinde
+  • Tokens of the Departed (L9+, PB max) sayaç row — soul trinket
+    inventory tracker
+  • Death's Friend (L17+) reactive chip — Wails full damage + always
+    1 trinket guarantee
+
+  Engine: 9 yeni derived field. Multiclass desteği var.
+
+  Test: 25 yeni test (Giant's Might 4 tier scaling, Wails 3 tier
+  scaling, multiclass support, LR rest cycle). Toplam 4421/4421.
+
+  Manifest 0.3.71 → 0.3.72.
+
 - `0.3.71` — Monk Way of Mercy + Samurai Fighter panel desteği.
 
   İki popüler XGtE/TCoE subclass'ı için panele tek-dokunuşlu
