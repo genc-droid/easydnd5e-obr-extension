@@ -133,6 +133,27 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.62` — Indomitable & Stroke of Luck quick-spend butonları.
+
+  Fighter ve Rogue capstone'ları için hızlı kullanım butonları
+  eklendi. Eskiden yalnızca +/- pip tracker'da görünüyorlardı,
+  artık tek dokunuşla atış yapan butonlar var.
+
+  **Indomitable** (Fighter PHB p.72) — L9'dan itibaren açılır,
+  failed save'i yeniden atmaya yarar. Buton: kullanım -1 + Dice+'a
+  1d20 gönderir + sahnede hatırlatma chip'i. Oyuncu yeni d20'ya
+  kendi save bonusunu ekler. 1/2/3 use at L9/13/17, LR refresh.
+
+  **Stroke of Luck** (Rogue L20, PHB p.97) — failed attack roll'u
+  hit'e veya failed ability check d20'sini 20'ye çevirir. Zar
+  atılmıyor (deterministic substitution); buton sadece kullanımı
+  harcar + sahneye açıklayıcı chip basar. 1/SR.
+
+  Test: 18 yeni test (rendering gates + spend logic + Dice+ flow +
+  rest cycle regression). Toplam 4179/4179 pass.
+
+  Manifest 0.3.61 → 0.3.62.
+
 - `0.3.61` — Druid Land Natural Recovery picker (PHB p.69).
 
   Land Druid'ler için uzun zamandır eksik olan Natural Recovery
