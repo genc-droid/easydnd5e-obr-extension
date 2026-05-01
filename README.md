@@ -133,6 +133,30 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.86` — Custom Item refactor: Others kategorisi + proficiency override.
+
+  Discord raporundaki 3 custom item bug'ı düzeltildi.
+
+  **Custom shield AC editable**: Eskiden `baseAc = 2` hardcoded'tu,
+  artık form'da editable. RAW shield = +2 ama homebrew için yüksek
+  veya farklı değerler gerekebilir ("zorla 2 ac sectiriyor" raporu).
+
+  **Per-item proficiency override**: Yeni `noProficiencyRequired`
+  field'ı + form checkbox. Class weapon/armor/shield prof check'ini
+  bypass eder. Discord rapor: monk shield prof değil ama eklediği
+  custom item shield mantığıyla çalışıyordu, monk takamıyordu.
+
+  **"Other" kategorisi**: Yeni ItemType — homebrew/freeform.
+  Optional damage/AC/damage type alanları, sınıf prof check'i hiç
+  uygulanmıyor. "custom item kısmına komple farklı bi kategori
+  açılabilir 'others' adında" raporu.
+
+  Engine: itemProficiency.ts'de `item.type === 'other'` ve
+  `item.noProficiencyRequired` kontrolleri eklendi. Item interface'e
+  `noProficiencyRequired?: boolean` field'ı eklendi.
+
+  Manifest 0.3.85 → 0.3.86.
+
 - `0.3.85` — Site builder bug dalgası: 3 fix.
 
   Discord raporundaki site (full builder) bug'ları düzeltildi.
