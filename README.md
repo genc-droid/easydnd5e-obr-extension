@@ -133,6 +133,51 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.59` — Engine→UI binding chip dalgası (subagent fresh audit P1).
+  Engine derive ediyor ama UI okumuyor pattern'ı 14 yeni chip ile kapatıldı.
+  Hepsi wikidot RAW URL referanslı.
+
+  **Magic item chips (4)**:
+  • Mithral Plate — no Stealth disadv + no STR prereq
+  • Plate of Etherealness — Etherealness 1/LR
+  • Ring of Mind Shielding — immune to thought detection / charm-via-telepathy
+  • Goggles of Night — 60 ft darkvision
+
+  **Eldritch Invocation passive chips (5)**:
+  • Voice of the Chain Master — telepathic familiar
+  • Whispers of the Grave — Speak with Dead at will
+  • Misty Visions — Silent Image at will
+  • Ascendant Step — Levitate self at will
+  • Otherworldly Leap — Jump self at will
+
+  **Race passive reminders (3)**:
+  • Halfling Lucky (race trait, NOT feat — reroll d20=1)
+  • Halfling Brave (advantage on save vs frightened)
+  • Stonecunning (Dwarf — INT History on stonework, prof + double PB)
+
+  **Class capstone reminder (1)**:
+  • Reliable Talent (Rogue L11+ — d20 ≤ 9 treated as 10 on prof checks)
+
+  **Caster cantrip damage adders (3)**:
+  • Potent Spellcasting (Cleric Light/Knowledge L8 — auto +WIS to cantrip)
+  • Empowered Evocation (Wizard Evoker L10 — auto +INT to evocation)
+  • Elemental Affinity (Sorc Draconic L6 — auto +CHA to matching damage)
+
+  **Wild Shape MaxCR cap reminder**:
+  • Druid wild shape kapasitesi (1/4, 1/2, 1, Moon scaling)
+
+  Ek olarak (subagent discord-bug-hunter P1):
+  - **Heightened Spell metamagic notify echo**: save-spell + save-with-damage
+    branchlerinde metamagicLabel + Heightened hint eklendi. Sorc 3 SP burn
+    edip Hold Person cast ediyorsa GM artık "first save DISADV" hatırlat-
+    masını panelde görür.
+  - **Hexblade's Curse 19-20 crit scene reminder** (XGtE p.55): chip armed
+    iken silah saldırı sonrası scene'e expanded crit range bildirilir.
+    Allies/DM unutursa panel hatırlatır.
+
+  Test: 4087/4087 + 27 yeni binding test = 4114 toplam pass.
+  Manifest 0.3.58 → 0.3.59.
+
 - `0.3.58` — Resource consumption audit P0 dalgası (subagent fresh audit).
 
   **P0-1: Blood Maledict SR recharge eksikliği**: srKeys array'inde
