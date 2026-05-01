@@ -133,6 +133,32 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.93` — Open Hand Monk + Way of Shadow Monk panel desteği (PHB p.78-80).
+
+  İki PHB Monk subclass'ı için 3 button + 1 sayaç row + 5 reactive
+  chip eklendi.
+
+  **Way of the Open Hand** (PHB p.78-79):
+  • Wholeness of Body (L6+, 1/LR) — buton: 3×monk level HP heal +
+    sayaç row
+  • Quivering Palm (L17+, 3 ki) — buton: vibrations set, hedef
+    CON save DC ki / fail = 10d10 necrotic, half on success
+  • Open Hand Technique (L3+) chip — Flurry of Blows hit'inde 3 rider
+  • Tranquility (L11+) chip — long rest sonrası Sanctuary (DC 8+WIS+PB)
+
+  **Way of Shadow** (PHB p.80):
+  • Shadow Arts (L3+, 2 ki) — buton: Darkness/Darkvision/Pass without
+    Trace/Silence cast (no material components)
+  • Shadow Step (L6+) chip — bonus action 60 ft teleport in dim/dark
+    + ADV first melee
+  • Cloak of Shadows (L11+) chip — invisible while in dim/dark
+  • Opportunist (L17+) chip — reaction attack when ally hit
+
+  Engine: 8 yeni derived field. Multiclass desteği var.
+
+  Test: 4568/4568 pass.
+  Manifest 0.3.92 → 0.3.93.
+
 - `0.3.92` — Storm Sorcerer + Eldritch Knight Fighter chip seti.
 
   İki popüler PHB+XGtE subclass'ı için reactive chip'ler eklendi.
