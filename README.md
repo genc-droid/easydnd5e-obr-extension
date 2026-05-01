@@ -133,6 +133,37 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.112` — Drakewarden Draconic Essence picker + builder picker audit.
+
+  0.3.107'de Drakewarden Ranger eklendi ama drake'in elemental
+  damage type'ı (acid/cold/fire/lightning/poison) kullanıcı seçimi
+  olmadan engine'de tutulmuyordu. Drake Companion / Drake's Breath /
+  Bond of Fang and Scale chip'leri "(pick essence in builder)"
+  yazıyor ama builder'da picker yoktu.
+
+  **Düzeltme**: 2 yeni state field (drakewardenEssence,
+  starryFormConstellation) + 1 yeni builder picker card
+  (DrakewardenEssencePicker — Acid/Cold/Fire/Lightning/Poison
+  seçimi). Drake-related chip'ler artık seçilen elemental tipi
+  gösteriyor.
+
+  **Builder picker durumu (audit sonu):**
+  - ✅ Genie Kind (Genie Warlock)
+  - ✅ Armorer Model (Armorer Artificer)
+  - ✅ Storm Aura Environment (Storm Herald Barbarian)
+  - ✅ Zealot Damage Type (Zealot Barbarian)
+  - ✅ Beast Companion (Beast Master Ranger)
+  - ✅ Drakewarden Essence (Drakewarden Ranger) — YENİ 0.3.112
+  - ✅ Crimson Rite (Blood Hunter)
+  - ✅ Profane Soul Patron (Blood Hunter)
+  - ✅ Rune Shaper (feat picker)
+  - ✅ Kensei Weapons / Four Elements / Mutagens
+
+  starryFormConstellation state field eklendi — gelecek sürümde
+  panel'de runtime form toggle olarak kullanılacak.
+
+  Manifest 0.3.111 → 0.3.112.
+
 - `0.3.111` — Celestial + Undying + Undead Warlock paketi.
 
   XGtE Celestial + SCAG Undying + VRGtR Undead Warlock için 13
