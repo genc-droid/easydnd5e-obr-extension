@@ -133,6 +133,47 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.111` — Celestial + Undying + Undead Warlock paketi.
+
+  XGtE Celestial + SCAG Undying + VRGtR Undead Warlock için 13
+  reactive chip + 7 LR/SR sayaç row eklendi. Bu sürümle Warlock
+  (Archfey/Fiend/Great Old One/Genie/Hexblade/Fathomless/Celestial/
+  Undying/Undead) için PHB+XGtE+TCoE+SCAG+VRGtR coverage tamamlandı.
+  Undead Warlock için yeni data tanımı eklendi.
+
+  **The Celestial** (XGtE p.55):
+  • Healing Light (L1+, LR pool) — 1+warlockLvl d6 pool, BA spend
+    up to CHA mod dice (min 1) within 60 ft
+  • Radiant Soul (L6+) — radiant resist + CHA bonus to one
+    fire/radiant damage roll
+  • Celestial Resilience (L10+) — at SR/LR end: warlockLvl+CHA
+    self temp HP, half warlockLvl+CHA each to 5 allies
+  • Searing Vengeance (L14+, 1/LR) — replace death save: half max
+    HP + 30 ft 2d8+CHA radiant + blinded
+
+  **The Undying** (SCAG p.140):
+  • Among the Dead (L1+) — ADV vs disease, undead WIS save targeting
+  • Defy Death (L6+, 1/LR) — death save success/Spare Dying →
+    1d8+CON heal
+  • Undying Nature (L10+) — no eat/drink/sleep, slow aging
+  • Indestructible Life (L14+, 1/SR) — BA 1d8+warlockLvl heal +
+    reattach
+
+  **The Undead** (VRGtR p.30):
+  • Form of Dread (L1+, PB/LR) — BA 1 min, 1d10+warlockLvl temp HP,
+    hit creature WIS save frightened, immune frightened
+  • Grave Touched (L6+) — no eat/drink/breathe + 1/turn necrotic
+    swap, +1 die in Form of Dread
+  • Necrotic Husk (L10+) — necrotic resist (immune Form of Dread),
+    0 HP burst 2d10+warlockLvl + 1 exhaustion
+  • Spirit Projection (L14+, 1/LR conc 1 hr) — spirit form, BPS
+    resist, fly + phase, no components for conj/necro
+
+  Engine: 18 yeni derived field, multiclass desteği var. RAW
+  doğrulaması WebFetch ile yapıldı.
+
+  Manifest 0.3.110 → 0.3.111.
+
 - `0.3.110` — Battlerager Barbarian + Peace Cleric + Dreams Druid.
 
   3 yeni subclass için 17 reactive chip + 1 Channel Divinity button
