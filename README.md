@@ -133,6 +133,38 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.89` — Custom Spell creation (Discord rapor son halkası).
+
+  Discord rapor: "custom ... spell yapma seysi". Custom Item +
+  Custom Background pattern'ı taklit edildi.
+
+  **State**: `customSpells: Spell[]` array + `addCustomSpell` /
+  `removeCustomSpell` actions. ID otomatik 'custom-' prefix alır.
+
+  **Engine resolver**: `data/index.ts`'e `CUSTOM_SPELL_OVERRIDES`
+  Map eklendi + `registerCustomSpell` / `unregisterCustomSpell`
+  helper'ları. Mevcut `getSpell()` fonksiyonu artık önce override
+  map'i kontrol ediyor — selector'larda hiçbir refactor yok ama
+  custom spell'ler her yere düşer.
+
+  **Hydrate**: persist `onRehydrateStorage` callback custom spells'i
+  refresh sonrası resolver'a yeniden register ediyor (yoksa state'te
+  olur ama getSpell bulamaz).
+
+  **UI** (SpellsStep.tsx): "Custom Spells (homebrew)" Card eklendi.
+  + Add Custom Spell butonu. Form: name, level (0-9), school, casting
+  time, range, duration, V/S/M components + material text, class
+  list multi-select, ritual/concentration checkbox, description,
+  higher levels. Saved spells listede chip görünür, "Remove" ile silinir.
+
+  Manifest 0.3.88 → 0.3.89.
+
+  **Discord bug dalgası kapanışı**: 6 sürüm shipped (0.3.84-0.3.89).
+  Vengeance CD2, Metamagic Adept SP, Rune Knight, Rage button,
+  Inspiration count, Coin Purse, Guild Artisan picker, Custom Item
+  Others, Custom shield AC, Proficiency override, Blood Hunter MC,
+  Custom Background, Custom Spell — hepsi shipped.
+
 - `0.3.88` — Custom Background creation.
 
   Discord rapor: "custom back ground ... yapma seysi". Custom Race
