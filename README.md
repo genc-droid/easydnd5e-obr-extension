@@ -133,6 +133,36 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.97` — Crown + Glory Paladin + Horizon Walker + Monster Slayer Ranger.
+
+  4 popüler PHB+XGtE+TCoE subclass'ı için 25 reactive chip + 2 LR
+  sayaç row eklendi.
+
+  **Crown Paladin** (SCAG/XGtE):
+  • CD: Champion Challenge (L3+) / Turn the Tide (L3+)
+  • Divine Allegiance (L7+) / Unyielding Saint (L15+) / Exalted
+    Champion (L20+)
+
+  **Glory Paladin** (TCoE p.59):
+  • CD: Peerless Athlete (L3+) / Inspiring Smite (L3+)
+  • Aura of Alacrity (L7+, +10 ft self + ally aura)
+  • Glorious Defense (L15+, CHA mod /LR) sayaç row
+  • Living Legend (L20+, 1/LR) sayaç row
+
+  **Horizon Walker Ranger** (XGtE p.43):
+  • Detect Portal (L3+) / Planar Warrior (L3+ 1d8 / L11+ 2d8 force)
+  • Ethereal Step (L7+) / Distant Strike (L11+) / Spectral Defense (L15+)
+
+  **Monster Slayer Ranger** (XGtE p.43):
+  • Hunter's Sense (L3+) / Slayer's Prey (L3+)
+  • Supernatural Defense (L7+) / Magic-User's Nemesis (L11+) /
+    Slayer's Counter (L15+)
+
+  Engine: 25 yeni derived field. Multiclass desteği var.
+
+  Test: 4568/4568 pass.
+  Manifest 0.3.96 → 0.3.97.
+
 - `0.3.96` — Cavalier + Banneret Fighter + Inquisitive/Mastermind/Scout Rogue.
 
   XGtE'nin 5 sosyal/utility subclass'ı için 23 reactive chip + 2
