@@ -133,6 +133,37 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.78` — Wikidot RAW drift fix (4 sürüm geriye dönük doğrulama).
+
+  Son sürümlerin bazı detayları wikidot RAW ile yeniden WebFetch'lendi
+  ve bulunan drift'ler düzeltildi. Hiçbir feature kapsamından
+  çıkarılmadı; sadece formüller ve sahne metni RAW'a hizalandı.
+
+  **0.3.74 Grave Cleric** fix:
+  • Eyes of the Grave (L1+): PB değil, **WIS modifier (min 1)** /LR.
+    Düşük WIS'li Grave Cleric için kullanım sayısı azalır (RAW).
+  • Keeper of Souls chip text: 60 ft → **30 ft** (RAW range).
+
+  **0.3.76 Ascendant Dragon Monk** fix:
+  • Breath of the Dragon extra-use cost: 1 ki → **2 ki** (RAW).
+  • L17 Ascendant Aspect breath formula: 2× MA die yerine **4× MA die**.
+    Cone 20 ft → 60 ft, line 30 ft → 90 ft. Hasar yarıya iner save'de
+    (önceki "no halving" yanlıştı).
+
+  **0.3.72 Phantom Rogue** fix:
+  • Death's Friend (L17+): "full Sneak Attack dice" yanlıştı. RAW:
+    Wails formülü AYNI kalır (ceil(SA/2)d6), sadece **HEM birinci HEM
+    ikinci hedefe** uygulanır. Yani L17+ Wails artık çift hasar atışı
+    değil, çift hedef.
+
+  Engine selektörlerinde 4 düzeltme + 4 chip/buton metni RAW'a
+  hizalandı.
+
+  Test: 4 mevcut test güncellendi + 1 yeni "WIS 8 clamp" testi.
+  Toplam 4536/4536 pass.
+
+  Manifest 0.3.77 → 0.3.78.
+
 - `0.3.77` — Fey Wanderer Ranger + Battle Smith Artificer paneli.
 
   TCoE'nun iki Tasha's subclass'ı için panele tek-dokunuş Arcane
