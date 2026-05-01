@@ -133,6 +133,31 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.88` — Custom Background creation.
+
+  Discord rapor: "custom back ground ... yapma seysi". Custom Race
+  pattern'ı taklit edildi.
+
+  **State** (character.ts): `CustomBackgroundData` interface +
+  `state.customBackground` field + `updateCustomBackground` action.
+  Default boş — kullanıcı 'Custom Background' butonuna tıklayınca
+  ID 'custom-background' olur.
+
+  **Engine** (selectors.ts): backgroundId === 'custom-background'
+  ise sentetik bir Background objesi oluşturuluyor (state.custom
+  Background fields'larından). PHB background'lar gibi tüm derive
+  pipeline'ından geçiyor (skill prof + tool prof + language +
+  feature + equipment).
+
+  **UI** (BackgroundStep.tsx):
+  • Background list'in sonunda "+ Custom Background" dashed buton
+  • Seçildiğinde CustomBackgroundEditor Card görünür
+  • Form: name, description, skill picker (multi-select), tool/
+    language CSV input, equipment line-by-line textarea, feature
+    name + description
+
+  Manifest 0.3.87 → 0.3.88.
+
 - `0.3.87` — Blood Hunter multiclass desteği (CR2020 revised).
 
   Discord rapor: "Blood hunter classı multiclasss yapılmıyor".
