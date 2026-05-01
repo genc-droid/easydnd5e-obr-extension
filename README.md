@@ -133,6 +133,38 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.55` — UX gap dalgası + 0.3.54 regression test paketi.
+
+  **OUT OF SLOTS chip** (P0): spell row'da slot tükendiğinde butonun
+  neden disable olduğu görünür. Mavi/kirmizi şerit "⛔ NO L1" / "⛔ NO PACT"
+  formatında. Tooltip rest type'i acıklar (PHB p.107 pact, p.186 long).
+
+  **Conc / Ritual upfront pills** (P1): combat-relevant flag'ler artık
+  cast button'un yanında inline gozukur. CONC chip kırmızı (PHB p.203
+  concentration kuralları), RIT chip altın (PHB p.201 ritual kuralları).
+  ⓘ tooltip'i beklemiyor.
+
+  **Combat Stats Strip**: HP/AC/Init satırının altında yeni "Combat" şerit.
+  Spell DC + atk bonus per source, Ki DC, Maneuver DC, Passive Perception,
+  Passive Investigation hep gozunde. Multi-class casters'ta her sınıfın
+  DC'si ayri pill (Sorc DC + Wiz DC). PHB p.205 + p.78 + p.74 + p.176.
+
+  **Proficiency Bonus** ana grid'e eklendi (HP/AC/Init -> AC/Init/PB
+  3-cell). Player "PB +3" görsel okur, soruya cevap verir.
+
+  **0.3.54 yeni feature'lar icin 68 yeni regression test**:
+  - clericDomainCDsExtended.test.tsx (26): 4 cleric XGtE/SCAG/TCoE
+    domain CD tam validation - Balm of Peace 2d6+WIS, Twilight 1d6+
+    cleric_lvl, multiclass formula doğru, level/subclass gating
+  - paladinOathCDsExhaustive.test.tsx (25): 12 paladin oath CD tam
+    coverage - Turn the Tide 1d6+CHA, Inspiring Smite 2d8+pal_lvl,
+    Watcher's Will target count = max(1, CHA mod), oath isolation
+  - weaponRidersExtended.test.tsx (17): Eldritch Smite gating, Hexadin
+    pact slot smite, Hunter Colossus Slayer, Gloomstalker Dread Ambusher
+    derived state validation
+
+  Test: 4009/4009 pass. Manifest 0.3.54 → 0.3.55.
+
 - `0.3.54` — %100 RAW doğruluk yol haritası Faz 1: 17 yeni RAW-doğrulamalı
   feature button + rider chip. Wikidot RAW spec'leri (PHB+XGtE+TCoE+SCAG+
   MoT) live-fetch ile doğrulandı. Tümü uygun subclass + level
