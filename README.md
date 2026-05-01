@@ -133,6 +133,60 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.100` — Stars + Shepherd Druid + Valor + Eloquence + Creation Bard paneli.
+
+  5 popüler PHB+XGtE+TCoE subclass'ı için 25 reactive chip + 7 LR/SR
+  sayaç row eklendi. Bu sürümle Druid (Moon/Land/Spores/Stars/Shepherd)
+  + Bard (Lore/Valor/Glamour/Whispers/Eloquence/Creation) için kapsamlı
+  PHB + XGtE + TCoE coverage tamamlandı.
+
+  **Circle of Stars Druid** (XGtE p.23):
+  • Star Map (L2+) — Guidance + Guiding Bolt PB/LR free cast
+  • Starry Form (L2+) — BA Wild Shape, 10 min: Archer (1d8+WIS
+    radiant ranged 60 ft) / Chalice (1d8+WIS heal on slot) / Dragon
+    (treat d20 < 10 as 10 INT/WIS/conc)
+  • Cosmic Omen (L6+) — PB/LR, ±d6 reaction
+  • Twinkling Constellations (L10+) — die 2d8, Dragon +20 ft fly
+  • Full of Stars (L14+) — BPS resist while in Starry Form
+
+  **Circle of the Shepherd Druid** (XGtE p.24):
+  • Speech of the Woods (L2+) — Sylvan + beast comm
+  • Spirit Totem (L2+) 1/SR — 30 ft aura: Bear (5+druidLvl temp HP +
+    ADV STR) / Hawk (reaction ADV attack + ADV WIS Perception) /
+    Unicorn (ADV detect + healing affects all in aura)
+  • Mighty Summoner (L6+) — +2 HP/HD, magical natural weapons
+  • Guardian Spirit (L10+) — half druidLvl heal in aura
+  • Faithful Summons (L14+) 1/LR — 4 CR ≤2 beasts at 0 HP
+
+  **College of Valor Bard** (PHB p.55):
+  • Combat Inspiration (L3+) — BI die +damage OR reaction +AC
+  • Extra Attack (L6+) — 2 attacks per Attack action
+  • Battle Magic (L14+) — action cast spell + BA weapon attack
+
+  **College of Eloquence Bard** (TCoE p.55):
+  • Silver Tongue (L3+) — Persuasion/Deception <10 → 10
+  • Unsettling Words (L3+) — BA spend BI, target -roll on next save
+  • Unfailing Inspiration (L6+) — failed BI roll keeps die
+  • Universal Speech (L6+) 1/LR or slot — 1+CHA creatures understand
+  • Infectious Inspiration (L14+) CHA mod /LR — reaction grant BI
+    on success
+
+  **College of Creation Bard** (TCoE p.55):
+  • Mote of Potential (L3+) — BI mote: ability check reroll / attack
+    AoE thunder / save temp HP
+  • Performance of Creation (L3+) 1/LR or slot — 20×bardLvl gp item
+    (Med L3 / Large L6 / Huge L14), PB hours
+  • Animating Performance (L6+) 1/LR or L3+ slot — Dancing Item
+    AC 16, 10+5×bardLvl HP, 1d10+PB force slam
+  • Creative Crescendo (L14+) — CHA mod (min 2) items at once
+
+  Engine: 25 yeni derived field, multiclass desteği var.
+  Kaynak: easydnd5e.app + wikidot druid:stars/shepherd, bard:valor/
+  eloquence/creation. Tüm RAW spec WebFetch ile doğrulandı.
+
+  Test: 4585+/4585+ pass.
+  Manifest 0.3.99 → 0.3.100.
+
 - `0.3.99` — Alchemist + Artillerist + Armorer Artificer paneli (TCoE).
 
   TCoE'nin 3 popüler Artificer subclass'ı için 12 reactive chip + 4
