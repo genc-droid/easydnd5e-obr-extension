@@ -133,6 +133,32 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.66` — Path of Wild Magic Barbarian (TCoE p.50).
+
+  Tasha's Wild Magic Barbarian için panelde Wild Surge tek-dokunuş
+  zar butonu, iki LR sayaç row'u ve üç reactive chip eklendi.
+
+  **Wild Surge** (L3+) butonu — rage'e girince d8 atılır
+  (Controlled Surge L14+ varsa 2d8). Sonuç Wild Magic Surge
+  tablosundan okunur (8 etki: shadowy tendrils, 30 ft teleport,
+  illusion, retributive lightning, fly, aura armor, spectral
+  chains, regain SP).
+
+  **Magic Awareness** (L3+, PB/LR) — sayaç row, action ile 60 ft
+  detect magic.
+
+  **Bolstering Magic** (L6+, PB/LR) — sayaç row, action ile
+  müttefiğe 1d3 bonus VEYA spell slot iade.
+
+  **Unstable Backlash** (L10+) chip — raging iken hasar alınca
+  reaction olarak Wild Surge'ü yeniden at.
+
+  **Controlled Surge** (L14+) chip — surge atışını iki kere yap,
+  birini seç. Buton otomatik 2d8'e geçer.
+
+  Test: 15 yeni test. Toplam 4267/4267 pass.
+  Manifest 0.3.65 → 0.3.66.
+
 - `0.3.65` — Path of the Beast Barbarian (TCoE p.50).
 
   Tasha's kaynaklı Path of the Beast subclass'ı için panele
