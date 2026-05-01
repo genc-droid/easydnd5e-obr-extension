@@ -133,6 +133,44 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.108` — Arcane Archer + Graviturgy + Order of Scribes.
+
+  XGtE Arcane Archer + EGtW Graviturgy + TCoE Order of Scribes
+  için 14 reactive chip + 8 sayaç row eklendi.
+
+  **Arcane Archer** (XGtE p.28):
+  • Arcane Shot (L3+, 2/SR) — 8 option, 1/turn part of Attack.
+    L3: 2 known, scaling +1 at L7/10/15/18 (max 6). Damage 2d6
+    most options, 4d6 at L18.
+  • Magic Arrow (L7+) — non-magical arrows count as magical
+  • Curving Shot (L7+) — BA reroll miss with magic arrow
+  • Ever-Ready Shot (L15+) — init with 0 uses regain 1
+
+  **Graviturgy Magic** (EGtW p.185):
+  • Adjust Density (L2+, conc) — 30 ft Large/Huge halve/double
+    weight, ±10 ft speed, ADV/DIS STR
+  • Gravity Well (L6+) — reaction part of cast: move 5 ft
+  • Violent Attraction (L10+, INT mod /LR) — reaction +1d10
+    weapon damage OR +2d10 fall damage
+  • Event Horizon (L14+, 1/LR or L3+ slot) — 30 ft sphere conc
+    1 min, hostiles STR save 2d10 force speed 0
+
+  **Order of Scribes** (TCoE p.78):
+  • Wizardly Quill (L2+) — BA create quill, 2 min/spell level copy
+  • Awakened Spellbook (L2+, 1/LR) — focus, damage type substitute
+    same/higher level, ritual normal time
+  • Manifest Mind (L6+, 1/LR or slot summon, PB/LR cast) — BA
+    project mind 60 ft, sheds dim, cast spells through it PB/LR
+  • Master Scrivener (L10+, 1/LR) — LR scribe special L1-2 scroll
+    +1 effective level, halved cost
+  • One with the Word (L14+, 1/LR) — reaction prevent damage,
+    lose 3d6 spell levels from book
+
+  Engine: 14 yeni derived field, multiclass desteği var. RAW
+  doğrulaması WebFetch ile yapıldı.
+
+  Manifest 0.3.107 → 0.3.108.
+
 - `0.3.107` — Swarmkeeper + Drakewarden Ranger (TCoE/FToD).
 
   TCoE Swarmkeeper + FToD Drakewarden için 8 reactive chip + 5 LR
