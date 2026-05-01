@@ -133,6 +133,32 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.70` — Spores Druid panel desteği (TCoE p.41-42).
+
+  Tasha's Circle of Spores için panele Halo of Spores reaction
+  butonu, Symbiotic Entity action butonu, Fungal Infestation LR
+  sayacı ve iki reactive chip eklendi.
+
+  **Halo of Spores** (L2+) butonu — reaction tıkla → Dice+'a
+  necrotic zar atılır + sahnede CON save reminder. Scaling:
+  1d4/1d6/1d8/1d10 at L2/L6/L10/L14.
+
+  **Symbiotic Entity** (L2+) butonu — Wild Shape kullanımı -1 +
+  sahnede chip: 4×druidLvl temp HP + halo damage doubled +
+  +1d6 necrotic on melee. 10 dakika.
+
+  **Fungal Infestation** (L6+, WIS mod /LR) — sayaç row.
+  Reaction ile yakındaki ölü humanoid/beast'i 1 HP zombi yapar.
+
+  **Spreading Spores** (L10+) chip — Symbiotic Entity aktifken
+  bonus action 10-ft cube spore zone (1d? Halo damage CON save).
+
+  **Fungal Body** (L14+) chip — crit immunity + 4 condition
+  immunity (blinded/deafened/frightened/poisoned).
+
+  Test: 19 yeni test. Toplam 4371/4371 pass.
+  Manifest 0.3.69 → 0.3.70.
+
 - `0.3.69` — Bard Whispers + Glamour subclass butonları (XGtE p.16/14).
 
   İki Bard subclass'ı için tek-dokunuşlu Bardic Inspiration
