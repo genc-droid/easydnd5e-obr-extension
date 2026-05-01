@@ -133,6 +133,22 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.102` — Runtime version mismatch detection.
+
+  0.3.101 .htaccess fix gelecek kullanıcılar için cache problemini
+  çözer, ama mevcut kullanıcıların browser'ında cached olan eski
+  index.html hala eski JS bundle'ına işaret edebilir. Bu sürüm
+  belt-and-suspenders koruma ekliyor: bundle build edildiğinde
+  `__APP_VERSION__` sabiti içerir, runtime'da `/obr/manifest.json`
+  fetch edilir ve mismatch varsa sayfa otomatik bir kez reload
+  edilir (cache-busting query ile).
+
+  Bu sayede kullanıcı extension'ı açtığında en fazla 1-2 saniye
+  içinde otomatik en son sürüme geçer — manuel hard refresh veya
+  extension reinstall gerektirmez. localStorage state korunur.
+
+  Manifest 0.3.101 → 0.3.102.
+
 - `0.3.101` — Cache busting kalıcı düzeltme.
 
   Discord rapor: kullanıcılar uzun süre önce çözülmüş bug'ları (0.3.51
