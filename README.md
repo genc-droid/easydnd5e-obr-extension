@@ -133,6 +133,44 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.110` — Battlerager Barbarian + Peace Cleric + Dreams Druid.
+
+  3 yeni subclass için 17 reactive chip + 1 Channel Divinity button
+  (Balm of Peace) + 4 LR sayaç row eklendi. Battlerager için yeni
+  data tanımı (subclass) eklendi — Cleric Peace ve Dreams Druid
+  zaten data'daydı, sadece engine + UI eksikti.
+
+  **Path of the Battlerager** (SCAG p.121):
+  • Battlerager Armor (L3+) — BA spike attack 1d4+STR while
+    raging, grapple +3 piercing
+  • Reckless Abandon (L6+) — Reckless Attack → CON mod temp HP
+  • Battlerager Charge (L10+) — Dash as BA while raging
+  • Spiked Retribution (L14+) — 3 piercing reaction on melee hit
+
+  **Peace Domain Cleric** (TCoE p.34):
+  • Emboldening Bond (L1+, PB/LR) — action, PB creatures bonded
+    30/60 ft, +1d4 attack/check/save 1/turn
+  • CD Balm of Peace (L2+) — action move full speed no OA, heal
+    2d6+WIS each creature within 5 ft you pass
+  • Protective Bond (L6+) — bonded reaction teleport take damage
+  • Potent Spellcasting (L8+) — +WIS to cantrip damage
+  • Expansive Bond (L17+) — bonds 60 ft + redirect resist
+
+  **Circle of Dreams Druid** (XGtE p.21):
+  • Balm of Summer Court (L2+, LR pool) — druidLvl d6 pool, BA
+    spend up to half druidLvl dice, heal + temp HP per die
+  • Hearth of Moonlight and Shadow (L6+) — SR/LR 30 ft sphere
+    +5 Stealth/Perception
+  • Hidden Paths (L10+, WIS mod /LR) — BA teleport 60 ft (or
+    ally 30 ft action)
+  • Walker in Dreams (L14+, 1/LR after SR) — free Dream/Scrying/
+    Teleportation Circle
+
+  Engine: 16 yeni derived field, multiclass desteği var. RAW
+  doğrulaması WebFetch ile yapıldı.
+
+  Manifest 0.3.109 → 0.3.110.
+
 - `0.3.109` — Fathomless Warlock (TCoE).
 
   TCoE Fathomless Warlock için 7 reactive chip + 3 LR/SR sayaç row
