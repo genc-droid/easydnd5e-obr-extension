@@ -133,6 +133,36 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.74` — Forge + Grave Cleric domain paneli (XGtE p.18-20).
+
+  Forge ve Grave domain için kalan feature'lar surface edildi
+  (mevcut Channel Divinity butonları zaten 0.3.51 / 0.3.54'te
+  shipped).
+
+  **Forge Domain** chip'leri:
+  • Blessing of the Forge (L1+) — touched +1 weapon/armor /LR
+  • Soul of the Forge (L6+) — heavy armor +1 AC + fire resistance
+  • Divine Strike (L8+) — +1d8 fire (L14+ +2d8)
+  • Saint of Forge and Fire (L17+) — fire immunity + non-magic BPS
+    resistance heavy armor
+
+  **Grave Domain**:
+  • Eyes of the Grave (L1+, PB/LR) sayaç row — detect undead 60 ft
+  • Sentinel at Death's Door (L6+, max(1, WIS) /LR) sayaç row —
+    reaction crit→normal hit
+  • Circle of Mortality (L1+) chip — 0-HP healing max + Spare the
+    Dying 30 ft cantrip
+  • Keeper of Souls (L17+) chip — enemy ölünce HD HP regain
+
+  **Bug fix**: Potent Spellcasting (L8+) artık Grave domain için
+  de aktif (eskiden sadece Light/Knowledge'da çalışıyordu).
+  Mevcut Light/Knowledge davranışı korundu.
+
+  Engine: 8 yeni derived field. Multiclass desteği var.
+
+  Test: 21 yeni test. Toplam 4467/4467 pass.
+  Manifest 0.3.73 → 0.3.74.
+
 - `0.3.73` — Genie + Conquest + Bladesinger panel paketi.
 
   Üç farklı subclass'a kompakt panel desteği eklendi.
