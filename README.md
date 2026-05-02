@@ -133,6 +133,25 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.148` — Race × class matrix regression test paketi + Tabaxi
+  Cat's Claws catalog drift hotfix.
+
+  • **11 yeni regression test** (raceClassMatrixRegression.test.ts):
+    0.3.144 Belt of Fire/Cloud Giant Strength typo, 0.3.146 Rage on
+    natural weapons (Lizardfolk Bite L1/L9/L16 raging vs not raging,
+    Tabaxi Cat's Claws Barbarian, Monk Unarmed multiclass DEX-based
+    no-rage edge case), 0.3.148 Tabaxi VGtM 1d4 catalog match.
+    Loxodon AC tests deferred — race not in catalog yet (subagent C
+    audit reported a phantom race).
+
+  • **Tabaxi Cat's Claws die HOTFIX**: 0.3.144'te engine MPMM 1d6'ya
+    çevirmiştim ama catalog `Tabaxi (VGtM)` + trait text "1d4 + STR"
+    diyor. Engine ↔ catalog drift'i yarattı. Engine 1d4'e döndürüldü
+    (catalog ile uyumlu). Wikidot dnd5e.wikidot.com/tabaxi her iki
+    sourcebook'u listeliyor; catalog'un VGtM seçimi honored.
+
+  Manifest 0.3.147 → 0.3.148.
+
 - `0.3.147` — Density audit fix paketi (8 inline UX iyileştirme).
 
   Subagent panel-information-density-auditor 20 P0/P1 gap raporu
