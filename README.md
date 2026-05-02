@@ -133,6 +133,38 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.142` — Unarmed Strike + race natural weapons attack row
+  (Discord rapor).
+
+  Discord raporu (Atilla): "monkların unarmed strike ı olması lazım
+  saldırı zarlarının atıldığı yerde diye bi bildirim geldi bulursan
+  benzer bişey varsa yap".
+
+  Şu ana kadar sadece equipped weapon'lar saldırı zar bölümünde
+  görünüyordu. PHB p.149 RAW: her karakterin Unarmed Strike yapma
+  hakkı var (1 + STR bludgeoning, default proficient). Monk Martial
+  Arts (PHB p.78) bu zarı 1d{4/6/8/10}'a yükseltir + DEX kullanma
+  seçeneği verir. Race natural weapon'lar (Tabaxi Cat's Claws,
+  Lizardfolk Bite, vb.) RAW unarmed strike sayılır ve damage type'ı
+  override eder.
+
+  Yeni weapon attack satırları:
+  • **Tüm karakterler**: Unarmed Strike (1+STR bludgeoning)
+  • **Monk**: Unarmed Strike (Martial Arts d4→d10, DEX/STR seçimi)
+  • **Tabaxi**: Cat's Claws (1d4+STR slashing, Monk → larger die)
+  • **Lizardfolk**: Bite (1d6+STR piercing)
+  • **Tortle**: Claws (1d4+STR slashing)
+  • **Aarakocra**: Talons (1d4+STR slashing)
+  • **Centaur**: Hooves (1d4+STR bludgeoning)
+  • **Minotaur**: Horns (1d6+STR piercing)
+  • **Leonin**: Claws (1d4+STR slashing)
+
+  Karakter Monk + race natural weapon ise: damage die = max(natural,
+  martial arts), damage type = race weapon'unun (slashing/piercing
+  vb.), ability = max(STR, DEX). Tabaxi Monk L5: 1d6+DEX slashing.
+
+  Manifest 0.3.141 → 0.3.142.
+
 - `0.3.141` — Pre-game audit fix paketi (Atilla "şimdi oynanacak").
 
   3 paralel subagent (resource-consumption-tester, engine-ui-binding-
