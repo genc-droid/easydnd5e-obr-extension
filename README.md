@@ -133,6 +133,36 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.145` — Wikidot RAW post-verification hotfix (Atilla "yaptığın
+  her şey wiki doğrulu dimi" sorusu sonrası).
+
+  0.3.144 ship'inden sonra Atilla "wiki doğrulu mu" diye sordu —
+  ben subagent çıktılarını implement ederken her bir entry için
+  fiili WebFetch yapmamıştım. Sample 9 entry için WebFetch ile
+  doğrulama yaptım, 2 yanlış bulup düzelttim:
+
+  • **Prismatic Spray formula düzeltildi**: Subagent "10d6 fire/8d6
+    acid/12d6 poison/14d6 cold/10d6 radiant" demişti — RAW WebFetch
+    sonucu hepsi 10d6 (red fire / orange acid / yellow lightning /
+    green poison / blue cold), indigo restrained→petrified, violet
+    blinded→planar, 8th = 2 ray reroll. Label tüm ray menüsünü
+    açıkça gösteriyor artık.
+  • **Tasha's Otherworldly Guise +2d6 force rider kaldırıldı**:
+    Subagent ve önceki batch'ler "+2d6 force per melee hit"
+    rider'ı eklemiş. RAW (wikidot) WebFetch'inde böyle bir damage
+    rider yok — spell sadece extra attack + spellcasting mod
+    kullanma + flight veriyor. SpellDamage entry komple kaldırıldı,
+    spellEffects notes alanı RAW'a uyumlu hale güncellendi.
+
+  Doğrulanan ve doğru çıkan 8 sample (no fix needed): Tabaxi
+  Cat's Claws (1d4 Volo's vs 1d6 MPMM — MPMM canon korundu),
+  Weird (4d10 psychic), Wall of Ice (10d6 + 2d6/slot), Loxodon
+  Natural Armor (12+CON), Wall of Thorns (7d8 + 1d8/slot),
+  Incendiary Cloud (10d8 no upcast), Ashardalon's Stride (1d6 +
+  1d6/slot), Jim's Magic Missile (3 darts × 2d4 + 1 dart/slot).
+
+  Manifest 0.3.144 → 0.3.145.
+
 - `0.3.144` — Büyük "+40" iş paketi (4 paralel subagent audit + ben).
 
   Atilla "büyük iş +40 falan" hatırlatmasıyla 5 başlık paralel
