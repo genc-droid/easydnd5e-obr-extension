@@ -133,6 +133,25 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.119` — Background feature test suite (13 test).
+
+  Yeni dosya: src/store/__tests__/backgroundFeaturesExhaustive.test.ts
+  13 test pass. PHB background skill proficiency audit.
+
+  Kapsam: Acolyte, Soldier, Guild Artisan, Outlander, Folk Hero,
+  Sage, Charlatan, Criminal, Entertainer, Hermit, Noble, Sailor,
+  Urchin — her biri için 2 RAW skill proficiency check.
+
+  Field convention not: skill ID'leri camelCase (animalHandling,
+  sleightOfHand) — engine schema'sı ile uyumlu.
+
+  Custom Background test'i ileri bir sürüme ertelendi (full state
+  flow investigation gerek).
+
+  Toplam test 4623 → 4636 (+13).
+
+  Manifest 0.3.118 → 0.3.119.
+
 - `0.3.118` — Race feature test suite (raceFeaturesExhaustive — 21 test).
 
   Yeni dosya: src/store/__tests__/raceFeaturesExhaustive.test.ts
