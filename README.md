@@ -133,6 +133,30 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.123` — Custom item 'Others' equip + Custom Race traits panel chip.
+
+  Discord raporu (Atilla):
+  • "others kategorisindeki itemleri oluşturduktan sonra equip
+    özelliği eklenmesi lazım"
+  • "custom custom abilities ayarlamıyo bu arada"
+
+  **Custom item 'Others' equip fix**: 0.3.86'da Others kategorisi
+  eklendi ama auto-equip ve manual equip toggle'ı sadece
+  weapon/armor/shield için açıktı. 'Others' için de etkin oldu —
+  homebrew amulet/ring/boots vb. artık equip toggle'ında görünür
+  ve etkileri (baseAc, damage) AC stack'e ya da chip'lere yansır.
+
+  **Custom Race traits chip**: customRace.traits textarea'sına
+  girilen homebrew metin paneli'nde 'Custom Race Traits' chip'i
+  olarak gösteriliyor. Engine mekanik olarak parse etmiyor (DM
+  call) — RAW olarak çalışan racial flag'lar (Fey Ancestry,
+  Magic Resistance vb.) zaten ayrı chip'ler. Bu sadece text
+  reminder.
+
+  Engine: 1 yeni derived field (customRaceTraits — state mirror).
+
+  Manifest 0.3.122 → 0.3.123.
+
 - `0.3.122` — Spell mechanics test suite (27 test).
 
   Yeni dosya: src/store/__tests__/spellMechanicsExhaustive.test.ts
