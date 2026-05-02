@@ -133,6 +133,34 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.150` — Multiclass per-source DC fix (PHB p.164 RAW) + 3 test.
+
+  Engine `derived.spellcastingSources` her casting class için ayrı
+  DC + attack bonus + ability expose ediyordu, ama OBR panel
+  SpellRow her zaman primary class'ın `sc`'sini kullanıyordu.
+
+  Senaryo: Sorcerer 5 / Wizard 1 karakter Counterspell cast eder.
+  Counterspell hem sorc hem wiz list'inde. Önceki davranış: notify
+  "save DC 16 (CHA-based)" diyor — yanlış DC. Wiz list'inde
+  cast ettiği için INT DC olmalıydı.
+
+  Düzeltme: SpellRow yeni `effectiveSc` useMemo:
+  • Tek source veya hepsi aynı ability → primary sc kullan (geri
+    uyumlu)
+  • Birden fazla source + farklı ability'ler → spell.classes ile
+    eşleşen source'un DC + attack'ını kullan
+  • Eşleşme yoksa primary sc fallback
+
+  Cast pipeline (attack roll + save dispatch) artık doğru source'un
+  DC'sini gösteriyor: notify "save DC X" Wizard list spell'ler için
+  INT DC, Sorc list için CHA DC, Cleric list için WIS DC vb.
+
+  3 yeni test: Sorc 2 / Wiz 3 multi-source ability detection,
+  Sorc 5 / Wiz 1 distinct DC values (CHA vs INT), Cleric 1 / Wiz 5
+  WIS vs INT separation.
+
+  Manifest 0.3.149 → 0.3.150.
+
 - `0.3.149` — Magic item Wave 2: damage resistances aggregator engine
   + UI chip + 7 yeni regression test.
 
