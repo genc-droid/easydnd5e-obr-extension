@@ -133,6 +133,33 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.127` — Totem Warrior totem picker (P0 audit #3 ertelenen).
+
+  obr-panel-pm subagent audit'inin son P0 maddesi (0.3.117'de
+  ertelenmişti): Totem Warrior Barbarian'ın totem (Bear/Wolf/
+  Eagle/Elk/Tiger) seçimi state'te tracking yoktu — bear/wolf
+  totem flag'ları ikisi de aynı anda true oluyordu (sadece
+  rage-active kontrolüyle), chip metni 4 totem'i jenerik
+  listeliyordu.
+
+  Düzeltme:
+  • Yeni state field: chosenTotemAnimal (5 totem enum)
+  • Builder'da TotemWarriorPicker card (5-button grid, RAW L3+
+    L6+L14 rage benefit'leri özet)
+  • Engine bear/wolfTotemActive flag'ları totem-aware
+    (state.chosenTotemAnimal kontrol ediyor)
+  • Panel chip'leri totem-spesifik:
+    - Bear (raging) — resist all damage except psychic
+    - Wolf (raging) — allies ADV melee vs aura targets
+    - Eagle — DIS OA + Dash BA
+    - Elk — +15 ft walking speed
+    - Tiger — +10 ft long jump
+
+  Test mock'lar (6 dosya) güncellendi: chosenTotemAnimal: null +
+  setChosenTotemAnimal NOOP.
+
+  Manifest 0.3.126 → 0.3.127.
+
 - `0.3.126` — Spell completionist P0+P1 — 12 leveled damage spell eklendi.
 
   spell-completionist subagent audit raporunun final batch'i —
