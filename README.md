@@ -133,6 +133,38 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.126` — Spell completionist P0+P1 — 12 leveled damage spell eklendi.
+
+  spell-completionist subagent audit raporunun final batch'i —
+  P0 ve P1 leveled damage spell'leri LEVELED_SCALING'e eklendi.
+
+  **P0 (7 spell)**:
+  • absorb-elements (XGtE) — reaction +1d6 melee rider, +1d6/slot
+  • enervation (XGtE) — 4d8 necrotic + caster heals half, +1d8/slot
+  • holy-weapon (XGtE) — +2d8 radiant weapon rider; BA dismiss
+    burst 4d8 radiant 30 ft CON save
+  • immolation (PHB) — 8d6 fire initial + 4d6/turn while conc
+  • conjure-volley (PHB) — 8d8 weapon-type DEX save 40 ft cylinder
+  • guardian-of-faith (PHB) — 20 flat radiant/necrotic DEX save,
+    60 HP pool
+  • negative-energy-flood (XGtE) — 5d12 necrotic CON save, kill
+    humanoid → zombie
+
+  **P1 (5 spell)**:
+  • storm-sphere (XGtE) — 2d6 bludgeoning sphere + BA 4d6 lightning
+  • gravity-sinkhole (EGtW) — 5d10 force CON save + 10 ft pull
+  • pulse-wave (XGtE) — 6d6 force CON save + 15 ft push/pull
+  • rimes-binding-ice (XGtE) — 3d8 cold 30-ft cone + speed 0
+  • raulothims-psychic-lance (TCoE) — 7d6 psychic INT save + incap
+
+  spell-completionist 25 maddelik audit raporu artık tamamen
+  kapatıldı: 8 cantrip (0.3.124) + 5 buff/debuff (0.3.125) + 12
+  leveled (0.3.126) = 25/25.
+
+  Wikidot RAW citations her spell için inline.
+
+  Manifest 0.3.125 → 0.3.126.
+
 - `0.3.125` — Spell completionist P0 — 5 high-frequency buff/debuff eklendi.
 
   spell-completionist subagent audit raporu sonucu eksik
