@@ -133,6 +133,27 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.129` — Equipment 'Others' filter chip eksikliği fix (Discord).
+
+  Discord raporu (Atilla): "equipment da homebrew equiplayamıyo
+  çocuk".
+
+  Kök neden: 0.3.86'da 'other' kategori, 0.3.123'te equip toggle
+  flag'ı eklendi ama filter chip strip'inde 'other' YOKTU. Yani
+  kullanıcı 'Others' filtresini seçemiyordu — custom 'other'
+  itemler sadece 'All' filtresinde görünüyordu, ayrı bir 'Others'
+  sekmesi yoktu.
+
+  Düzeltme: filters array'ine 'other' eklendi. TYPE_LABELS.other
+  'Others' olarak güncellendi. Artık filter chip strip'inde
+  'Others' butonu görünür → custom freeform item'ler hızlıca
+  filter edilebilir.
+
+  Equip toggle (canEquip) zaten 0.3.123'te 'other' için açıldı —
+  bu sürüm sadece UI filter eksikliğini kapatır.
+
+  Manifest 0.3.128 → 0.3.129.
+
 - `0.3.128` — Custom Race bonus spell picker (Discord rapor).
 
   Discord raporu (Atilla): "sitede custom ırk seçince spell de
