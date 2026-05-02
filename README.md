@@ -133,6 +133,28 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.124` — Spell completionist P0 — 8 expansion damage cantrip eklendi.
+
+  spell-completionist subagent audit raporu sonucu eksik damage
+  cantrip'lerinin ilk batch'i CANTRIP_SCALING'e eklendi. Cantrip
+  scaling tier'ları RAW (L1=1×, L5=2×, L11=3×, L17=4×).
+
+  Eklenen cantrip'ler (XGtE/TCoE):
+  • booming-blade (XGtE) — 1d8 thunder if target moves 5+ ft
+  • green-flame-blade (XGtE) — leap fire to 2nd target within 5 ft,
+    L5+ active scaling
+  • sword-burst (XGtE) — 1d6 force, 5 ft AoE DEX save
+  • frostbite (XGtE) — 1d6 cold + DIS next attack, CON save
+  • thunderclap (XGtE) — 1d6 thunder, 5 ft AoE CON save
+  • create-bonfire (XGtE) — 1d8 fire, 5-ft cube DEX save, conc 1 min
+  • lightning-lure (XGtE) — 1d8 lightning if pulled to 5 ft
+  • infestation (XGtE) — 1d6 poison + random move, CON save
+
+  Wikidot RAW citations spellDamage.ts içinde (her cantrip için
+  inline yorum + URL).
+
+  Manifest 0.3.123 → 0.3.124.
+
 - `0.3.123` — Custom item 'Others' equip + Custom Race traits panel chip.
 
   Discord raporu (Atilla):
