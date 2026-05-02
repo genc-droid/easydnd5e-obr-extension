@@ -133,6 +133,41 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.139` — Free 1/LR cast non-caster fix (Discord rapor — asıl
+  root cause).
+
+  Discord raporu (Atilla): "yine atmıyo bu arada".
+
+  0.3.136-138 fix'leri doğruydu ama gerçek bug daha derindeydi.
+  HTML semantiği: `<button disabled>` içindeki span'lara click
+  bile düşmez — browser disabled button subtree'sindeki tüm
+  pointer event'leri yiyor.
+
+  FREE 1/LR badge CAST button'ın İÇİNDE bir span. Non-caster
+  Fighter + Magic Initiate → Witch Bolt L1 senaryosu: oyuncuda
+  hiç spell slot yok → slotExhausted=true → CAST button disabled
+  → badge'in onClick'i hiç fire etmiyor. Bizim 0.3.136 badge
+  cast pipeline fix'imiz teknik olarak doğruydu ama hiç
+  ulaşılamıyordu çünkü click event browser tarafından bloklanıyordu.
+
+  Düzeltme:
+  • `hasFreeCastAvailable` flag'i (freeOncePerLR && !featSpellUsed).
+  • slotExhausted: free cast varsa + base level seçiliyse (lvl ===
+    spell.level) → false döner. Button enabled olur, badge tıklanabilir.
+  • CAST button onClick: free cast varsa + base level → otomatik
+    handleAndReset(true) + counter +1. Upcast (L2+) seçimi normal
+    slot path'ine gider — RAW Magic Initiate "at its lowest level".
+  • Badge onClick: e.stopPropagation() — yoksa parent button da
+    cast tetikler, double d20 broadcast olur.
+
+  Etki: non-caster + feat-granted L1 attack spell senaryosu artık
+  çalışıyor (Fighter+Magic Initiate Witch Bolt, Rogue+Shadow Touched
+  Inflict Wounds, vb.). Hem CAST button hem badge tek tap'te d20
+  attack roll + damage formula Dice+'a gönderiyor, slot tüketmeden,
+  counter +1 yaparak.
+
+  Manifest 0.3.138 → 0.3.139.
+
 - `0.3.138` — Material component focus/pouch substitution RAW
   geri restore edildi (Discord rapor — gerçek root cause).
 
