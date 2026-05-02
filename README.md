@@ -133,6 +133,55 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.154` — Boots of Speed BA toggle RAW fix.
+
+  Önceki davranış: Boots of Speed equipped olduğu anda walking speed
+  her zaman ×2 hesaplanıyordu — RAW (DMG p.155) ihlali. RAW: "As a
+  bonus action, you can click the boots' heels together to gain its
+  benefit" — yani aktivasyon BA gerektirir, default-off olmalı.
+
+  Fix:
+  • Yeni state.bootsOfSpeedActive boolean (default false)
+  • Yeni setBootsOfSpeedActive setter
+  • Long rest reset zincirine eklendi (10 min/day, LR'da sıfırla)
+  • Engine speed hesaplaması artık state.bootsOfSpeedActive'i kontrol
+    ediyor; sadece flag true ise ×2 uygulanıyor
+  • Panel'de yeni interactive toggle butonu (Bladesong/Rage stiline
+    benzer): "Boots of Speed (BA, activate ×2 walk)" → tap → aktif
+    "ACTIVE — tap to deactivate"
+  • Dice+ scene rolüne aktivasyon mesajı yazılıyor: "walking speed
+    doubled, opportunity attacks vs you have DISADVANTAGE"
+
+  4 yeni regression test: equipped+inactive=base, equipped+active=×2,
+  unequipped+stale flag=base (ghost protection), Monk L6 + active = 90.
+
+  Manifest 0.3.153 → 0.3.154.
+
+- `0.3.153` — Wave 3 speed items engine integration: 4 yeni item gerçek
+  hareket hızlarına bağlandı (chip layer ötesinde).
+
+  4 paralel WebFetch ile RAW doğrulama:
+  • Winged Boots (DMG p.214): "flying speed equal to your walking speed"
+    → derived.flySpeed artık walking speed'i mirror ediyor (Boots of
+    Striding 30 ft floor + Monk Unarmored Movement vs. ile zincirleniyor).
+  • Slippers of Spider Climbing (DMG p.200): "climbing speed equal to
+    your walking speed" → derived.climbSpeed walking speed = bağlı.
+  • Ring of Swimming (DMG p.193): "swimming speed of 40 feet" →
+    derived.swimSpeed >= 40 floor.
+  • Cloak of the Manta Ray (DMG p.158): "swimming speed of 60 feet" →
+    derived.swimSpeed >= 60 floor (Ring + Cloak takılırsa 60 kazanır).
+
+  10 yeni regression test (Winged + Striding zincir, Triton + Ring max,
+  Slippers equipped/unequipped, Monk L6 fly = walking + Unarmored
+  Movement bonus). Tüm 41 race × class regression yeşil.
+
+  Wave 3'te 0.3.151'de chip awareness'ı eklenmişti ama derived hız
+  alanları (flySpeed/climbSpeed/swimSpeed) flag'leri okumuyordu —
+  player chip görüyor ama hareket sayfası eski değerde kalıyordu.
+  Bu fix engine→UI binding gap'ini kapatıyor.
+
+  Manifest 0.3.152 → 0.3.153.
+
 - `0.3.152` — Magic item Wave 4 misc passive: 3 yeni flag + 3 chip + 4 test.
 
   3 paralel WebFetch ile RAW doğrulama:
