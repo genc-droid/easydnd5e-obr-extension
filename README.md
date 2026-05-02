@@ -133,6 +133,41 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.116` — Test coverage genişletme: subclassWavesExhaustive.
+
+  Son 17 sürümde (0.3.99 → 0.3.115) eklediğimiz ~150+ subclass-
+  spesifik derived field için sistematik regression test suite
+  oluşturuldu: `subclassWavesExhaustive.test.ts`.
+
+  **Pattern** her subclass için 3 senaryo:
+  1. Min level activation (single-class) — feature aktif
+  2. Below min level (single-class) — feature inaktif (false/0/null)
+  3. Multiclass route — primary fighter, target subclass MC entry
+     üzerinden aktive olabilmeli
+
+  **Kapsam** (33 subclass × ~3 test = ~100 test):
+  • Alchemist + Artillerist + Armorer Artificer (TCoE) — 0.3.99
+  • Stars + Shepherd Druid + Valor + Eloquence + Creation Bard — 0.3.100
+  • Ancestral Guardian + Storm Herald + Zealot Barbarian — 0.3.103
+  • Twilight Cleric + Wildfire Druid — 0.3.105
+  • Redemption + Oathbreaker Paladin — 0.3.106
+  • Swarmkeeper + Drakewarden Ranger — 0.3.107
+  • Arcane Archer + Graviturgy + Order of Scribes — 0.3.108
+  • Fathomless Warlock — 0.3.109
+  • Battlerager + Peace + Dreams — 0.3.110
+  • Celestial + Undying + Undead Warlock — 0.3.111
+  • Echo Knight + Psi Warrior + Soulknife — 0.3.113
+  • Swashbuckler + Watchers + Divine Soul + Chronurgy — 0.3.114
+
+  **Yardımcılar**: `expectBoolFeature()` ve `expectNumericFeature()`
+  helper'ları ile her test 3 senaryoyu tek satırda kapsıyor.
+  Wikidot RAW citations test başlıklarında.
+
+  Bundan sonra yeni subclass eklemede `SUBCLASS_PLAYBOOK.md`
+  rehberi + bu test dosyasında benzer entry yazılacak.
+
+  Manifest 0.3.115 → 0.3.116.
+
 - `0.3.115` — Stars Druid Starry Form runtime toggle + warlock-undead duplicate fix.
 
   **Stars Druid Starry Form aktif constellation toggle** — panel'de
