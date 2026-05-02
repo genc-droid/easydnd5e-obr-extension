@@ -133,8 +133,33 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.147` — Density audit fix paketi (8 inline UX iyileştirme).
+
+  Subagent panel-information-density-auditor 20 P0/P1 gap raporu
+  verdi. Bu sürümde en yüksek ship-impact 8'i:
+
+  • **Ki butonları (BA) suffix**: Flurry/Patient/Step artık inline
+    "Flurry (BA)" olarak görünüyor — combat'ta player bonus action
+    ayrımını tooltip'siz görür.
+  • **Second Wind dynamic disabled label**: Kullanıldıktan sonra
+    "Second Wind — USED · SR" gösteriyor (önce sadece opacity
+    azalıyordu, neden disabled belli değildi).
+  • **Tides of Chaos dynamic disabled**: "Tides of Chaos — USED ·
+    LR" inline reason.
+  • **Spell row Bonus Action (BA) badge**: castingTime "Bonus
+    Action" olan spell'lerde (Healing Word, Misty Step, Hellish
+    Rebuke) mor BA chip görünür. Reaction spell'lerde (Counterspell,
+    Shield) REACT chip.
+  • **ARC USED · LR / ARC · 1/LR**: Mystic Arcanum chip'i artık
+    recovery cadence inline gösteriyor.
+  • **NO PACT · SR / NO L# · LR**: Slot exhaustion chip artık
+    SR vs LR ayrımını inline söylüyor (warlock pact = SR, regular
+    spell slot = LR).
+
+  Manifest 0.3.146 → 0.3.147.
+
 - `0.3.146` — Spell Batch 3 + Rage on natural weapons P0 + 3 reactive
-  chip (Atilla "hepsini yap kanka").
+  chip.
 
   **23 yeni spell entry** — HER birini ben WebFetch ile doğruladım
   (subagent çıktısına güvenmedim, Atilla'nın "wiki doğrulu mu" notu
