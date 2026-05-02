@@ -133,6 +133,44 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.144` — Büyük "+40" iş paketi (4 paralel subagent audit + ben).
+
+  Atilla "büyük iş +40 falan" hatırlatmasıyla 5 başlık paralel
+  audit + implementation:
+
+  **Spell completionist (37 entry, hepsi wikidot RAW)**:
+  • spellDamage.ts'e 30 yeni damage formula entry: Weird, Incendiary
+    Cloud, Tsunami, Feeblemind, Geas, Dream, Heroes' Feast, Mental
+    Prison, Forbiddance, Wall of Thorns, Bones of the Earth,
+    Ashardalon's Stride, Melf's Minute Meteors, Wall of Light,
+    Investiture of Flame/Ice/Wind, Antagonize, Spray of Cards,
+    Flame Arrows, Frost Fingers, Magnify Gravity, Zephyr Strike,
+    Jim's Magic Missile, Soul Cage, Wall of Ice, Wrath of Nature,
+    Tasha's Otherworldly Guise, Prismatic Spray, Contact Other
+    Plane, Mental Prison.
+  • spellEffects.ts'e 7 yeni buff/debuff entry: Otto's Irresistible
+    Dance, Tasha's Otherworldly Guise, Prismatic Wall, Motivational
+    Speech, Tenser's Transformation, Globe of Invulnerability,
+    Primordial Ward.
+
+  **Engine bug fix (3 P0)**:
+  • Belt of Fire Giant Strength typo: catalog ID
+    `belt-of-giant-strength-fire` engine'de `belt-of-fire-giant-strength`
+    bekleniyordu — STR override hiç çalışmıyordu. Artık her iki
+    naming şeması kabul ediliyor + regression test.
+  • Loxodon Natural Armor missing: race switch'te yoktu, AC engine
+    DEX-only natural armor destekliyordu. UnarmoredDefense'e
+    `useConInsteadOfDex` flag eklendi (Loxodon RAW: 12 + CON).
+  • Tabaxi Cat's Claws die: 1d4 (Volo's) → 1d6 (MPMM RAW current).
+
+  **Subagent audit raporları** (sonraki sürümde implement
+  edilecek): 40 subclass test eksiği (Echo Knight / Psi Warrior /
+  Soulknife / Drakewarden / Watchers / Divine Soul / Chronurgy
+  edge case'leri), 40 race × class matrix test, 3 reactive chip
+  gap (Aura of Courage, Armorer Extra Attack, Tactical Wit).
+
+  Manifest 0.3.143 → 0.3.144.
+
 - `0.3.143` — Geri kalan P0/P1 paketi (oyun-içi audit kuyruğu).
 
   Önceki 3-subagent audit'inden geriye kalan ship-blocker / kayıp-
