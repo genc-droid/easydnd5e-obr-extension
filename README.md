@@ -133,6 +133,30 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.137` — Custom Race Bonus Spell raceId check düzeltildi
+  (Discord rapor).
+
+  Discord raporu (Atilla): "custom race den Bonus Spell (optional)
+  kısmından gelen cantripler speller sheete ve extansiona eklenmiyor
+  ve kullanılmıyor".
+
+  Root cause: 0.3.130'da Custom Race bonus cantrip + L1 spell
+  injection eklendi ama raceId koşulu yanlış girildi —
+  'custom-lineage' (VRGtR'nin ayrı bir kavramı) bekliyordu, oysa
+  homebrew Custom Race gerçekten 'custom-race' raceId'si kullanıyor
+  (RaceStep.tsx + selectors.ts'deki synthetic race ID). Sonuç:
+  injection bloğu hiç çalışmıyor, 5 sürümdür raporlanan bug aslında
+  fix edilmemişti.
+
+  Düzeltme: koşul artık 'custom-race' VEYA 'custom-lineage'
+  yakalıyor. Custom Race'te bonus cantrip seçilince hem builder
+  spell sayfası hem CharacterSheet hem OBR extension'da
+  alwaysPreparedSpells listesinde görünür ve cast edilebilir.
+  Bonus L1 spell (Magic Initiate convention) freeOncePerLR + 0.3.136
+  badge fix'iyle Dice+'a uygun zarları gönderecek.
+
+  Manifest 0.3.136 → 0.3.137.
+
 - `0.3.136` — FREE 1/LR badge tıklayınca attack/save/damage roll
   dispatch ediyor (Discord rapor).
 
