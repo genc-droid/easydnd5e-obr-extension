@@ -133,6 +133,37 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.141` — Pre-game audit fix paketi (Atilla "şimdi oynanacak").
+
+  3 paralel subagent (resource-consumption-tester, engine-ui-binding-
+  auditor, discord-bug-hunter) ile son rapor pattern'leri taraması.
+  5 ship-blocker tespit edildi ve fix'lendi:
+
+  • **Wild Shape 0 HP auto-revert eksikti**: PHB p.66 RAW — beast
+    formdayken HP 0'a düşünce druid form'a geri dönmek lazım.
+    Engine `setWildShape(null)` çağrısı yapılmıyordu, beast frame
+    panelde stuck kalıyordu. Şimdi otomatik revert ediyor.
+
+  • **Eldritch Mind invocation ConcentrationSavePrompt'ta gözardı
+    ediliyordu**: Warlock invocation'ı RAW concentration save'lere
+    ADV verir. Engine flag (hasEldritchMind) vardı ama UI sadece
+    War Caster'ı kontrol ediyordu. Şimdi ikisi de ADV trigger ediyor.
+
+  • **Peace Cleric Potent Spellcasting bonusu uygulanmıyordu**:
+    Light/Knowledge/Grave için çalışıyordu ama Peace L8 (RAW PHB
+    Tasha p.31 — "+WIS to cleric cantrip damage") engine
+    potentDomains array'inden eksikti. Toll the Dead / Sacred
+    Flame / Word of Radiance gibi cantrip'lere artık WIS bonus
+    ekleniyor.
+
+  • **Action Surge / Lay on Hands / Indomitable / Divine Sense /
+    Cleansing Touch sessizdi**: Counter düşüyordu ama notify yok,
+    masa diğer oyuncular kullanıldığını fark etmiyordu (0.3.134
+    Flurry pattern'i). Generic counter "−" butonuna anahtar-bazlı
+    notify side-effect eklendi.
+
+  Manifest 0.3.140 → 0.3.141.
+
 - `0.3.140` — Benzer senaryolar audit: racial 1/LR + feat-direct +
   M ✓ badge fix (subagent triage).
 
