@@ -133,6 +133,44 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.143` — Geri kalan P0/P1 paketi (oyun-içi audit kuyruğu).
+
+  Önceki 3-subagent audit'inden geriye kalan ship-blocker / kayıp-
+  data tüm bug'ları tek pakette toparladım:
+
+  • **Quickened Spell action economy reminder**: Sorcerer Quickened
+    Spell ile cast yaparken artık panel "BONUS ACTION ile cast
+    edildi, action ile sadece cantrip cast edebilirsin" notify'ı
+    gösteriyor (PHB p.202 RAW — Discord/DM tablosunda en sık miss
+    edilen kural).
+
+  • **Champion Critical Hit Range chip**: Fighter Champion L3
+    (19-20) / L15 (18-20) / L20 (15-20 Survivor değil ama 18-20)
+    — saldırı zar bölümünde "CRIT 19+" gibi kırmızı chip artık
+    görünüyor. Önceden sadece full sheet'te vardı.
+
+  • **Wild Shape attack condition flag**: Druid beast formdayken
+    poisoned/frightened/restrained/prone/exhaustion ≥3 attack
+    roll'larında DISADV uygulanıyor artık (PHB Appendix A) +
+    manual rollAdv toggle. Önceden ignore ediliyordu.
+
+  • **Breath of the Dragon disabled prop**: Way of Ascendant Dragon
+    Monk'unda free uses + ki ikisi de tükenince button artık
+    disabled görünüyor. Önceden tıklayınca silently WARNING toast.
+
+  • **Warlock multiclass shared-spell pact routing**: Warlock
+    5/Cleric 1 Counterspell cast ederken artık otomatik pact slot
+    L3'e default ediyor (warlock list'teki spell + warlock level
+    var + pact slot >= spell level). Önceden L1 cleric slot
+    yakıyordu. Player upcast için manuel slot picker'dan değiştirir.
+
+  • **Unleash Incarnation / Shadow Martyr / Reclaim Potential
+    (Echo Knight) + Psionic Energy (Psi Warrior/Soulknife) notify**:
+    Counter-only resource'lara key-bazlı notify side-effect eklendi
+    (0.3.141 pattern'i Echo Knight ve Psi Warrior'a yayıldı).
+
+  Manifest 0.3.142 → 0.3.143.
+
 - `0.3.142` — Unarmed Strike + race natural weapons attack row
   (Discord rapor).
 
