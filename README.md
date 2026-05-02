@@ -133,6 +133,35 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.136` — FREE 1/LR badge tıklayınca attack/save/damage roll
+  dispatch ediyor (Discord rapor).
+
+  Discord raporu (Atilla): "bazı featlerden büyüler geliyor ve bu
+  featden gelen büyüler günde ilk kullanımı ücretsiz oluyor ama
+  extansion da bu günde ilk defa kullanman için olan tuş 20 lik zar
+  attırmıyor ranged attack veya melle attack spell lerde".
+
+  RAW: Magic Initiate / Fey Touched / Shadow Touched / Strixhaven
+  Initiate / Artificer Initiate / Telepathic feat'lerinin granted
+  L1 spell'leri 1/LR ücretsiz cast — ücretsiz olması slot'u atlamak
+  demek, attack/save/damage zarlarını DEĞİL.
+
+  Düzeltme: 0.3.132'de FREE 1/LR badge sadece counter işaretliyordu
+  (toggle). Artık badge tıklayınca:
+  • Counter sıfırsa → tam cast pipeline çalışır (spell attack için
+    d20+atkBonus Dice+'a gider, save spell ise damage formula gider,
+    heal/buff için ilgili formula gider) + slot tüketmeden counter
+    +1 yapılır.
+  • Counter 1'se (zaten kullanılmış) → counter 0 yapılır (yanlış
+    işaretledim use case, long rest sonrası zaten resetleniyor).
+
+  Tetiklenenler: Fire Bolt, Eldritch Blast, Guiding Bolt, Sacred
+  Flame, Detect Thoughts (Telepathic), Misty Step (Fey Touched +
+  chosen L1), Invisibility (Shadow Touched + chosen L1), Magic
+  Initiate cantrips/L1 ve diğer feat-granted spell'lerin hepsi.
+
+  Manifest 0.3.135 → 0.3.136.
+
 - `0.3.135` — Custom Others AC + Flurry of Blows roll + telepathic
   feat 1/LR (Discord 3'lü rapor).
 
