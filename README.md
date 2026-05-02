@@ -133,6 +133,27 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.152` — Magic item Wave 4 misc passive: 3 yeni flag + 3 chip + 4 test.
+
+  3 paralel WebFetch ile RAW doğrulama:
+  • Eyes of the Eagle (DMG p.169): ADV WIS (Perception) sight
+    checks + 2-ft distant detail visibility.
+  • Bracers of Archery (DMG p.156): longbow + shortbow proficiency
+    + +2 damage on ranged attacks with those weapons.
+  • Wand of the War Mage +1 (DMG p.211): +1 spell attack rolls +
+    ignore half cover when making spell attack rolls.
+
+  Engine 3 yeni derived.has* flag, ReactiveAbilitiesBlock'ta her
+  item için reminder chip (RAW text + DMG citation).
+
+  4 yeni regression test (raceClassMatrixRegression.test.ts ek).
+
+  Engine integration (gerçek prof grant + spell attack +1) sonraki
+  tur — şimdilik chip awareness layer (Sentinel Shield + Periapt
+  + Goggles of Night gibi prior wave items'la aynı pattern).
+
+  Manifest 0.3.151 → 0.3.152.
+
 - `0.3.151` — Magic item Wave 3 speed items: 5 yeni flag + 5 chip + 6 test.
 
   Atilla "wikidot kontrolü" mandate'i: 6 paralel WebFetch ile RAW
