@@ -133,6 +133,43 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.135` — Custom Others AC + Flurry of Blows roll + telepathic
+  feat 1/LR (Discord 3'lü rapor).
+
+  Discord raporları (Atilla):
+  1. "artık equipementta equip ekleniyo ama ac vermiyo mesela o da bug"
+  2. "flurry blows tuşuna basıldığında normalde 1 ki puanı harcanıp
+     2 tane hit zarı(20lik+dex+prof) atılması lazım ve ardından
+     Martial Arts die ın atılması lazım ama sadece ki puanı harcanıyor"
+  3. "çok güzel benzer büyüler için check ettin mi?" (0.3.132 audit
+     follow-up)
+
+  Düzeltmeler:
+
+  • Custom Others AC: 'other' tipi homebrew item'lar artık baseAc
+    alanı doldurulmuşsa ve equipped ise engine AC stack'ine
+    katılıyor (selectors.ts AC calculation block). Önce sadece form
+    kabul ediyordu ama hesaba katmıyordu — equip etsen de AC değişmiyordu.
+
+  • Flurry of Blows tam atış: Panel'deki "Flurry" butonu artık RAW
+    PHB p.79 sırasını uyguluyor — 1 ki harcar + 2 unarmed strike
+    attack roll (d20 + PB + max(DEX, STR)) + 1 Martial Arts damage roll
+    (1d{martialArtsDie} + atkMod) Dice+'a dispatch ediyor. Önceden
+    sadece ki puanı düşüyor, hiçbir zar atılmıyordu. Patient Defense
+    ve Step of the Wind butonları sadece ki harcamaya devam ediyor
+    (zar gerektirmiyorlar).
+
+  • Telepathic feat freeOncePerLR: 0.3.132'de 5 feat kapatılmıştı,
+    Telepathic feat (TCoE) atlanmıştı. Detect Thoughts spell granted
+    1/LR free olarak işaretlendi.
+
+  • Custom Race bonus spell freeOncePerLR: Custom Race builder'da
+    seçilen bonus spell de feat-granted gibi 1/LR free olarak
+    işaretlendi. grantedByFeat: 'custom-race' meta'sı ile panel'de
+    FREE 1/LR badge görünüyor.
+
+  Manifest 0.3.132 → 0.3.135.
+
 - `0.3.132` — Feat-granted spell 1/LR ücretsiz cast (Discord rapor).
 
   Discord raporu (Atilla): "bazı featlerden büyüler geliyor ve bu
