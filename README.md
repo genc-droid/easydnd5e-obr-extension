@@ -133,6 +133,44 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.130` — Custom Race spell injection + 13 yeni concentration effect.
+
+  Discord raporu (Atilla): "featden gelen spell ve customracede
+  seçtiği spell extensionda gözükmüyo ve bazı concentration
+  büyüleri effect olarak gözükmüyo extensionda".
+
+  **Custom Race spell injection**: 0.3.128'de Custom Race bonus
+  cantrip + L1 spell picker eklendim ama panel chip-only. Şimdi
+  alwaysPreparedSpells'e enjekte ediliyor — OBR panel + builder
+  spell list'inde gerçekten görünür ve cast edilebilir.
+
+  **Feat-granted spell injection**: zaten 0.3.x'te engine'de
+  vardı (Magic Initiate / Ritual Caster / Fey Touched / Shadow
+  Touched / Artificer Initiate / Strixhaven Initiate / Spell Sniper
+  / Telepathic). Kullanıcının state.featSpellChoices'da pick
+  yapması gerekiyor (FeatSpellsPanel UI). Eğer pick yaptıysa
+  spell zaten panel'de görünmeli — yapmadıysa SpellsStep'e
+  giderek seçim yapması yeterli.
+
+  **13 yeni concentration spell effect** (eksik olanlar):
+  • blur — DIS attacks vs you
+  • shadow-of-moil — DIS attacks + 2d8 necrotic retaliate
+  • holy-aura — chosen creatures: ADV saves, attackers DIS
+  • circle-of-power — allies in 30 ft ADV vs spells
+  • aura-of-life — necrotic resist + 0 HP regen
+  • aura-of-purity — poison resist + ADV vs status conditions
+  • aura-of-vitality — BA heal 2d6 HP 30 ft
+  • compelled-duel — target DIS attacks vs others
+  • guardian-of-nature — Primal Beast OR Great Tree
+  • kinetic-jaunt — +10 ft speed, no OAs, move through allies
+  • intellect-fortress — INT/WIS/CHA save ADV + psychic resist
+  • dispel-evil-and-good — outsiders DIS attacks vs you
+  • dawn — 30-ft cylinder 4d10 radiant per turn
+
+  Wikidot RAW citations spellEffects.ts içinde inline.
+
+  Manifest 0.3.129 → 0.3.130.
+
 - `0.3.129` — Equipment 'Others' filter chip eksikliği fix (Discord).
 
   Discord raporu (Atilla): "equipment da homebrew equiplayamıyo
