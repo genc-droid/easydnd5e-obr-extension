@@ -133,6 +133,34 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.118` — Race feature test suite (raceFeaturesExhaustive — 21 test).
+
+  Yeni dosya: src/store/__tests__/raceFeaturesExhaustive.test.ts
+  21 test pass. Race + subrace mechanical-effect audit (PHB +
+  XGtE + MPMM + VGtM + MotM).
+
+  **Kapsam**:
+  • Elf Fey Ancestry — 3 subrace (high/wood/drow) + Half-Elf
+    inheritance
+  • Dwarf Dwarven Resilience — 2 subrace (hill/mountain), speed 25
+  • Halfling Stout Resilience (stout subrace only, lightfoot
+    false), speed 25
+  • Gnome Cunning — 2 subrace (rock/forest)
+  • Dragonborn Breath Weapon — 10 ancestry × damage type table,
+    L1/L6/L11/L16 dice scaling, DC 8+CON+PB formula
+  • Yuan-Ti Magic Resistance
+  • Aarakocra fly speed
+  • Triton swim speed
+  • Variant Human feat slot
+
+  Wikidot RAW citations test başlıklarında. Pattern: race ID +
+  subrace ID + level → derived field doğrulama.
+
+  Bundan sonra background/feat/class-base/spell test dosyaları
+  da eklenecek (0.3.119+). Toplam test sayısı 4592 → 4613 (+21).
+
+  Manifest 0.3.117 → 0.3.118.
+
 - `0.3.117` — obr-panel-pm audit P0 fix (2 hata).
 
   Subagent audit raporu sonucu 2 P0 hata düzeltildi:
