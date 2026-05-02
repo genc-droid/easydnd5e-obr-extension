@@ -133,6 +133,31 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.149` — Magic item Wave 2: damage resistances aggregator engine
+  + UI chip + 7 yeni regression test.
+
+  Engine yeni `derived.magicItemResistances: string[]` field. Equipped
+  items'lara bakar, RAW resistance type'larını aggregate eder.
+  Surfaces:
+  • Brooch of Shielding → "force" (DMG p.156)
+  • Ring of Warmth → "cold" (DMG p.193)
+  • Cloak of Fire Resistance → "fire" (DMG p.158)
+  • Frost Brand → "fire" (attuned, DMG p.171)
+  • Ring of Resistance → variable (gem-picked placeholder)
+
+  UI: ReactiveAbilitiesBlock'a aggregate chip ("Resistances: fire,
+  cold, force") + tooltip her item'ın hangi resistance'ı verdiğini
+  açıklıyor. Player tek bakışta tüm resistance set'ini görür.
+
+  Dedup: Frost Brand + Cloak of Fire Resistance ikisi de "fire" verse
+  tek "fire" entry'si.
+
+  7 yeni regression test (raceClassMatrixRegression.test.ts ek):
+  Brooch/Ring of Warmth/Cloak/Frost Brand bireysel + multi-item
+  combo + unequipped no-entry + dedup.
+
+  Manifest 0.3.148 → 0.3.149.
+
 - `0.3.148` — Race × class matrix regression test paketi + Tabaxi
   Cat's Claws catalog drift hotfix.
 
