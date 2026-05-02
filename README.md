@@ -133,6 +133,25 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.115` — Stars Druid Starry Form runtime toggle + warlock-undead duplicate fix.
+
+  **Stars Druid Starry Form aktif constellation toggle** — panel'de
+  3-button row (Archer / Chalice / Dragon) eklendi. İlk aktivasyon
+  Wild Shape kullanır; sonra constellation arasında geçiş L10+
+  Twinkling Constellations ile bedava. Active constellation chip
+  text'inde gösteriliyor ("Starry Form — ACTIVE: Archer"). Off
+  butonu ile dismiss edilir (Wild Shape geri verilmez RAW gereği).
+
+  **Vitest validation**: 4607 testten 2 fail bulundu — ikisi de
+  warlock-undead duplicate'ten kaynaklı. 0.3.111'de The Undead
+  ekledim ama farkında olmadan zaten data'daydı. Mevcut tanım
+  daha tam (grantedCantrips ['spare-the-dying'] var) — benim
+  duplicate'imi sildim.
+
+  Engine: 1 yeni derived field (starryFormActive — state mirror).
+
+  Manifest 0.3.114 → 0.3.115.
+
 - `0.3.114` — Swashbuckler + Watchers + Divine Soul + Chronurgy panel chip seti.
 
   Engine'de var ama panel chip eksik olan 4 subclass için 17 chip
