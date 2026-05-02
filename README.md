@@ -133,6 +133,27 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.117` — obr-panel-pm audit P0 fix (2 hata).
+
+  Subagent audit raporu sonucu 2 P0 hata düzeltildi:
+
+  • **cleric-peace duplicate CD block** silindi — ilk match L4129'da
+    çalışıyordu, ikinci match L4179'da `else if` zincirinde ölü
+    koddu. Yapısal saatli bomba (Twilight ile Peace arasına yeni
+    cleric domain eklenseydi ikinci block aktif olur, ilkini
+    gölgelerdi).
+
+  • **Aura of Hate tooltip 'within X ft' bug** — chip text'i
+    `auraOfHateBonus` (CHA mod, örn +4) substitution kullanıyordu;
+    doğru alan `auraOfHateRange` (10/30 ft). Oathbreaker paladin
+    "within 4 ft" yazıyordu, "within 10 ft" olmalı.
+
+  P0 #3 (wolfTotemActive — Totem Warrior totem picker eksikliği)
+  ayrı bir sürüme ertelendi (state field + picker + chip split
+  gerek; 2-3 saatlik iş).
+
+  Manifest 0.3.116 → 0.3.117.
+
 - `0.3.116` — Test coverage genişletme: subclassWavesExhaustive.
 
   Son 17 sürümde (0.3.99 → 0.3.115) eklediğimiz ~150+ subclass-
