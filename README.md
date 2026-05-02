@@ -133,6 +133,35 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.146` — Spell Batch 3 + Rage on natural weapons P0 + 3 reactive
+  chip (Atilla "hepsini yap kanka").
+
+  **23 yeni spell entry** — HER birini ben WebFetch ile doğruladım
+  (subagent çıktısına güvenmedim, Atilla'nın "wiki doğrulu mu" notu
+  sonrası kural):
+  • Leveled (10): flame-stride, draconic-transformation, blade-of-
+    disaster, maddening-darkness, gravity-fissure, whirlwind,
+    dark-star, illusory-dragon, psychic-crush, fire-shield.
+  • Cantrip (2): hand-of-radiance, virtue.
+  • Leveled batch 2 (10): ravenous-void, time-ravage, reality-break,
+    icingdeath-s-frost, psionic-blast, mind-thrust, id-insinuation,
+    acid-stream, alter-self, symbol-death.
+  • Effect (1): otherworldly-form.
+
+  **Engine P0 fix**: Rage damage on natural weapons + Monk Unarmed
+  Strike. PHB p.49 RAW Barbarian Rage applies to "melee weapon
+  attack using STR" — natural weapons (Lizardfolk Bite, Tabaxi
+  Claws) ARE melee weapon attacks ama önceki kod natural weapon
+  block'ta rage rider eklemiyordu. Şimdi STR-based damage'a +2/+3/+4
+  rage bonus uygulanıyor.
+
+  **3 reactive chip** (Agent D audit gap):
+  • Armorer Extra Attack L5 (Artificer)
+  • Tactical Wit (War Magic Wizard L2 +INT init)
+  • Aura of Courage (Paladin L10 frightened immunity 10 ft)
+
+  Manifest 0.3.145 → 0.3.146.
+
 - `0.3.145` — Wikidot RAW post-verification hotfix (Atilla "yaptığın
   her şey wiki doğrulu dimi" sorusu sonrası).
 
