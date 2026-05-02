@@ -133,6 +133,27 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.131` — Custom spell otomatik known/prepared (Discord rapor).
+
+  Discord raporu (Atilla): "adam custom spell shocking grasp
+  yansımadı extensiona mesela".
+
+  Kök neden: 0.3.89'da custom spell creation eklendi, addCustomSpell
+  action customSpells array'ine + global resolver'a kayıt yapıyordu.
+  AMA spell'i otomatik 'known' olarak mark ETMİYORDU. Kullanıcı
+  custom spell oluşturduktan sonra panel'de görünmüyordu çünkü
+  state.knownSpells / state.cantrips listesinde değildi.
+
+  Düzeltme: addCustomSpell action genişletildi:
+  • Cantrip ise (level 0) → otomatik state.cantrips'e eklenir
+  • Leveled spell ise → otomatik state.knownSpells + preparedSpells'e
+    eklenir (prepared caster için cast list'inde hemen görünür)
+
+  Custom spell oluşturmak = onu biliyorsun demek. Kullanıcı
+  istemediği custom spell'i SpellsStep'te manuel un-prep edebilir.
+
+  Manifest 0.3.130 → 0.3.131.
+
 - `0.3.130` — Custom Race spell injection + 13 yeni concentration effect.
 
   Discord raporu (Atilla): "featden gelen spell ve customracede
