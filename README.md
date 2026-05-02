@@ -133,6 +133,32 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.121` — Class base features test suite (21 test).
+
+  Yeni dosya: src/store/__tests__/classBaseFeaturesExhaustive.test.ts
+  21 test pass. Subclass-bağımsız PHB core features audit.
+
+  Kapsam:
+  • Barbarian Rage — uses 2/3/4/5/6 at L1/3/6/12/17, damage +2/+3/+4
+  • Bard Bardic Inspiration — die d6/d8/d10/d12 at L1/5/10/15, uses CHA mod
+  • Cleric Channel Divinity — 1/2/3 at L2/L6/L18, L1=0
+  • Druid Wild Shape — 2/SR L2+
+  • Fighter Action Surge — 1/SR L2-16, 2/SR L17+
+  • Fighter Indomitable — 1/2/3 at L9/L13/L17
+  • Fighter Second Wind — formula 1d10+level
+  • Monk Ki = monk level, Stunning Strike DC 8+PB+WIS
+  • Paladin Lay on Hands = 5×palLvl, Divine Sense = 1+CHA
+  • Rogue Sneak Attack = ceil(level/2) d6 (7 level checkpoints)
+  • Sorcerer Sorcery Points = sorc level (L2+)
+  • Wizard Arcane Recovery = ceil(level/2)
+  • Multiclass spellcasting — PHB p.165 caster slot stacking
+
+  Wikidot RAW citations test başlıklarında.
+
+  Toplam test 4649 → 4670 (+21).
+
+  Manifest 0.3.120 → 0.3.121.
+
 - `0.3.120` — Feat interactions test suite (13 test).
 
   Yeni dosya: src/store/__tests__/featInteractionsExhaustive.test.ts
