@@ -133,6 +133,26 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.120` — Feat interactions test suite (13 test).
+
+  Yeni dosya: src/store/__tests__/featInteractionsExhaustive.test.ts
+  13 test pass.
+
+  PHB + XGtE + TCoE feat mechanical-effect audit. Wikidot RAW
+  citations test başlıklarında.
+
+  Kapsam:
+  • Lucky — hasLucky flag (V.Human slot)
+  • Tough — +2 HP per level (HP scaling)
+  • Inspiring Leader — temp HP = level + CHA
+  • Athlete, War Caster, Sentinel, Mage Slayer — flag testleri
+  • Metamagic Adept — +2 SP non-Sorcerer & Sorcerer (5+2=7)
+  • Resilient + Magic Initiate — feat slot integration
+
+  Toplam test 4636 → 4649 (+13).
+
+  Manifest 0.3.119 → 0.3.120.
+
 - `0.3.119` — Background feature test suite (13 test).
 
   Yeni dosya: src/store/__tests__/backgroundFeaturesExhaustive.test.ts
