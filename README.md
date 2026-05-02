@@ -133,6 +133,33 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.151` — Magic item Wave 3 speed items: 5 yeni flag + 5 chip + 6 test.
+
+  Atilla "wikidot kontrolü" mandate'i: 6 paralel WebFetch ile RAW
+  doğrulama (dnd5e.wikidot.com/wondrous-items:<id>), her item için
+  RAW citation engine comment'inde ve UI chip text'inde:
+
+  • Boots of Striding and Springing (DMG p.156): walking speed →
+    30 ft floor, jump distance × 3, ignore encumbrance/heavy armor
+    speed reduction.
+  • Winged Boots (DMG p.214): fly speed = walking speed, 4 hr/day
+    total in 1-min chunks, regains 2 hr per 12 hr unused.
+  • Boots of Speed (DMG p.155): BA toggle — walking speed × 2 +
+    opportunity attacks vs you DIS, 10 min/day total.
+  • Ring of Swimming (DMG p.193): swim speed 40 ft.
+  • Cloak of the Manta Ray (DMG p.158): swim 60 ft + breathe
+    underwater (with hood up, action to toggle).
+
+  Engine 5 yeni `derived.has*` flag, ReactiveAbilitiesBlock'ta her
+  item için ayrı reminder chip (RAW text + DMG citation + duration/
+  charge limits inline). 6 yeni regression test
+  (raceClassMatrixRegression.test.ts).
+
+  Speed engine integration (gerçek movement override) sonraki tur —
+  şimdilik chip awareness layer.
+
+  Manifest 0.3.150 → 0.3.151.
+
 - `0.3.150` — Multiclass per-source DC fix (PHB p.164 RAW) + 3 test.
 
   Engine `derived.spellcastingSources` her casting class için ayrı
