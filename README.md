@@ -133,6 +133,31 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.122` — Spell mechanics test suite (27 test).
+
+  Yeni dosya: src/store/__tests__/spellMechanicsExhaustive.test.ts
+  27 test pass. RAW formula + scaling regression suite.
+
+  Public API üzerinden test: getSpellRoll() + hasSpellRoll() +
+  hasSpellEffect().
+
+  Kapsam:
+  • Cantrip damage scaling (4 cantrip × 4 tier) — Fire Bolt,
+    Eldritch Blast (beam count), Sacred Flame, Toll the Dead
+  • Leveled damage upcast (8 spell) — Magic Missile, Fireball,
+    Cure Wounds, Healing Word, Burning Hands, Lightning Bolt,
+    Cone of Cold, Meteor Swarm
+  • Damage type metadata (5 spell) — fire/force/healing/lightning/cold
+  • Registry presence — 6 PHB cantrip + 10 PHB damage spell
+  • Buff/debuff effect registry — Bless, Hex, Hunter's Mark,
+    Mage Armor, Shield, Haste, Stoneskin, Greater Invisibility
+
+  Wikidot RAW citations test başlıklarında.
+
+  Toplam test 4670 → 4697 (+27).
+
+  Manifest 0.3.121 → 0.3.122.
+
 - `0.3.121` — Class base features test suite (21 test).
 
   Yeni dosya: src/store/__tests__/classBaseFeaturesExhaustive.test.ts
