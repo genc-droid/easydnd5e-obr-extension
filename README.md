@@ -133,6 +133,29 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.128` — Custom Race bonus spell picker (Discord rapor).
+
+  Discord raporu (Atilla): "sitede custom ırk seçince spell de
+  seçilebilmeli isteğe bağlı olarak"
+
+  Custom Race oluşturucusuna 2 isteğe bağlı spell picker dropdown
+  eklendi — bir cantrip + bir 1. seviye spell. Oturumda site spell
+  catalog'ından (PHB+XGtE+TCoE+expansion) tüm cantrip'ler ve L1
+  spell'ler dropdown'da listeleniyor.
+
+  • CustomRaceData genişletildi: bonusCantrip + bonusSpell field'ları
+  • RaceStep'te yeni Card "Custom Race — Bonus Spell (optional)"
+    Bonus Feat Card'ından sonra
+  • Engine derived expose: customRaceBonusCantrip + customRaceBonusSpell
+  • Panel chip'leri: cantrip ve L1 spell ayrı reminder olarak
+    (tone 'race')
+
+  Spell mekanik olarak otomatik prep'lenmiyor — DM call (Magic
+  Initiate convention 1/LR vs. slot-based). Chip'ler sadece
+  hatırlatıcı.
+
+  Manifest 0.3.127 → 0.3.128.
+
 - `0.3.127` — Totem Warrior totem picker (P0 audit #3 ertelenen).
 
   obr-panel-pm subagent audit'inin son P0 maddesi (0.3.117'de
