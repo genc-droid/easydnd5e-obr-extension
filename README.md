@@ -133,6 +133,25 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.125` — Spell completionist P0 — 5 high-frequency buff/debuff eklendi.
+
+  spell-completionist subagent audit raporu sonucu eksik
+  buff/debuff spell effect'leri SPELL_EFFECTS array'ine eklendi.
+
+  Eklenen effect'ler:
+  • bane (PHB L1) — target -1d4 attack/save, 3 creature, conc 1 min
+  • slow (PHB L3) — half speed, -2 AC, -2 DEX, no reactions, conc 1 min
+  • faerie-fire (PHB L1) — 20 ft cube, ADV attacks vs outlined,
+    invisible revealed, conc 1 min
+  • protection-from-energy (PHB L3) — pick acid/cold/fire/lightning/
+    thunder, resistance, conc 1 hr
+  • foresight (PHB L9) — ADV attacks/checks/saves, attackers DIS,
+    no surprise, 8 hr no conc
+
+  Wikidot RAW citations spellEffects.ts içinde inline.
+
+  Manifest 0.3.124 → 0.3.125.
+
 - `0.3.124` — Spell completionist P0 — 8 expansion damage cantrip eklendi.
 
   spell-completionist subagent audit raporu sonucu eksik damage
