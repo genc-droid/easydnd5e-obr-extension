@@ -133,6 +133,36 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.132` — Feat-granted spell 1/LR ücretsiz cast (Discord rapor).
+
+  Discord raporu (Atilla): "bazı featlerden büyüler geliyor ve bu
+  featden gelen büyüler günde ilk kullanımı ücretsiz oluyor ama
+  extansion da bunlar spell slot istiyor".
+
+  RAW: Magic Initiate / Fey Touched / Shadow Touched / Strixhaven
+  Initiate / Artificer Initiate feat'lerinin granted L1 spell'leri
+  günde 1 kez ücretsiz (slot harcamadan) cast edilebilir.
+
+  Düzeltme:
+  • FeatSpellGrant interface'ine 'freeOncePerLR' flag eklendi
+  • 5 feat data dosyalarında bu flag aktive edildi:
+    - Magic Initiate (PHB) — leveled spell free 1/LR
+    - Fey Touched (TCoE) — Misty Step + chosen L1 free 1/LR each
+    - Shadow Touched (TCoE) — Invisibility + chosen L1 free 1/LR
+    - Strixhaven Initiate (SCoC) — 5 college variant, L1 free 1/LR
+    - Artificer Initiate (TCoE) — L1 spell free 1/LR
+  • Engine alwaysPreparedSpells entry'sine freeOncePerLR + grantedByFeat
+    meta alanları eklendi (cantrip değil sadece leveled — cantrip at-will)
+  • OBR panel'de FREE 1/LR badge (yeşil) feat-granted spell satırlarında
+    görünür. Tıklanınca toggle: 'FREE USED' (kırmızı). Long rest sonrası
+    counter sıfırlanır (longRest action zaten usedResources={} yapıyor).
+  • Tracking key: usedResources['feat-spell:${spellId}']
+
+  Cantrip'ler at-will RAW olduğu için flag'lanmıyor — leveled spell'ler
+  free 1/LR.
+
+  Manifest 0.3.131 → 0.3.132.
+
 - `0.3.131` — Custom spell otomatik known/prepared (Discord rapor).
 
   Discord raporu (Atilla): "adam custom spell shocking grasp
