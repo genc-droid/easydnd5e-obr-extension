@@ -133,6 +133,38 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.140` — Benzer senaryolar audit: racial 1/LR + feat-direct +
+  M ✓ badge fix (subagent triage).
+
+  Atilla: "benzer senaryolar çözüldü dimi". Subagent audit'i 3 ek
+  bug tespit etti, hepsi 0.3.139'la aynı kök neden:
+
+  **P0 Racial 1/LR cast'lenmiyordu**: Tiefling Hellish Rebuke
+  (Infernal Legacy 1/LR), Drow Faerie Fire / Darkness, Fairy Detect
+  Magic / Invisibility, Yuan-Ti Suggestion 1/day — non-caster build
+  (Tiefling Fighter, Drow Rogue) için panel'de CAST butonu kalıcı
+  disabled. Engine derived.racialSpells type'ı freeOncePerLR alanı
+  bile içermiyordu. Düzeltme: type field eklendi, leveled trait
+  spell'leri otomatik freeOncePerLR=true alıyor (cantrip'ler at-will
+  kalır), OBR panel propagate ediyor.
+
+  **P1 Feat-direct loop**: OBR panel'in alwaysPreparedSpells dışında
+  ikinci bir feat fixed-spell loop'u vardı (line 10132) ve
+  freeOncePerLR'ı atlıyordu. Düzeltme: f.grantedSpells.freeOncePerLR
+  flag'i propagate ediliyor, leveled spell'ler bypass alıyor.
+
+  **P1 M ✓ consumeMaterial badge tıklanmıyordu**: HTML disabled
+  button içindeki span'lara browser click teslim etmiyor (WHATWG
+  spec). Stoneskin diamond dust elinde, 0 slot durumunda M ✓ badge
+  manuel decrement için tıklanabilir olmalıydı ama disabled subtree
+  yutuyordu. Düzeltme: CAST button artık `aria-disabled` kullanıyor,
+  HTML disabled değil. Görsel disable korundu, child clickable
+  element'ler (FREE 1/LR badge, M ✓ consumeMaterial) artık çalışıyor.
+  handleAndReset zaten arcanum/material/slot guard'larına sahip,
+  geçersiz cast geçmez.
+
+  Manifest 0.3.139 → 0.3.140.
+
 - `0.3.139` — Free 1/LR cast non-caster fix (Discord rapor — asıl
   root cause).
 
