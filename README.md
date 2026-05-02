@@ -133,6 +133,38 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.138` — Material component focus/pouch substitution RAW
+  geri restore edildi (Discord rapor — gerçek root cause).
+
+  Discord raporu (Atilla): "FREE 1/LR tuşu 20 lik zar attırmıyor
+  ranged attack veya melle attack spell lerde, hala düzelmemiş".
+
+  0.3.136 fix'iyle badge handleAndReset(true) çağırıyordu ama cast
+  pipeline material component check'inde pre-block oluyordu.
+  Mesela Magic Initiate'ten gelen Witch Bolt — material "a twig
+  from a tree that has been struck by lightning" — oyuncunun
+  inventory'sinde "twig" olmadığı için BLOCKED damgası yiyordu,
+  arcane focus / component pouch olsa bile.
+
+  Root cause: kod yorumunda "DON'T block — most tables wave this"
+  yazıyordu ama gerçek implementasyon focus/pouch substitution'ı
+  uygulamıyordu. PHB p.203 RAW tam olarak şunu söyler:
+    "A character can use a component pouch or a spellcasting focus
+     in place of the components specified for a spell. But if a
+     cost is indicated for a component, a character must have that
+     specific component before he or she can cast the spell."
+
+  Düzeltme: artık no-cost material'leri (gp=0) component pouch
+  veya arcane/holy/druidic focus inventory'deyse otomatik
+  substitute ediliyor. Cost-bearing materyaller (Identify 100gp
+  pearl, Stoneskin diamond dust, vb.) hala spesifik item gerektiriyor
+  — onlar RAW. Witch Bolt / Sleep / Mage Armor / Charm Person /
+  Burning Hands / hepsi artık focus/pouch ile cast edilebilir →
+  FREE 1/LR badge tıklayınca attack spell d20 + damage formula
+  Dice+'a normal şekilde gidiyor.
+
+  Manifest 0.3.137 → 0.3.138.
+
 - `0.3.137` — Custom Race Bonus Spell raceId check düzeltildi
   (Discord rapor).
 
