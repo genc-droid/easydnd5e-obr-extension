@@ -133,6 +133,39 @@ room open.
   Stoneskin's diamond dust is now flagged consumed; non-consumed
   spell material components are now visible in the panel as an "M"
   badge (previously they were hidden unless consumed).
+- `0.3.155` — Wand of the War Mage +1 spell attack + Bracers of Archery
+  proficiency/damage engine wiring.
+
+  Önceki davranış: 0.3.152'de Wave 4 misc passive item flag'leri ve chip'ler
+  eklendi ama hiçbiri engine'e bağlanmadı (chip-only awareness layer). Player
+  chip görüyor ama saldırı bonusu / damage formülü hâlâ eski rakam.
+
+  2 paralel WebFetch ile RAW doğrulama, sonra engine'e bağlama:
+
+  • Wand of the War Mage +1 (DMG p.211): "you gain a bonus to spell
+    attack rolls determined by the wand's rarity" — uncommon = +1.
+    Engine'de spellcasting.attackBonus + 1 (ana ve per-source loop'ta
+    paralel uygulanıyor, multiclass karakterde her source +1 alır).
+    Attunement gerektirir, equipped = attuned varsayım.
+
+  • Bracers of Archery (DMG p.156): "you have proficiency with the
+    longbow and shortbow, and you gain a +2 bonus to damage rolls on
+    ranged attacks made with such weapons". Engine'de iki ayrı katman:
+    - classProficiencies'a 'Longbow' + 'Shortbow' eklendi (Wizard
+      bile artık bracers takarken longbow proficient olur, pb attack'a
+      gelir)
+    - Weapon attack damage modifier'a +2 (sadece longbow/shortbow,
+      crossbow değil — RAW restriction)
+
+  9 yeni regression test:
+  • 2 Wand: Wizard L5 baseline +7, equipped/unequipped
+  • 1 Wand multiclass: Sorc 3 / Wiz 2 — her source ayrı ayrı +1
+    (hem CHA hem INT spell DC için)
+  • 5 Bracers: Wizard non-prof gains pb, no-Bracers stays non-prof,
+    Fighter +2 damage on longbow + shortbow, crossbow excluded
+
+  Manifest 0.3.154 → 0.3.155.
+
 - `0.3.154` — Boots of Speed BA toggle RAW fix.
 
   Önceki davranış: Boots of Speed equipped olduğu anda walking speed
